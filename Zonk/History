@@ -1,0 +1,23 @@
+--------------------------------------------------------------------------------
+ZONK HISTORY
+
+22/2/96
+- Added flag checkboxes into Action/ChannelRoutine template layout.
+
+24/2/96
+- Added PackedString and FixedPoint edithooks (Hoopyvision types
+HOTYPE_PACKEDSTRING and HOTYPE_FIXEDPOINT).
+- Changed existing Action and ChannelRoutine templates to use FixedPoint
+and PackedString fields where appropriate.
+
+25/2/96
+- Fixed FixedPointToString() bugs.
+- Started EdgeOfTheRoadMap stuff
+
+26/2/96
+- Tidied up the FixedPoint edithook
+- Worked on EdgeOfTheRoadMap stuff
+
+27/2/96
+- EdgeOfTheRoadMap stuff now in usable form
+

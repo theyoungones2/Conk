@@ -1,0 +1,4 @@
+FROM LIB:c.o "nm.o"
+TO "nm"
+LIB nm.o wibble.o LIB:sc.lib LIB:amiga.lib
+

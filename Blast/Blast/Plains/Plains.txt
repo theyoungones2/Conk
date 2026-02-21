@@ -1,0 +1,73 @@
+#define DPB_AGAONLY 0
+#define DPF_AGAONLY 1<<DPB_AGAONLY
+
+#define DPSEB_DUALPLAYFIELD 0
+#define DPSEF_DUALPLAYFIELD 1<<DPSEB_DUALPLAYFIELD
+
+/* Display Chunk For 'Project: Blast crap out of anything that moves' Plains Level */
+
+0.l				/* dp_Flags */
+2.w				/* dp_FrameRate */
+"Plains1.map".16		/* dp_Map[16] */
+"Wibble".16			/* dp_BlockSet[16] */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b		/* dp_BackDrop[BOBFILENAMESIZE] "" */
+138.b,200.b,115.b,211.b,250.b,110.b,167.b,72.b,32.b,130.b	/* dp_InitProgram[PROGFILENAMESIZE] "BLAST_INIT" */
+0.w				/* dp_LevelWidth */
+0.w				/* dp_LevelHeight */
+5.w				/* dp_LevelDepth */
+0.l				/* dp_DisplayID */
+1.w				/* dp_NumOfPlayerStructs */
+30.w				/* dp_NumOfBulletStructs */
+100.w				/* dp_NumOfBDStructs */
+1.w				/* dp_SpriteColourBank */
+0.w				/* dp_SpriteBurstMode */
+
+50.l				/* dp_DefaultBorderLeft */
+1.w				/* dp_DefaultBorderLeftType */
+270.l				/* dp_DefaultBorderRight */
+1.w				/* dp_DefaultBorderRightType */
+50.l				/* dp_DefaultBorderTop */
+1.w				/* dp_DefaultBorderTopType */
+206.l				/* dp_DefaultBorderBottom */
+1.w				/* dp_DefaultBorderBottomType */
+1.w				/* dp_DefaultBorderFlags */
+
+1.w				/* dp_NumOfPlayers */
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b	/* PLYR_INIT */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+
+32.w				/* dp_NumOfColours */
+0.b,0.b,0.b
+128.b,128.b,160.b
+112.b,112.b,128.b
+96.b,96.b,112.b
+80.b,80.b,80.b
+64.b,64.b,64.b
+48.b,48.b,48.b
+208.b,112.b,96.b
+176.b,48.b,48.b
+144.b,16.b,0.b
+112.b,32.b,0.b
+55.b,17.b,0.b
+29.b,17.b,0.b
+144.b,144.b,208.b
+92.b,104.b,176.b
+51.b,75.b,146.b
+20.b,58.b,117.b
+0.b,44.b,87.b
+142.b,140.b,16.b
+94.b,118.b,10.b
+52.b,95.b,5.b
+20.b,71.b,2.b
+0.b,48.b,0.b
+80.b,32.b,0.b
+96.b,48.b,0.b
+112.b,64.b,0.b
+128.b,80.b,0.b
+128.b,96.b,0.b
+144.b,112.b,16.b
+160.b,128.b,16.b
+176.b,160.b,16.b
+208.b,208.b,240.b

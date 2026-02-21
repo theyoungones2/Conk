@@ -1,0 +1,15 @@
+.key nam
+Clear
+IF  "all" EQ <nam>
+ sc WITH SCOPTIONS Source/#?.c
+ sc WITH SCOPTIONS Source/rexx/#?.c
+ENDIF
+
+IF "recomp" EQ <nam>
+ sc WITH SCOPTIONS NOMOD Source/#?.c
+ sc WITH SCOPTIONS NOMOD Source/rexx/#?.c
+ENDIF
+
+IF "asm" EQ <nam>
+ genam source/asm/MiscAsm.a WITH source/asm/genam.opts
+ENDIF

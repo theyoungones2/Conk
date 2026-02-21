@@ -1,0 +1,61 @@
+
+
+void Plot4( int xo, int yo, int xoffset, int yoffset )
+{
+	plot( xo + xoffset, yo + yoffset );
+	plot( xo + xoffset, yo - yoffset );
+	plot( xo - xoffset, yo + yoffset );
+	plot( xo - xoffset, yo - yoffset );
+}
+
+
+void Ellipse( int xo, int yo, int a, int b )
+{
+	int asquared = a * a;
+	int bsquared = b * b;
+	int twoasquared = 2 * asquared;
+	int twobsquared = 2 * bsquared;
+	int x, y, twoxtimesbsquared, twoytimesasquared, error;
+
+
+	x = 0;
+	y = b;
+	twoxtimesbsquared = 0;
+	twoytimesasquared = y * twoasquared;
+	error = -y * asquared;
+
+	while( twoxtimesbsquared <= twoytimesasquared )
+	{
+		Plot4( xo, yo, x, y );
+		x += 1;
+		twoxtimesbsquared += twobsquared;
+		error += twoxtimesbsquared - bsquared;
+		if( error >= 0 )
+		{
+			y -= 1;
+			twoytimesasquared -= twoasquared;
+			error -= twoytimesasquared;
+		}
+	}
+
+	x = a;
+	y = 0;
+	twoxtimesbsquared = x * twobsquared;
+	twoytimesasquared = 0;
+	error = -x * bsquared;
+
+	while( twoxtimesbsquared > twoytimesasquared )
+	{
+		Plot4( xo, yo, x, y );
+		y += 1;
+		twoytimesasquared += twoasquared;
+		error += twoytimesasquared - asquared;
+		if( error >= 0 )
+		{
+			x -= 1;
+			twoxtimesbsquared -= twobsquared;
+			error -= twoxtimesbsquared;
+		}
+	}
+}
+

@@ -1,0 +1,75 @@
+#define DPB_AGAONLY 0
+#define DPF_AGAONLY 1<<DPB_AGAONLY
+
+#define DPSEB_DUALPLAYFIELD 0
+#define DPSEF_DUALPLAYFIELD 1<<DPSEB_DUALPLAYFIELD
+
+/* Display Chunk For 'Mutant Camel Apocalypse' */
+
+0.l				/* dp_Flags */
+1.w				/* dp_FrameRate */
+"Desert.map".16		/* dp_Map[16] */
+"Desert1.blks".16		/* dp_BlockSet[16] */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b		/* dp_BackDrop[BOBFILENAMESIZE] "" */
+138.b,200.b,115.b,211.b,250.b,110.b,167.b,72.b,32.b,130.b	/* dp_InitProgram[PROGFILENAMESIZE] "BLAST_INIT" */
+0.w				/* dp_LevelWidth */
+0.w				/* dp_LevelHeight */
+4.w				/* dp_LevelDepth */
+0.l				/* dp_DisplayID */
+1.w				/* Numofplayerstructs */
+10.w				/* dp_NumOfBulletStructs */
+20.w				/* dp_NumOfBDStructs */
+1.w				/* dp_SpriteColourBank */
+0.w				/* dp_SpriteBurstMode */
+
+50.l				/* dp_DefaultBorderLeft */
+0.w
+270.l				/* dp_DefaultBorderRight */
+0.w
+50.l				/* dp_DefaultBorderTop */
+0.w
+206.l				/* dp_DefaultBorderBottom */
+0.w
+0.w					/* border flags */
+
+1.w					/* num of players */
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b			/* PLYR_INIT */
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b			/* PLYR_INIT */
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b			/* PLYR_INIT */
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b			/* PLYR_INIT */
+
+32.w				/* dp_NumOfColours */
+0.b,0.b,0.b
+210.b,0.b,0.b
+193.b,98.b,0.b
+193.b,195.b,0.b
+101.b,0.b,161.b
+20.b,71.b,2.b
+19.b,91.b,1.b
+18.b,112.b,0.b
+89.b,51.b,0.b
+115.b,77.b,6.b
+140.b,104.b,13.b
+166.b,130.b,20.b
+0.b,31.b,159.b
+73.b,100.b,186.b
+146.b,168.b,213.b
+219.b,237.b,239.b
+
+/* sprite colours */
+0.b,0.b,0.b
+85.b,51.b,0.b
+136.b,85.b,0.b
+170.b,136.b,0.b
+0.b,0.b,0.b
+85.b,51.b,0.b
+136.b,85.b,0.b
+170.b,136.b,0.b
+0.b,0.b,0.b
+85.b,51.b,0.b
+136.b,85.b,0.b
+170.b,136.b,0.b
+0.b,0.b,0.b
+85.b,51.b,0.b
+136.b,85.b,0.b
+170.b,136.b,0.b

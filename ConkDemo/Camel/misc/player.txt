@@ -1,0 +1,5 @@
+
+1.w			/* Num Of Players */
+1.w			/* Num Of Player Structs */
+
+158.b,93.b,50.b,150.b,25.b,57.b,254.b,155.b,169.b,210.b			/* PLYR_INIT */

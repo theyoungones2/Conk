@@ -1,0 +1,111 @@
+TUTORIAL ONE
+------------
+
+
+--------------------------------------------------------------------------------
+
+CD into the 'Tute1' directory and run Zonk.
+
+
+
+The first thing we want to do is make up a display chunk. This'll tell Conk
+how we want the level set up...
+
+- Click 'Load...' in the Chunk window and load "simple.map" and "simple.bobs".
+
+- Create a new Display chunk (Click 'New...' in the chunk window, then select
+type 'Display' and OK it).
+
+- Highlight the newly created chunk and click 'Edit...'. This will bring up the
+Display chunk editor.
+
+- At the 'Map' gadget enter "SIMPLE.MAP". For 'BlockSet' enter "SIMPLE.BLKS"
+(Alternatively, you could click the question marks to the right of these
+gadgets and pick the map and blockset from the ones loaded in earlier ).
+
+- Click the question mark to the right of the Palette field and pick one of
+the two palettes (one was loaded in with the map, the other with the bobs).
+This copies the palette into the Display chunk.
+
+- Click the 'Page' cycle gadget to jump to the Players page.
+
+- For Player1Init enter "PLYR_INIT" (This is an ActionList which we'll create
+soon).
+
+- Click 'Page' again to go on to the Misc page.
+
+- Change 'FrameRate' to Full.
+
+- For 'LevelInit' enter "LEVEL_INIT" (Another ActionList).
+
+- We've now finished our Display chunk. Close the Display chunk window and
+go back to the Chunk Window. Double-click the Display chunk we just made up
+(a '*' should appear). Select 'Save...' and save it as "Simple.disp".
+
+The next thing to do is make up some ActionLists to tell things how to
+behave...
+
+- In the Chunk Window, create a new ActionList chunk, highlight it, and
+click "Edit..." to bring up the ActionList edit window.
+
+- In the new ActionList window, click "New" to create a new ActionList. Name it
+"LEVEL_INIT". This is the ActionList that Conk will execute at the beginning of
+a level (we specified this in the Display chunk). We're going to use it to set
+up the scrolling to follow the movement of the player.
+
+- Highlight "LEVEL_INIT" and click 'Edit'. This'll bring up a (currently empty)
+listing.
+
+- Click 'Add' and select the Action 'InitScroll'. A window will appear to let
+you edit the parameters of 'InitScroll'. Leave them zeroed for now and click
+'OK' to take you back to the "LEVEL_INIT" listing.
+
+- Click 'Add' again and add 'ScrollXCenterPlayers'. Set the 'MaxScrollSpeed'
+field to 8 and click OK.
+
+- We've finished with this ActionList, so click 'Done'.
+
+- Create a new ActionList, call it "PLYR_INIT", and 'Edit' it.
+
+- Add a new Action, 'SetImage'. In its 'Image' field, type 'PLAYERRT' (or hit
+the '?' button to bring up a list of images, and pick 'PLAYERRT' from there).
+
+- Add the action 'SetChannel' and 'Edit' it.
+
+- Click the 'Replace' button to bring up a list of ChannelRoutines.
+
+- Select 'InertialPlayer'. Its parameters will automatically come up, so change
+'Max XSpd' and 'Max YSpd' to 8, 'XAccel', 'YAccel', 'XDrag' and 'YDrag' all to
+1. Click 'OK' to get back to the 'SetChannel' window. Click 'OK' there to
+get back to the "PLYR_INIT" listing.
+
+- We've finished with "PLYR_INIT" now, so click 'Done' to get back to the
+ActionLists Window. Click the window close gadget.
+
+- Back in the Chunk Window, double-click the ActionList Chunk to mark it, and
+save it as 'Simple.action'.
+
+Now, we just need to tell the game which files it needs to load in, using
+the GameConfig chunk. This chunk will be our .game file.
+
+- Back in the Chunk Window, create a new GameConfig Chunk and edit it.
+
+- For 'Title', 'Author' and 'Comment' enter anything you like. Under 'Level'
+click 'New' to create a new level ('-<UNNAMED>-'). 'Edit' it.
+
+- You can change 'LevelName' to something better, say 'LEVEL1', but this
+isn't really important as we're only going to have one level.
+
+- Click 'Add...' to bring up a file requester. MultiSelect (hold the SHIFT
+key down and click on things) the files: 'Simple.Map', 'Simple.bobs',
+'Simple.Action' and 'Simple.disp'. These are the files Conk needs to load in
+to play the level.
+
+- Exit back out to the Chunk Window again, double click the Game Config Chunk
+and save it as 'Simple.Game'.
+
+- You can now go back to the Shell and run the game though Ponk.
+You'll need to CD into 'tute1/' first, the run Ponk with 'Simple.Game' as
+commandline parameter.
+
+

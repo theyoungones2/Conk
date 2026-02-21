@@ -1,0 +1,14 @@
+.key nam
+IF <nam> EQ "ALL"
+	genam Source/Ponk WITH genam.opts -OObj/Ponk.o
+	genam Source/Action WITH genam.opts -OObj/Action.o
+	genam Source/Operators WITH genam.opts -OObj/Operators.o
+	genam Source/IH WITH genam.opts -OObj/IH.o
+	genam Source/ActionRoutines WITH genam.opts -OObj/ActionRoutines.o
+	genam Source/GroovyCon WITH genam.opts -OObj/GroovyCon.o
+	genam Source/Sprites WITH genam.opts -OObj/Sprites.o
+	genam Source/BensActionRoutines WITH genam.opts -OObj/BensActionRoutines.o
+	genam Source/Scroll WITH genam.opts -OObj/Scroll.o
+ELSE
+	genam Source/<nam> WITH genam.opts -OObj/<nam>.o
+ENDIF

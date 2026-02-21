@@ -1,0 +1,37 @@
+FROM LIB:c.o			"Code/main.o" +
+								"Code/SuperWindows.o" +
+							"Code/Projects.o" +
+						"Code/ProjectWindows.o" +
+					"Code/Requesters.o" +
+						"Code/ProjectMenu.o" +
+							"Code/AboutWindow.o" +
+								"Code/RevealWindow.o" +
+									"Code/misc.o" +
+								"Code/ScreenConfigWindow.o"
+							"Code/PubScreenRequester.o"
+						"Code/WindowMenu.o"
+					"Code/SettingsMenu.o"
+				"Code/UserMenu.o"
+					"Code/Blocks.o"
+						"Code/Tools.o"
+							"Code/ColourStuff.o"
+								"Code/ToolsWindow.o"
+									"Code/Stuff.o"
+										"Code/BlockRoutines.o"
+									"Code/BlockWindow.o"
+								"Code/EditMenu.o"
+							"Code/HoopyReq.o"
+						"Code/Brushes.o"
+					"Code/PreviewWindow.o"
+				"Code/BrushWindow.o"
+					"Code/Files.o"
+						"Code/MapMenu.o"
+							"Code/Screens.o"
+								"Code/BlkAnimWindow.o"
+									"Code/BlkAnimStuff.o"
+TO "Bonk"
+LIB LIB:sc.lib LIB:amiga.lib
+define __CXM33=__UCXM33
+define __CXD33=__UCXD33
+define __CXM22=__UCXM22
+define __CXD22=__UCXD22

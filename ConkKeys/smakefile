@@ -1,0 +1,2 @@
+ConkKeys: Conkkeys.c Images.c
+	sc ConkKeys.c

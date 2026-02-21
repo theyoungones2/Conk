@@ -1,0 +1,39 @@
+ZONK - TO DO
+------------
+
+About window.
+Finish Path editor.
+Track down heisenbugs in program editor.
+Fix font problems for screenconfig window.
+Implement default size settings for all windows/requesters.
+Graphical bob/anim requester.
+Track down various bugs in HoopyVision.
+Tidy up screensettings window.
+keyboard shortcuts.
+Tidy up program window - disabling gadgets if no prog selected etc...
+ChunkWindow - ghost gadgets if no chunk selected
+Figure out why gadget layout flickers when ScreenConfigWindow opens.
+Finish Path Editor
+Timed attackwaves - option for formation or individual actionlist-type dudes.
+FormationWindow - Map underlaying option
+Do 'Save Icons'
+Settings menu: Load Settings
+Gradually tidy up code - better use of assertions.
+Do Display chunk editor
+Saveas 'File exists: replace/cancel' requester
+SWAVWindow: Replace ModifySWave() with generic ModifyChunk()
+TWAVWindow: Pick first entry in listview on opening
+
+DONE:
+-----
+
+Input (busy-wait) blocking for Palette requester
+Assorted Menus.
+Only one formationwindow per formation chunk
+Activate windows upon opening.
+Put menus into all editor windows.
+Only one TWAVwindow per TWAV chunk
+Set/Check chunk modified flags
+	- Done PROG, SWAV, TWAV, DFRM, GAME, WEAP, THAP
+Settings menu: Save Settings As...
+

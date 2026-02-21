@@ -1,0 +1,83 @@
+CONK USER MANUAL
+
+
+CHAPTERS
+	1) PREFACE
+		a) Introduction
+		b) System Requirements
+		c) How to use the manual
+		d) Acknowledgements
+	2) INTRODUCTION
+		disk contents, registrations, installation, overview...
+	3) TUTORIALS
+		From loading in existing stuff, to creating an entire game from scratch.
+		Don't need to have read any other parts of the manual.
+	4) THE RUNTIME MODULE
+		a) Intro - what it is, what it does
+		b) Error messages
+	5) THE EVERYTHING EDITOR
+	6) THE IMAGE EDITOR
+	7) THE MAP EDITOR
+	8) SUPERGLUE AND STICKYTAPE
+
+APPENDICES
+	A) HINTS AND TIPS FOR GROOVY GAMES
+	B) GRAPHICAL TECHNIQUES
+		a) Palette selection
+		b) Anti-aliasing
+		c) dithering
+		d) lightsourcing
+	C) TROUBLESHOOTING
+		Common problems and their solutions
+	D) TECHNICAL CONSIDERATIONS
+		a) chipmem/fastmem explanations
+		b) Bitmap depth-speed relations (DMA bandwidth)
+		c) memory usage, prediction and conservation
+		d) frame rate
+		e) copper speed - why you need blank lines between slices sometimes.
+
+
+
+THE MAP EDITOR
+--------------
+
+	INTRODUCTION
+
+		The Map Editor is where blocks are arranged together in grids to form maps.
+When a map is being edited, it is refered to as a project. You can have as many
+projects open as you like, the only real restriction being that they will all
+share a global palette and set of blocks.
+
+
+
+
+
+	MAP EDITOR WINDOWS
+
+		PROJECT WINDOW
+			A project is viewed and edited through its project window(s). Because a map
+can be just about any size at all, usually only a section of it is displayed
+at a time. You can use the cursor keys or the scroll bars in the window border
+to move the view to other areas of the map. Normally, the cursor keys will scroll
+the map a single block in the specified direction, but traversing large maps in
+this manner can be seriously tedious. To scroll more than one block at a time,
+there are a number of keyboard modifier keys you can hold down whilst using the
+cursor keys. ALT will cause scrolling to jump four blocks at a time. SHIFT causes
+the view to jump a window at a time - for example, if you scroll right with SHIFT
+held down, the left edge of the window will now be displaying the line of blocks
+that used to lie along the right edge. The CTRL key is used to jump to the
+extreme edges of the map.
+			A project can have any number of project windows viewing it. When you make
+a change in one project window, any other windows which were viewing the same
+area of map will be automatically updated. A project must always have at least
+one project window viewing it, so when the last project window is closed, the
+project itself is discarded. Of course, if any unsaved work has been done on the
+project, a requester is brought up to give you a way out.
+
+			The title bar of a project window displays the name of the project you are
+editing. If unsaved changes have been made to the project, a plus sign ('+') will
+appear to the right of the name. If background fixing is switched on for the
+project, a capital 'B' will also appear in the title bar.
+
+
+

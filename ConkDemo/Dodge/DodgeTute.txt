@@ -1,0 +1,216 @@
+
+
+Tutorial: A Simple Dodge-the-Asteroids game.
+--------------------------------------------
+
+
+CD into the "Dodge" directory and run Zonk.
+
+In the Chunk window, click on the 'New' gadget. This will bring up a requester
+with a list of chunk types. Select "Display". The new chunk will appear in the
+list in the Chunk window.
+
+Select the new chunk and click "Edit" to bring up the Display window.
+
+In the "BackDropPic" field enter "STARS.IFF". This references the picture
+we're going to use as background scenery in the level.
+
+Click on the "Import Palette" button to bring up a file requester. Select the
+file "Stars.iff". This reads the palette from the picture and copies it into
+the Display chunk.
+
+Click the "Page" cyclegadget to advance to the "Players" page.
+
+In "Player0Init" enter "PLYR_INIT". This is the name of the ActionList that
+Ponk will use to initialise the player. The other three fields can be left
+blank because it is only a one player game. We will make up the ActionList
+in a minute.
+
+Go to the next page, "Misc".
+
+Change the "FrameRate" to Full. The other fields can be left blank for now.
+
+Advance the page to "DefaultBorders". This page lets you set up restrictions
+on the area objects can move in. We're going to use the left and right
+borders to stop the player moving off the screen, and the bottom border
+to kill off asteroids when they reach the bottom of the screen.
+
+Change the cycle gadget after "Left Border" to "Stop". This tells Ponk to stop
+objects if they try to move left of zero on the x axis.
+
+Change "Right Border" to 304 and "Stop" to stop objects moving right of
+position 304 (Because the screen is 320 pixels wide, this value allows for
+an object with image of width 320-304=16 pixels).
+
+Leave "Top Border" off, but change "Bottom Border" to 256 and "Kill". This
+means that objects going past 256 (on the y axis) will be turned off.
+
+Our Display chunk is finished (for now). Close the Display window and
+go back to the Chunk window. Double click the Display chunk to mark it (a '*'
+will appear beside it). Click "Save" and save the chunk as "Dodge.disp".
+
+Create a new ActionLists chunk (click "New", select "ActionLists"), highlight
+it and edit it. The ActionList window should appear.
+
+In the ActionList window, click "New" to create a new ActionList. When asked
+for the name, enter "PLYR_INIT".
+
+The new (and empty) ActionList will appear. Highlight it and click "Edit".
+The layout of the window will change to display the contents of the
+ActionList - "Listing of 'PLYR_INIT'".
+
+Click "Add" to add an Action. A requester will come up to let you choose
+an Action. The list on the left has categories, the list on the right shows
+the Actions in the selected category. The "All" category contains all Actions.
+
+Select the Action "SetImmediate". A window will come up to let you enter
+parameters for the action. Change "Value" to 210 and "Variable" to "YPos",
+then click OK. This Action will move the player object to the bottom of the
+screen.
+
+Add another "SetImmediate" Action. For "Value" enter 152 and for "Variable"
+enter "XPos" (then click "OK").
+
+Add a "SetChannel" Action. In the Parameters window, click the "Replace"
+button. This brings up a list of ChannelRoutines. Select the "InertialPlayer"
+routine. For the parameters, change "XAccel" to 1, "MaxXSpd" to 4, and
+"XDrag" to 0:16 (this is a fixed point number, equivalent to 0.5. The number
+to the right of the colon is the fractional part of the value). Click the
+"Next>" button in the parameters window to get to the next page of values.
+Change the "AxisFreedom" to "X Only" and click OK. Click OK again in the
+"SetChannel Params" window.
+
+Add another "SetChannel". This time, change to "Channel" field to 1. Hit the
+"Replace" button and pick the "CyclicAnim" channelroutine. In the "Anim"
+field enter "PLAYER". OK this and OK the "SetChannel Params" window.
+
+Thats enough to get our player going for now. Quick summary: We made up
+"PLYR_INIT" to initialise the player. This ActionList sets the starting X
+and Y positions (centred at the bottom of the screen), and installs the
+"InertialPlayer" routine in channel 0 and "CyclicAnim" in channel 1, playing
+the anim called "PLAYER". These channel routines automagically update the
+object every frame - you can just set them going and forget about them.
+
+Close the ActionList window and go back to the Chunk window. Double click the
+ActionList Chunk to mark it, and save it as "Dodge.actions".
+
+Create a new chunk of type "Game config". Edit it.
+
+You can enter anything you like for the "Title", "Author" and "Comment"
+fields (or just leave them as is).
+
+The Game Config window starts off with an empty list of levels. Click "New"
+to create one. Make sure it's highlighted and click "Edit".
+
+You can change its name to something more meaningful, but as we're only
+going to have the one level it doesn't really matter.
+
+The "Files" list tells Ponk which files it needs to load in for this level.
+Click "Add" and use the file requester to add "Dodge.disp", "Dodge.Actions",
+"Stars.iff" and "Player.bobs" to the list. You can hold down the SHIFT key
+in the file requester to multiselect these files.
+
+Click "Done" and close the Game Config window. Mark the Game Config chunk in
+the Chunk window and save it as "Dodge.game".
+
+You can now run the game. In the shell, CD into the "Dodge" directory and
+run Ponk with "Dodge.game" as a parameter. Of course, at this stage, the
+game is a little on the boring side... We need asteroids. Back to Zonk.
+
+Highlight the Actionlist chunk in the Chunk window and hit "Edit".
+
+Create a new ActionList, call it "ROCK_INIT" and edit it.
+
+Add the following Actions:
+
+"SetRND": with MinValue = 0, MaxValue = 288 and Variable = XPos.
+"SetImmediate": Value = -32, Variable = YPos.
+"SetImmediate": Value = 0, Variable = XSpd.
+"SetRND": MinValue = 3, MaxValue = 6, Variable = YSpd.
+This puts the Rock object at a random horizontal position just out of view
+above the top of the screen. It is also set going downward at a random speed
+(between 3 and 6 pixels per frame).
+
+Also add a "SetChannel" action. Leave it on Channel 0, click "Replace"
+and pick the "CyclicAnim" ChannelRoutine. Set "Anim" to "ROCKNROLL", click
+"OK", then "Done" to exit back out to the "ActionLists" list.
+
+Create a new ActionList, "LEVEL_UPDATE". Edit it.
+
+Only one Action needed here - "RandomEvent". Set the "Probability" to 32,
+and "ActionList" to "LEVEL_DOROCK" (click "Done").
+
+Create _another_ ActionList, "LEVEL_DOROCK". Edit it.
+
+Again, a single Action. This one is "SpawnBadDude". Set the "ActionList"
+field to "ROCK_INIT" and leave the other fields as they are (Click "OK",
+click "Done").
+
+Close the ActionLists window.
+
+Save the Chunk back out to "Dodge.actions".
+
+Edit the Display chunk we made up earlier (the one in the file
+"Dodge.disp").
+
+Advance to the "Misc" page, and enter "LEVEL_UPDATE" in the "LevelUpdate"
+field.
+
+Save the Display chunk again (back over "Dodge.disp").
+
+Edit the Game Config chunk again.
+
+Edit the level, and add the files "Rock.bobs" and "Explosion.bobs".
+
+Back to the Chunk window, save the Game Config chunk again.
+
+You can try the game again if you like. There should be asteroids flying
+about now. Time to put collision handling in...
+
+Edit the ActionList chunk again. Bring up the listing for "PLYR_INIT".
+Add the Action "SetMiscStuff". For "BadDude HitRoutine" enter "PLYR_EXPLODE".
+This is the ActionList that will be executed upon the player when it hits a
+bad dude object. Exit back to the list of ActionLists.
+
+Create a new ActionList, "PLYR_EXPLODE". Add the following actions:
+"SetImmediate": "Value" = 0, "Variable" = XSpd.
+"SetCollisions": Off.
+"SetChannel": Channel 0. Click "Replace" and install "CyclicAnim". Set "Anim"
+to "EXPLODE", tick the "Blank when done?" box and set "Cycles" to 1.
+"SetChannel": Channel 1. Leave "NullChannel" installed, set "Timer" to 100
+and "DoneActionList" to "LEVEL_END".
+
+Create an ActionList "LEVEL_END".
+
+Just one Action: "End Level". Leave the "Next Level" parameter blank.
+
+Back in the Chunk window, save the ActionList chunk back out.
+
+That's it. Run it with Ponk. See if you can get through the asteroid
+field.
+
+--------------------------------------------------------------------------------
+A summary of the ActionLists used:
+
+PLYR_INIT: Sets up the player. Installs a movement routine ("InertialPlayer")
+in Channel 0 and an animation routine ("CyclicAnim") in channel 1.
+
+PLYR_EXPLODE: Kills off the player and plays an explosion anim. Collisions
+for the player object are turned off to stop asteroids hitting the explosion
+(the explosion would restart every time an asteroid hit it). The animation
+is played using channel 0 - it replaces the movement routine put in there
+by "PLYR_INIT". Channel 1 is used to delay for 100 frames before calling
+"LEVEL_END".
+
+LEVEL_END: Stops the level, fades out and exits.
+
+LEVEL_UPDATE: This ActionList is called every frame, and calls "LEVEL_DOROCK"
+at random times.
+
+LEVEL_DOROCK: Starts a new asteroid object.
+
+ROCK_INIT: The ActionList used to initialise asteroids. Random position and
+speeds are chosen, and channel 0 is installed with "CyclicAnim" playing a bob
+animation (from the file "Rock.bobs"). The rock travels down the screen and
+is turned off at the bottom by the Default Border settings in the Display
+chunk.

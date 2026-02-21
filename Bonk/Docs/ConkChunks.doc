@@ -1,0 +1,40 @@
+============
+FORM: 'CONK'
+============
+
+The CONK form is a wrapper for the various ConKit chunk types.
+
+======
+CHUNKS
+======
+
+'MAP '     (BC, 15/5/94)
+========================
+
+For storage of background blockmaps.
+format:
+
+UWORD width
+UWORD height
+UWORD data[width][height]
+
+
+'BLKS'     (BC, 15/5/94)
+========================
+
+Block image data. Blocks assumed to be 1 word wide, 16 lines high, and 1-8
+bitplanes deep.
+
+struct BLKSHeader
+{
+	UWORD	blks_NumOfBlocks;
+	UWORD blks_Depth;
+};
+
+Followed by interleaved, raw imagedata.
+
+'CMAP'     (BC, 15/5/94)
+========================
+
+Palette chunk. Same as CMAP chunk found in ILBM files, ie RGB byte triplets.
+

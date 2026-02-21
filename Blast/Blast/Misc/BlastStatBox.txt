@@ -1,0 +1,18 @@
+#define SBB_BOXATTOP 0					/* Stat Box is at the top of the screen */
+#define SBF_BOXATTOP 1
+
+138.b,200.b,115.b,211.b,61.b,33.b,210.b,43.b,248.b,56.b	/* UBYTE  sf_BackDropPicture[BOBFILENAMESIZE]; "BLASTSTATBOX.IFF" */
+0.l				/*	ULONG	sf_DisplayID; */
+0.w				/*	UWORD	sf_Flags */
+207.b,72.b,116.b,255.b,92.b,36.b,135.b,73.b,96.b,130.b	/* UBYTE sf_UpdateProg "STAT_UPDATE" */
+64.w				/*	UWORD	sf_StatBoxHeight; (256 - 200) */
+5.w				/*	UWORD	sf_StatBoxDepth; */
+32.w				/*	UWORD sf_NumOfColours; */
+000.b,000.b,000.b, 128.b,128.b,160.b, 112.b,112.b,128.b, 096.b,096.b,112.b
+080.b,080.b,080.b, 064.b,064.b,064.b, 048.b,048.b,048.b, 208.b,112.b,096.b
+176.b,048.b,048.b, 144.b,016.b,000.b, 112.b,032.b,000.b, 055.b,017.b,000.b
+029.b,017.b,000.b, 144.b,144.b,208.b, 092.b,104.b,176.b, 051.b,075.b,146.b
+020.b,058.b,117.b, 000.b,044.b,087.b, 142.b,140.b,016.b, 094.b,118.b,010.b
+052.b,095.b,005.b, 020.b,071.b,002.b, 000.b,048.b,000.b, 080.b,032.b,000.b
+096.b,048.b,000.b, 112.b,064.b,000.b, 128.b,080.b,000.b, 128.b,096.b,000.b
+144.b,112.b,016.b, 160.b,128.b,016.b, 176.b,160.b,016.b, 208.b,208.b,240.b

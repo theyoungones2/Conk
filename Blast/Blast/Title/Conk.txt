@@ -1,0 +1,43 @@
+#define DPB_AGAONLY 0
+#define DPF_AGAONLY 1<<DPB_AGAONLY
+
+#define DPSEB_DUALPLAYFIELD 0
+#define DPSEF_DUALPLAYFIELD 1<<DPSEB_DUALPLAYFIELD
+
+0.l				/* dp_Flags */
+1.w				/* dp_FrameRate */
+"".16				/* dp_Map[16] */
+"".16				/* dp_BlockSet[16] */
+142.b,251.b,171.b,58.b,153.b,166.b,130.b,8.b,32.b,130.b		/* dp_Backdrop "CONK.IFF" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b				/* dp_InitProgram[PROGFILENAMESIZE] "" */
+0.w				/* dp_LevelWidth */
+0.w				/* dp_LevelHeight */
+2.w				/* dp_LevelDepth */
+0.l				/* dp_DisplayID */
+1.w				/* dp_NumOfPlayerStructs */
+8.w				/* dp_NumOfBulletStructs */
+8.w				/* dp_NumOfBDStructs */
+1.w				/* dp_SpriteColourBank */
+0.w				/* dp_SpriteBurstMode */
+
+50.l				/* dp_DefaultBorderLeft */
+1.w				/* dp_DefaultBorderLeftType */
+270.l				/* dp_DefaultBorderRight */
+1.w				/* dp_DefaultBorderRightType */
+50.l				/* dp_DefaultBorderTop */
+1.w				/* dp_DefaultBorderTopType */
+206.l				/* dp_DefaultBorderBottom */
+1.w				/* dp_DefaultBorderBottomType */
+1.w				/* dp_DefaultBorderFlags */
+
+1.w				/* dp_NumOfPlayers */
+194.b,206.b,114.b,254.b,155.b,169.b,210.b,8.b,32.b,130.b /* "PLYR_INIT" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+130.b,8.b,32.b,130.b,8.b,32.b,130.b,8.b,32.b,130.b	/* "" */
+
+4.w				/* dp_NumOfColours */
+0x00.b,0x00.b,0x00.b
+0x55.b,0x55.b,0x55.b
+0xA0.b,0xA0.b,0xA0.b
+0xFF.b,0xFF.b,0xFF.b
