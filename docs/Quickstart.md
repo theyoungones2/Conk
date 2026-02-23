@@ -6,10 +6,10 @@ Follow this if you just want to use Conk without the need for Dev Tools.
 2. [Workbench Setup](./Setup/2.Workbench-Setup.md) - Stop after Display Section
 
 From Workbench, open the "Work" disk.  
-Right-click Menu > Window > New Drawer > Dev > OK
+Right-click Menu > Window > New Drawer > Dev > OK  
 Open the Dev Folder.  
-Right-click Menu > Window > Show > All Files
-Right-click Menu > Window > Snapshot > All
+Right-click Menu > Window > Show > All Files  
+Right-click Menu > Window > Snapshot > All  
 
 From Windows, copy this repo into C:\Amiga\Dev\
 
