@@ -1,1 +1,1 @@
-sc makegst ck:source/include/includes.gst includes.c
+sc makegst source/include/includes.gst includes.c

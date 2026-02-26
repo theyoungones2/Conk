@@ -13,8 +13,13 @@ Right-click Menu > Window > Snapshot > All
 
 From Windows, copy this repo into C:\Amiga\Dev\
 
-ed s:USer-Startup  
-add `path Work:Dev/Conk/Ponk add`  
+`ed s:User-Startup` - Add the following
+```
+;BEGIN Conk
+assign ck: Work:Dev/Conk
+path ck:Ponk add
+;END Conk
+```
 Save and Quit  
 Reset (Insert + Home + Ctrl)
 

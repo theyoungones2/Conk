@@ -13,15 +13,15 @@
 
 #include <Global.h>
 
-// struct IntuitionBase		* __near IntuitionBase;
-// struct GfxBase					* __near GfxBase;
-// struct DosLibrary				* __near DOSBase;
-// struct Library					* __near GadToolsBase;
-// struct Library					* __near DiskfontBase;
-// struct Library					* __near AslBase;
-// struct Library					* __near IFFParseBase;
-// struct Library					* __near LayersBase;
-// struct Library          * __near RexxSysBase;
+struct IntuitionBase		* __near IntuitionBase;
+struct GfxBase					* __near GfxBase;
+struct DosLibrary				* __near DOSBase;
+struct Library					* __near GadToolsBase;
+struct Library					* __near DiskfontBase;
+struct Library					* __near AslBase;
+struct Library					* __near IFFParseBase;
+struct Library					* __near LayersBase;
+struct Library          * __near RexxSysBase;
 /* struct Library					* __near UtilityBase; */
 
 struct Process					*taskbase								= NULL;
