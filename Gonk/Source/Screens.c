@@ -239,13 +239,13 @@ BOOL OpenNewScreen(struct ScreenConfig *scrconfig)
 					mainscreen = NULL;
 					if(!usingdefaultsettings)
 					{
-						GroovyReq("Screen Error","Can't Open Screen\nUsing Default Settings","Continue");
+						GroovyReq("Screen Error","Can't Open Screen!\nUsing Default Settings","Continue");
 						SetupDefaultScreenConfig(scrconfig);
 						usingdefaultsettings = TRUE;
 					}
 					else
 					{
-						GroovyReq("Screen Error","Can't Open Screen\nUsing Workbench","Continue");
+						GroovyReq("Screen Error","Can't Open Screen!\nUsing Workbench","Continue");
 						strcpy(scrconfig->sg_BorrowedName, "Workbench");
 						scrconfig->sg_OwnScreen = FALSE;
 						BorrowScreen(scrconfig);
@@ -359,7 +359,7 @@ void SetupDefaultScreenConfig(struct ScreenConfig *scrconfig)
 	scrconfig->sg_DisplayID = (GfxBase->DisplayFlags & NTSC) ? NTSC_MONITOR_ID : PAL_MONITOR_ID;
 	scrconfig->sg_DisplayWidth = 320;
 	scrconfig->sg_DisplayHeight = 256;
-	scrconfig->sg_DisplayDepth = 2;
+	scrconfig->sg_DisplayDepth = 5;
 	scrconfig->sg_OverscanType = OSCAN_STANDARD;
 	if( QueryOverscan( scrconfig->sg_DisplayID, &rect, scrconfig->sg_OverscanType) )
 	{

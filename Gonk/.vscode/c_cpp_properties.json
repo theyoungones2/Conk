@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Amiga/PCDrive/dev/include/**",
+                "C:/Amiga/A1200-Conk/Work/Tools/sc/include/**"
             ],
             "defines": [
                 "_DEBUG",

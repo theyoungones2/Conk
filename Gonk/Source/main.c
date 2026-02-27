@@ -430,11 +430,13 @@ static void SetupDefaultConfig(struct Config *cg)
 
 	SetupDefaultScreenConfig(&cg->cg_ScrConfig);
 
+	// Screen font Settings
 	Mystrncpy( cg->cg_ScrConfig.sg_SFNameBuf, Txt_TopazFont, MYMAXFONTNAMESIZE );
 	cg->cg_ScrConfig.sg_SFYSize = 8;
 	cg->cg_ScrConfig.sg_SFStyle = NULL;
 	cg->cg_ScrConfig.sg_SFFlags = NULL;
 
+	// Window font Settings
 	Mystrncpy( cg->cg_ScrConfig.sg_WFNameBuf, Txt_TopazFont, MYMAXFONTNAMESIZE );
 	cg->cg_ScrConfig.sg_WFYSize = 8;
 	cg->cg_ScrConfig.sg_WFStyle = NULL;

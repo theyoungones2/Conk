@@ -35,7 +35,7 @@ char Txt_DefaultRexx[] = "rx StartUp.rexx %s\n";
 
 /* General Errors */
 char Txt_Workbench2Required[] = "Workbench 2.00+ Required";
-char Txt_CantOpenScreen[] = "Can't Open Screen";
+char Txt_CantOpenScreen[] = "Can't Open Screen!";
 char Txt_CantOpenWindow[] = "Can't Open Window";
 char Txt_CantOpenGraphicsLibrary[] = "Can't Open Graphics Library\nVersion 37+ Required";
 char Txt_CantOpenDOSLibrary[] = "Can't Open DOS Library\nVersion 37+ Required";
