@@ -1,6 +1,6 @@
 
 #include <math.h>
-//#include <stdio.h>
+#include <stdio.h>
 //#include <stdarg.h>
 //#include <string.h>
 //#include <dos/dos.h>

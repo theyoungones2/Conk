@@ -1,4 +1,4 @@
-//#include <stdio.h>
+#include <stdio.h>
 //#include <stdarg.h>
 //#include <string.h>
 //#include <dos/dos.h>
@@ -175,7 +175,7 @@ static struct NewMenu	aboutmenu[] =
 		{  NM_ITEM, "Flip",									0,	0,	0,	0,},
 		{   NM_SUB,	"Horizontal",						0,	0,	0,	0,},
 		{   NM_SUB,	"Vertical",							0,	0,	0,	0,},
-		{   NM_SUB,	"Rotate 90°",						0,	0,	0,	0,},
+		{   NM_SUB,	"Rotate 90ï¿½",						0,	0,	0,	0,},
 		{  NM_ITEM, "Outline",						 "o",	0,	0,	0,},
 		{  NM_ITEM, "Handle",								0,	0,	0,	0,},
 		{   NM_SUB,	"Rotate",								0,	0,	0,	0,},
