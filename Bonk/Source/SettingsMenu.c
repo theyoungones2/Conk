@@ -47,7 +47,7 @@ void DoSettingsMenu(struct SuperWindow *sw,UWORD id)
 {
 	UWORD itemnum,subnum;
 	struct MenuItem *mi;
-	struct List *winlist;
+	// struct List *winlist;
 
 	itemnum = ITEMNUM(id);
 	subnum = SUBNUM(id);

@@ -29,18 +29,19 @@
 #include <proto/iffparse.h>
 
 #include <global.h>
+#include <ExternVars.h>
 
 static const char *versionstring = "$VER: Bonk 0.01 (31.10.94)";
 
 /**********************  GLOBAL VARIABLES  *********************************/
 
-struct IntuitionBase		*IntuitionBase					= NULL;
-struct GfxBase					*GfxBase								= NULL;
-struct DosLibrary				*DOSBase								= NULL;
-struct Library					*GadToolsBase						= NULL;
-struct Library					*DiskfontBase						= NULL;
-struct Library					*AslBase								= NULL;
-struct Library					*IFFParseBase						= NULL;
+// struct IntuitionBase		*IntuitionBase					= NULL;
+// struct GfxBase					*GfxBase								= NULL;
+// struct DosLibrary				*DOSBase								= NULL;
+// struct Library					*GadToolsBase						= NULL;
+// struct Library					*DiskfontBase						= NULL;
+// struct Library					*AslBase								= NULL;
+// struct Library					*IFFParseBase						= NULL;
 
 struct Process					*taskbase								= NULL;
 struct MsgPort					*mainmsgport						= NULL;

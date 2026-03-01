@@ -49,7 +49,7 @@ UWORD DoMapMenu(struct SuperWindow *sw,UWORD id)
 	UWORD itemnum,subnum;
 	struct MenuItem *mi;
 	struct ProjectWindow *pw, *otherpw;
-	UBYTE mapnamebuf[ MAPNAMESIZE ];
+	// UBYTE mapnamebuf[ MAPNAMESIZE ];
 
 	if( sw->sw_Type == SWTY_PROJECT )
 	{

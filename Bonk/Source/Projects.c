@@ -86,7 +86,7 @@ void InitProject( struct Project *proj )
 struct Project *OpenNewProject(UWORD width, UWORD height, STRPTR name)
 {
 	struct Project *proj;
-	UWORD *p, i;
+	UWORD *p; //, i;
 
 	if( !(proj = AllocVec(sizeof(struct Project), MEMF_CLEAR|MEMF_ANY)) ) return(NULL);
 

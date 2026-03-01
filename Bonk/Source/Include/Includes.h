@@ -1,5 +1,5 @@
 /* A few include files, use:  */
-/* sc makegst ck:source/include/includes.gst includes.h */
+/* sc makegst ck:Bonk/source/include/includes.gst includes.h */
 
 #include <stdio.h>
 #include <string.h>

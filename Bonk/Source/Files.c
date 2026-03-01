@@ -72,7 +72,7 @@ BOOL WriteMAPChunk( struct IFFHandle *handle, struct Project *proj )
 {
 	ULONG size;
 	BOOL success = FALSE;
-	char name[MAPNAMESIZE];
+	// char name[MAPNAMESIZE];
 
 	size = proj->pj_MapW * proj->pj_MapH * sizeof( UWORD );
 

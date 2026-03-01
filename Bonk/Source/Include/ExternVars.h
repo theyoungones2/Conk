@@ -15,7 +15,7 @@ extern struct DosLibrary			*DOSBase;
 extern struct Library					*GadToolsBase;
 extern struct RxsLib          *RexxSysBase;
 extern struct Library					*DiskfontBase;
-extern struct Library					*ASLBase;
+extern struct Library					*AslBase;
 extern struct Library					*IFFParseBase;
 
 extern struct Process					*taskbase;
