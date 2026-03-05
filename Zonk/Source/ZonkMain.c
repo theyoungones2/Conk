@@ -32,15 +32,18 @@
 /********************************************************************/
 // Global variables
 
-struct IntuitionBase				*IntuitionBase					= NULL;
-struct GfxBase							*GfxBase								= NULL;
-struct DosLibrary						*DOSBase								= NULL;
-struct Library							*GadToolsBase						= NULL;
-struct RxsLib    			      *RexxSysBase						= NULL;
-struct Library							*DiskfontBase						= NULL;
-struct Library							*AslBase								= NULL;
-struct Library							*IFFParseBase						= NULL;
-struct Library							*LayersBase							= NULL;
+/* Removed all System Library definitions that are automatically defined by c.o
+ * Was causing Linker errors when compiling with newer SDKs that have these definitions in the headers. */
+
+// struct IntuitionBase				*IntuitionBase					= NULL;
+// struct GfxBase							*GfxBase								= NULL;
+// struct DosLibrary						*DOSBase								= NULL;
+// struct Library							*GadToolsBase						= NULL;
+// struct RxsLib    			      *RexxSysBase						= NULL;
+// struct Library							*DiskfontBase						= NULL;
+// struct Library							*AslBase								= NULL;
+// struct Library							*IFFParseBase						= NULL;
+// struct Library							*LayersBase							= NULL;
 struct ScreenModeRequester	*smreq									= NULL;
 struct FileRequester				*filereq								= NULL;
 struct FontRequester				*fontreq								= NULL;
@@ -142,29 +145,33 @@ int main( void )
 static BOOL StartUp( void )
 {
 	struct TextAttr topaztextattr = { ( STRPTR )"topaz.font", 8, 0x00, FPF_ROMFONT };
-	struct IntuiText errIntuitionText[] = {
-		{ 1,2,JAM2,20,5,NULL,"WorkBench 2.0+ Required" ,NULL },
-		{ 0,1,JAM2,6,4,NULL,"Abort",NULL } };
+	// struct IntuiText errIntuitionText[] = {
+	// 	{ 1,2,JAM2,20,5,NULL,"WorkBench 2.0+ Required" ,NULL },
+	// 	{ 0,1,JAM2,6,4,NULL,"Abort",NULL } };
 
-	/* try and open v37+ intuition.library */
-	if ( !( IntuitionBase =
-		(struct IntuitionBase *)OpenLibrary( "intuition.library", 37L) ) )
-	{
-		/* try and open _any_ intuition.library to bring up a requester */
-		if (IntuitionBase =
-			(struct IntuitionBase *)OpenLibrary( "intuition.library", 0L ) )
-		{
-			/* bring up a pre-v37 requester */
-			AutoRequest( NULL, &errIntuitionText[0], NULL, &errIntuitionText[1],
-			NULL, NULL, 200, 50 );
-		}
-		return(FALSE);
-	}
 
+	// /* try and open v37+ intuition.library */
+	// if ( !( IntuitionBase =
+	// 	(struct IntuitionBase *)OpenLibrary( "intuition.library", 37L) ) )
+	// {
+	// 	/* try and open _any_ intuition.library to bring up a requester */
+	// 	if (IntuitionBase =
+	// 		(struct IntuitionBase *)OpenLibrary( "intuition.library", 0L ) )
+	// 	{
+	// 		/* bring up a pre-v37 requester */
+	// 		AutoRequest( NULL, &errIntuitionText[0], NULL, &errIntuitionText[1],
+	// 		NULL, NULL, 200, 50 );
+	// 	}
+	// 	return(FALSE);
+	// }
+
+
+/*
 	DOSBase = (struct DosLibrary *)OpenLibrary("dos.library", 37L);
 	if( !DOSBase )
 		return(FALSE);
-
+*/
+/*
 	if( !( GfxBase = (struct GfxBase *)MyOpenLibrary( "graphics.library",
 		37L ) ) )
 		return( FALSE );
@@ -178,6 +185,7 @@ static BOOL StartUp( void )
 		return( FALSE );
 	if( !( IFFParseBase = MyOpenLibrary( "iffparse.library", 36L ) ) )
 		return( FALSE );
+*/
 
 	/* open up topaz as a fallback font. */
 	if( !( topaztextfont = OpenDiskFont( &topaztextattr ) ) )
@@ -241,14 +249,14 @@ static void ShutDown( void )
 	if( filereq ) FreeAslRequest( filereq );
 	if( fontreq ) FreeAslRequest( fontreq );
 
-	if( IFFParseBase ) CloseLibrary( IFFParseBase );
-	if( AslBase ) CloseLibrary( AslBase );
-	if( GadToolsBase ) CloseLibrary( GadToolsBase );
-	if( DiskfontBase ) CloseLibrary( DiskfontBase );
-	if( LayersBase ) CloseLibrary( LayersBase );
-	if( GfxBase ) CloseLibrary( (struct Library *)GfxBase );
-	if( DOSBase ) CloseLibrary( (struct Library *)DOSBase );
-	if( IntuitionBase ) CloseLibrary( (struct Library *)IntuitionBase );
+	// if( IFFParseBase ) CloseLibrary( IFFParseBase );
+	// if( AslBase ) CloseLibrary( AslBase );
+	// if( GadToolsBase ) CloseLibrary( GadToolsBase );
+	// if( DiskfontBase ) CloseLibrary( DiskfontBase );
+	// if( LayersBase ) CloseLibrary( LayersBase );
+	// if( GfxBase ) CloseLibrary( (struct Library *)GfxBase );
+	// if( DOSBase ) CloseLibrary( (struct Library *)DOSBase );
+	// if( IntuitionBase ) CloseLibrary( (struct Library *)IntuitionBase );
 }
 
 
@@ -468,7 +476,7 @@ BOOL InstallZonkConfig( struct ZonkConfig *zcfg )
 {
 	BOOL success;
 	struct List *winlist;
-	int i;
+	// int i;
 
 //	D(bug( "InstallZonkConfig()\n" ) );
 

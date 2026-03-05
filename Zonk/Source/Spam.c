@@ -111,7 +111,7 @@ void __asm PlayerTask(void)
 							chan++);
 					if(chan <= 3)
 					{
-						if(channelstate > 0)
+						if(channelstate[chan] > 0)
 							channelstate[chan] -= 1;
 					}
 				}

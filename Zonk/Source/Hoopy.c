@@ -1486,7 +1486,7 @@ void HO_ReadGadgetStates( struct HOStuff *hos, struct HoopyObject *hob )
 					if( si = hob->ho_Gadget->SpecialInfo )
 					{
 						if( str = si->Buffer )
-							StrToFixedPoint( &hob->ho_Value, str );
+							StrToFixedPoint( (LONG *)&hob->ho_Value, str );
 					}
 					else
 						D(bug("fixpoint  >StringInfo NULL!  gad: %d, '%s'\n", hob->ho_GadgetID, hob->ho_Text ) );

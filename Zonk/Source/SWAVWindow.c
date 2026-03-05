@@ -1179,10 +1179,10 @@ static VOID TrySussImage( struct SWaveWindow *svw, struct ZScrollWave *zsw )
 /********************************************************/
 static VOID HandleNameGadget( struct SWaveWindow *svw )
 {
-	struct Program *prog;
+	// struct Program *prog;
 	struct BobInfoNode *bin;
 	struct ZScrollWave *zsw;
-	LONG offsetbuffer[ 2 ];
+	// LONG offsetbuffer[ 2 ];
 
 	if( zsw = svw->svw_SelectedWave )
 	{
@@ -1202,7 +1202,7 @@ static VOID HandleNameGadget( struct SWaveWindow *svw )
 
 static VOID PickName( struct SWaveWindow *svw )
 {
-	struct Formation *fm;
+	// struct Formation *fm;
 	struct Program *prog;
 	struct ZScrollWave *zsw;
 	BOOL	refresh;

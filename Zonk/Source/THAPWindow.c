@@ -5,6 +5,7 @@
 /********************************************************/
 
 #define THAPWINDOW_C
+#define USE_BUITLIN_MATH
 
 #include <stdio.h>
 #include <string.h>
@@ -46,6 +47,14 @@
 
 #define WIN (thw->thw_sw.sw_Window)
 #define RP (thw->thw_sw.sw_Window->RPort)
+
+#ifndef min
+#define min(a,b) ((a) < (b) ? (a) : (b))
+#endif
+
+#ifndef max
+#define max(a,b) ((a) > (b) ? (a) : (b))
+#endif
 
 struct THAPWindow
 {

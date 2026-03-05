@@ -312,8 +312,8 @@ struct Chunk *CMAPLoader( struct IFFHandle *iff, ULONG size,
 
 static BOOL ListCMAP( struct Chunk *cnk )
 {
-	struct Palette *pal;
-	UWORD i;
+	// struct Palette *pal;
+	// UWORD i;
 /*
 	if( (cnk->ch_TypeID == ID_CMAP) && (pal = cnk->ch_Data ) )
 	{

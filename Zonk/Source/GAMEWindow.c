@@ -784,7 +784,7 @@ static VOID AddFiles( struct GAMEWindow *gw )
 	struct LevelConfig *lc;
 	struct LFile *lf;
 	int i;
-	BOOL allok;
+	// BOOL allok;
 
 	lc = gw->gw_SelectedLevel;
 	assert( lc != NULL );
