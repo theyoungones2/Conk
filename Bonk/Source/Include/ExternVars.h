@@ -9,14 +9,14 @@
 
 /* GLOBAL VARIABLES */
 
-extern struct IntuitionBase		*IntuitionBase;
-extern struct GfxBase					*GfxBase;
-extern struct DosLibrary			*DOSBase;
-extern struct Library					*GadToolsBase;
-extern struct RxsLib          *RexxSysBase;
-extern struct Library					*DiskfontBase;
-extern struct Library					*AslBase;
-extern struct Library					*IFFParseBase;
+// extern struct IntuitionBase		*IntuitionBase;
+// extern struct GfxBase					*GfxBase;
+// extern struct DosLibrary			*DOSBase;
+// extern struct Library					*GadToolsBase;
+// extern struct RxsLib          *RexxSysBase;
+// extern struct Library					*DiskfontBase;
+// extern struct Library					*AslBase;
+// extern struct Library					*IFFParseBase;
 
 extern struct Process					*taskbase;
 extern struct MsgPort					*mainmsgport;

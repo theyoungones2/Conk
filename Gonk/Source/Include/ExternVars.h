@@ -3,15 +3,15 @@
 
 /* GLOBAL VARIABLES */
 
-extern struct IntuitionBase		* __near IntuitionBase;
-extern struct GfxBase					* __near GfxBase;
-extern struct DosLibrary			* __near DOSBase;
-extern struct Library					* __near GadToolsBase;
-extern struct Library					* __near RexxSysBase;
-extern struct Library					* __near DiskfontBase;
-extern struct Library					* __near AslBase;
-extern struct Library					* __near IFFParseBase;
-extern struct Library					* __near LayersBase;
+// extern struct IntuitionBase		* __near IntuitionBase;
+// extern struct GfxBase					* __near GfxBase;
+// extern struct DosLibrary			* __near DOSBase;
+// extern struct Library					* __near GadToolsBase;
+// extern struct Library					* __near RexxSysBase;
+// extern struct Library					* __near DiskfontBase;
+// extern struct Library					* __near AslBase;
+// extern struct Library					* __near IFFParseBase;
+// extern struct Library					* __near LayersBase;
 /* extern struct Library					* __near UtilityBase; */
 
 extern struct Process					*taskbase;

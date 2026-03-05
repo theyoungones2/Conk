@@ -10,11 +10,11 @@
 #include <dos/dostags.h>
 #include <exec/exec.h>
 #include <intuition/intuition.h>
-//#include <graphics/gfxbase.h>
-//#include <rexx/rxslib.h>
-//#include <libraries/gadtools.h>
-//#include <libraries/diskfont.h>
-//#include <libraries/asl.h>
+#include <graphics/gfxbase.h>
+#include <rexx/rxslib.h>
+#include <libraries/gadtools.h>
+#include <libraries/diskfont.h>
+#include <libraries/asl.h>
 
 #include <proto/exec.h>
 #include <proto/dos.h>
@@ -95,9 +95,9 @@ static BOOL OpenStuff(void)
 																		TAG_END, TAG_END };
 	//char		rexxcommand[256];
 	//ULONG	sigset;
-	struct IntuiText errIntuitionText[] = {
-							{ 1,2,JAM2,20,5,NULL,Txt_Workbench2Required ,NULL },
-							{ 0,1,JAM2,6,4,NULL,Txt_Abort,NULL } };
+	// struct IntuiText errIntuitionText[] = {
+	// 						{ 1,2,JAM2,20,5,NULL,Txt_Workbench2Required ,NULL },
+	// 						{ 0,1,JAM2,6,4,NULL,Txt_Abort,NULL } };
 
 	topaztextattr.ta_Name = Txt_TopazFont;
 	topaztextattr.ta_YSize = 8;
@@ -110,6 +110,7 @@ static BOOL OpenStuff(void)
 	InitAnimBrush(&animbrush);
 
 	/* open up all the libraries we need */
+/*
 	if (!(IntuitionBase = (struct IntuitionBase *)OpenLibrary(Txt_IntuitionLibrary,37L) ))
 	{
 		if (IntuitionBase = (struct IntuitionBase *)OpenLibrary(Txt_IntuitionLibrary,0L))
@@ -156,6 +157,7 @@ static BOOL OpenStuff(void)
 		GroovyReq(Txt_EditorError,"Can't Open layers.library",Txt_Abort);
 		return(FALSE);
 	}
+*/
 /*
 	if (!(UtilityBase = OpenLibrary("utility.library" , 0L)) )
 	{
@@ -391,6 +393,7 @@ static void CloseDown(void)
 	/* Close librarys */
 
 /*	if (UtilityBase)		CloseLibrary( UtilityBase ); */
+/*
 	if (LayersBase)			CloseLibrary( LayersBase );
 	if (IFFParseBase)		CloseLibrary( IFFParseBase );
 	if (AslBase)				CloseLibrary( AslBase );
@@ -400,6 +403,7 @@ static void CloseDown(void)
 	if (DOSBase)				CloseLibrary( (struct Library *)DOSBase);
 	if (GfxBase)				CloseLibrary( (struct Library *)GfxBase);
 	if (IntuitionBase)	CloseLibrary( (struct Library *)IntuitionBase);
+*/
 }
 
 

@@ -120,9 +120,9 @@ void main()
 
 BOOL OpenStuff(void)
 {
-	struct IntuiText errIntuitionText[] = {
-							{ 1,2,JAM2,20,5,NULL,"WorkBench 2.0 Required" ,NULL },
-							{ 0,1,JAM2,6,4,NULL,"Abort",NULL } };
+	// struct IntuiText errIntuitionText[] = {
+	// 						{ 1,2,JAM2,20,5,NULL,"WorkBench 2.0 Required" ,NULL },
+	// 						{ 0,1,JAM2,6,4,NULL,"Abort",NULL } };
 
 	topaztextattr.ta_Name = "topaz.font";
 	topaztextattr.ta_YSize = 8;
@@ -130,6 +130,7 @@ BOOL OpenStuff(void)
 	topaztextattr.ta_Flags = NULL;
 
 	/* open up all the libraries we need */
+	/*
 	if (!(IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library",37L) ))
 	{
 		if (IntuitionBase = (struct IntuitionBase *)OpenLibrary("intuition.library",0L))
@@ -162,7 +163,7 @@ BOOL OpenStuff(void)
 		GroovyReq( PROGNAME, "Can't Open iffparse.library","Abort");
 		return(FALSE);
 	}
-
+*/
 	if ( !(mainmsgport = (struct MsgPort *)CreateMsgPort()) )
 	{
 		GroovyReq( PROGNAME,"Not Enough Memory","Abort");
@@ -297,7 +298,7 @@ void CloseDown(void)
 	if (filereq) FreeAslRequest(filereq);
 
 	/* Close librarys */
-
+/*
 	if (IFFParseBase)		CloseLibrary( IFFParseBase );
 	if (AslBase)				CloseLibrary( AslBase );
 	if (DiskfontBase)		CloseLibrary( DiskfontBase );
@@ -305,6 +306,7 @@ void CloseDown(void)
 	if (DOSBase)				CloseLibrary( (struct Library *)DOSBase);
 	if (GfxBase)				CloseLibrary( (struct Library *)GfxBase);
 	if (IntuitionBase)	CloseLibrary( (struct Library *)IntuitionBase);
+*/
 }
 
 
