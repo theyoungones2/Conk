@@ -2,8 +2,8 @@
 
 Follow this if you just want to use Conk without the need for Dev Tools.
 
-1. [WinUAE Setup](./Setup/1.WinUAE-Setup.md)
-2. [Workbench Setup](./Setup/2.Workbench-Setup.md) - Stop after Display Section
+1. [WinUAE Setup](./DevSetup/1.WinUAE-Setup.md)
+2. [Workbench Setup](./DevSetup/2.Workbench-Setup.md) - Stop after Display Section
 
 From Workbench, open the "Work" disk.  
 Right-click Menu > Window > New Drawer > Dev > OK  

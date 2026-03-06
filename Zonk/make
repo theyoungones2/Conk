@@ -13,3 +13,7 @@ ENDIF
 IF  "asm" EQ <nam>
  genam  Source/Wibble.s TO Code/Wibble.o WITH Genam.opts
 ENDIF
+
+IF  "gst" EQ <nam>
+ sc makegst source/include/includes.gst source/include/includes.h
+ENDIF

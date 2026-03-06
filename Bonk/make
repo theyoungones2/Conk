@@ -7,3 +7,12 @@ ENDIF
 IF "recomp" EQ <nam>
  sc WITH SCOPTIONS NOMOD Source/#?.c
 ENDIF
+
+IF  "asm" EQ <nam>
+ genam source/asm/stuff.a WITH source/asm/genam.opts TO code/stuff.o
+ genam source/asm/BlockRoutines.a WITH source/asm/genam.opts TO code/BlockRoutines.o
+ENDIF
+
+IF  "gst" EQ <nam>
+ sc makegst source/include/includes.gst source/include/includes.h
+ENDIF

@@ -13,3 +13,7 @@ ENDIF
 IF "asm" EQ <nam>
  genam source/asm/MiscAsm.a WITH source/asm/genam.opts
 ENDIF
+
+IF "gst" EQ <nam>
+ sc makegst source/include/includes.gst includes.c
+ENDIF

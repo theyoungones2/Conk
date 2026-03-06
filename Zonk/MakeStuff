@@ -1,2 +1,0 @@
-genam source/asm/stuff.a WITH source/asm/genam.opts TO code/stuff.o
-genam source/asm/BlockRoutines.a WITH source/asm/genam.opts TO code/BlockRoutines.o
