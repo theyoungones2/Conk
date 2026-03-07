@@ -235,7 +235,7 @@ bpl7ptl		equ	bplpt+26
 bpl8pth		equ	bplpt+28
 bpl8ptl		equ	bplpt+30
 
-bplcon4		equ	$10C
+;bplcon4		equ	$10C - In custom.i
 
 spr0pth		equ	sprpt
 spr0ptl		equ	sprpt+02
@@ -263,6 +263,6 @@ spr5data	equ	spr+sd_dataa+$28
 spr6data	equ	spr+sd_dataa+$30
 spr7data	equ	spr+sd_dataa+$38
 
-fmode		equ	$1FC
+;fmode		equ	$1FC - In custom.i
 
 noop		equ	$1FE

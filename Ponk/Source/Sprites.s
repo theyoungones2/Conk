@@ -1,7 +1,7 @@
 *********************************************************************************************************
 ;Sprite stuff
 
-	incdir	"PConk:inc/"
+	incdir	"ck:Ponk/inc/"
 	include	"source/libs.gs"
 	include	"source/Header.i"
 	include	"source/Constants.i"

@@ -1,7 +1,6 @@
-
-	incdir	"PConk:inc/"
+	incdir	"ck:Ponk/inc/"
 	include	"source/libs.gs"
-	include	"source/Header.i"
+	include	"source/header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"
 	include	"source/RawKeyCodes.i"
@@ -499,9 +498,9 @@ _WaitPastVBlank
 
 _WaitBlit
 	lea	_custom,a6
-	btst	#14,dmaconr(a6)
+	btst	#6,dmaconr(a6)
 .Loop
-	btst	#14,dmaconr(a6)
+	btst	#6,dmaconr(a6)
 	bne	.Loop
 	rts
 

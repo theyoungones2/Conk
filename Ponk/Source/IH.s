@@ -44,7 +44,7 @@
 *									*
 *************************************************************************
 
- 	incdir	"PConk:inc/"
+ 	incdir	"ck:Ponk/inc/"
 	include	"Source/Libs.gs"
 	include	"Source/header.i"
 	include	"Source/Constants.i"
