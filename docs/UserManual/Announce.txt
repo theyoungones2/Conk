@@ -1,0 +1,80 @@
+TITLE
+
+     Conk - A game construction set.
+
+VERSION
+
+     0.90 (Beta test version)
+
+AUTHOR
+
+     42 South (Ben Campbell, Grant Young, Paul Atkin)
+
+     EMail: ben@ns.planet.gen.nz
+
+DESCRIPTION
+
+     Conk is a standalone game creation package. It is very versatile and
+     can be used to make up 2D games in many styles - Horizontal scrolly
+     shootemups, maze games, Defender-style blasters, Asteroids-style games,
+     Robotron-style games, Platform games and many others.
+
+     - Paint program and background map editor included
+     - Editor programs are very system-friendly
+     - Games take over the display hardware, but otherwise leave the
+       operating system intact (ie multitasking still goes)
+     - Fully hard drive installable
+     - Multiplayer game support
+     - Game files are cached - no unnecessary reloading of levels
+     - Play between-level IFF Anims
+     - Tracker music modules supported
+     - Support for IFF 8SVX and raw sound data
+     - Games can have virtually unlimited horizontal scrolling, limited
+       vertical scrolling or may get rid of scrolling altogether and use an
+       IFF picture (ILBM) as a backdrop.
+     - Any Amiga system can be targeted (Kickstart 2.0+ is required in this
+       beta release, later versions will run on 1.3). You can make up games
+       for standard 68000 machines, or go for a _serious_ game needing lots
+       of memory, disk space and processor grunt. You are not limited by
+       artificial constraints.
+     - Produced games are stand-alone, and no restrictions are placed upon
+       their distribution.
+     - AGA supported (but not required)
+     - Programming skills not required
+
+SPECIAL REQUIREMENTS
+
+     Amiga OS 2.0 (or higher) required.
+     "asl.library" from Amiga OS 2.1 (or higher) required. This will not be
+     needed in the next release.
+
+     For making up games, the preferred system would have a hard drive,
+     at least two megs of memory and a faster processor. A standard Amiga
+     1200 or accelerated 500 is nice.
+
+HOST NAME
+
+     ftp.acid.nz.com
+
+     or, via the web:
+     http://www.acid.nz.com
+
+DIRECTORY NAME
+
+     Acid/Conk/
+
+FILE NAMES
+
+     ConkA.lha - Conk editor programs
+     ConkB.lha - Demo games
+
+PRICE
+
+     Beta version: Free!
+     Final release: To be announced.
+
+DISTRIBUTABILITY
+
+     Version 0.90 (Beta) is NOT for redistribution.
+
+     (C) 1996 by 42 South.

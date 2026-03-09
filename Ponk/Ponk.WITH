@@ -22,4 +22,4 @@ FROM          "obj/Ponk.o"
             "obj/LameEOTR.o"
 	    "obj/BensActionRoutines.o"
 TO Ponk
-LIB devpac:lib/amiga.lib lib:sc.lib
+LIB LIB:amiga.lib lib:sc.lib

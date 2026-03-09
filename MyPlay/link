@@ -1,0 +1,1 @@
+SLINK FROM Code/MyPlay.o+Code/Spam.o+Code/ModulePlayer.o LIB LIB:amiga.lib+lib:sc.lib TO MyPlay

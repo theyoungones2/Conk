@@ -1,0 +1,17 @@
+.key name
+.bra {
+.ket }
+IF {name} EQ "MyPlay"
+ genam Source/MyPlay -Ocode/MyPlay.o
+ENDIF
+IF {name} EQ "Spam"
+ sc source/Spam
+ENDIF
+IF {name} EQ "ModulePlayer"
+ genam Source/ModulePlayer -Ocode/ModulePlayer.o
+ENDIF
+IF {name} EQ "all"
+ genam Source/MyPlay -Ocode/MyPlay.o
+ genam Source/ModulePlayer -Ocode/ModulePlayer.o
+ sc source/Spam
+ENDIF

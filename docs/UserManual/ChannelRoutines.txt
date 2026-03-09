@@ -1,0 +1,666 @@
+CHANNEL ROUTINES
+----------------
+
+
+------------------------------------------------------------------------------
+NAME
+ActionListPlayer
+
+PARAMETERS
+Joystick: Joystick to read
+??Pressed: Actionlists corresponding to joystick switches
+??Released: Actionlists corresponding to joystick switches
+Repeat??Press: Flags corresponding to joystick switches
+
+FUNCTION
+Executes ActionLists depending on the state of the specified joystick.
+For example, when the player presses right, the 'RtPressed' ActionList is
+executed. When the player stops pressing right, the 'RtRelease' ActionList is
+executed. If the 'RepeatRtPressed' flag is set, 'RtPressed' will be called
+for every frame while the user is pushing right, instead of only once.
+The same applies to the other directions, the fire buttons and, of course,
+the joysticks keyboard equivalents. See also the 'CheckFireButtons'
+ChannelRoutine.
+
+------------------------------------------------------------------------------
+NAME
+BGCollision
+
+PARAMETERS
+EdgeOfTheRoad: EdgeOfTheRoad table to use
+HighestSpaceVal: EdgeOfTheRoad threshold value
+BoingActionList: ActionList to execute upon collision
+BounceSpd: Stop/Full/Half/Quarter
+
+FUNCTION
+Background collision detection and handling. The hit zones of the currently
+displayed image are checked against the blocks in the map. If the object
+hits any block with an eotr value above the 'HighestSpaceVal', then a
+collision has occured. Eotr values below or equal to 'HighestSpaceVal' are
+considered space blocks, which the object can travel over freely.
+When a collision occurs, the object will bounce in a manner described by
+'BounceSpd' and the optional 'BoingActionList' will be executed.
+  Please note that if an object is animating, and the different images have
+different hit zones, then potential exists for the object to get embedded
+in a wall. To get around this, use the 'Hit Zones' button in the sequencer
+window of Gonk. This will set the hit zones of all the bobs in an animation
+to the same size.
+  This ChannelRoutine should be installed in the highest numbered Channel.
+This is because it anticipates the position of the object in the next frame
+and takes action if a collision is imminent. If another ChannelRoutine is
+installed in a higher numbered channel than this one, then it could make
+further changes to the objects speed will not have been correctly checked.
+
+------------------------------------------------------------------------------
+NAME
+BGPointCollision
+
+PARAMETERS
+XOffset: Offset of pixel to check from object xpos
+YOffset: Offset of pixel to check from object ypos
+EdgeOfTheRoad: EdgeOfTheRoad table to use
+HighestSpaceVal: EdgeOfTheRoad threshold value
+BoingActionList: ActionList to execute upon collision
+BounceSpd: Stop/Full/Half/Quarter
+
+FUNCTION
+Checks the block under the single pixel specified by 'XOffset' and 'YOffset'.
+The hit zone of the displayed image is not taken into consideration.
+If the block has an eotr value above the 'HighestSpaceVal', then a
+collision has occured. Eotr values below or equal to 'HighestSpaceVal' are
+considered space blocks, which the object can travel over freely.
+When a collision occurs, the object will bounce in a manner described by
+'BounceSpd' and the optional 'BoingActionList' will be executed.
+  This ChannelRoutine should be installed in the highest numbered Channel.
+This is because it anticipates the position of the object in the next frame
+and takes action if a collision is imminent. If another ChannelRoutine is
+installed in a higher numbered channel than this one, then it could make
+further changes to the objects speed will not have been correctly checked.
+
+
+------------------------------------------------------------------------------
+NAME
+CeilingSentry
+
+PARAMETERS
+LeftSpd
+RightSpd
+EdgeOfTheRoad
+HighestSpaceVal
+Check Ceiling?
+Start Left?
+Set Direction?
+
+FUNCTION
+Moves an object left and right, turning when it hits a wall. If 'Check
+Ceiling?' is set then the object will also turn when there is no wall
+immediately above it. Wall blocks are identified by their EdgeOfTheRoad
+value. If a blocks EOTR value is greater than 'HighestSpaceVal' then it is
+considered a wall. Note that the wall checks use the objects current
+collision zones, so if you want an object to move along a section of
+ceiling, you need to position it so that its image (more specifically, its
+collision zone) is touching, but not overlapping the wall blocks. For
+animated objects, remember that the collision zone may change from frame
+to frame - it's usually a good idea to make all frames in an anim have the
+same collision zones (using Gonk). A bit of experimentation is probably
+required. If the 'Start Left?' option is ticked, then the object will
+initially be set moving left. If 'Set Direction' is ticked, then the
+Direction variable of the object is set to either left (6) or right (2)
+depending on the current direction of movement.
+
+------------------------------------------------------------------------------
+NAME
+CheckFireButtons
+
+PARAMETERS
+Joystick: Joystick to read
+Fire0Pressed: Actionlist to execute when fire button 0 is pressed
+Fire0Release: Actionlist to execute when fire button 0 is released
+Fire1Pressed: ...when button 1 is pressed
+Fire1Release: ...when button 1 is released
+Fire2Pressed: ...when button 2 is pressed
+Fire2Release: ...when button 2 is released
+Fire3Pressed: ...when button 3 is pressed
+Fire3Release: ...when button 3 is released
+RepeatFire0Press?: Repeatedly execute 'Fire0Pressed' while button down?
+RepeatFire1Press?: Repeatedly execute 'Fire1Pressed' while button down?
+RepeatFire2Press?: Repeatedly execute 'Fire2Pressed' while button down?
+RepeatFire3Press?: Repeatedly execute 'Fire30Pressed' while button down?
+
+FUNCTION
+Executes ActionLists depending on the state of the fire buttons of the
+specified joystick, and/or the keyboard equivalents. The 'Fire?Pressed'
+is executed when the button is first pushed and, if the 'RepeatFire?Press'
+flag is set, on every frame while the button is held down. 'Fire?Release'
+is executed when the player stops holding the button down.
+See also the 'ActionListPlayer' ChannelRoutine.
+
+------------------------------------------------------------------------------
+
+NAME
+CyclicAnim
+
+PARAMETERS
+Anim: The anim to play
+StartFrame: The frame to start on (0 = first frame)
+Cycles: Number of times to play the anim (0 = play forever)
+
+FUNCTION
+Play a repeating bob/sprite anim. When the last frame is reached the
+anim starts again at the beginning. Cycles is the number of times
+the anim is played (0 = infinite), after which the object is left
+showing the last frame and the channel ends. The anim starts at
+StartFrame, 0 being the first frame.
+
+
+------------------------------------------------------------------------------
+NAME
+Dir16Action
+
+PARAMETERS
+16 Actionlists, corresponding to directions
+
+FUNCTION
+Executes an Actionlist depending on direction. The first ActionList
+corresponds to direction 0 (up), the other ActionLists sweeping out around
+the circle clockwise.
+
+------------------------------------------------------------------------------
+NAME
+Dir16Anim
+
+PARAMETERS
+Pause at zero speed?: option to stop animating when object is at standstill
+Null anims pause?:
+OneShot anims?: Play anim once, stop at last frame.
+16 Anims, corresponding to directions
+
+FUNCTION
+Animates an object according to its direction. The first anim corresponds
+to direction 0 (up), and the other anims sweep a circle out clockwise.
+If any anim fields left empty, then the already-playing anim will either
+continue unchanged or pause, depending on the 'Null anims pause?' checkbox.
+If 'OneShot anims?' is set, then the anims will play through once and stop
+on the last frame. If 'Pause at zero speed?' is set, anims will pause
+whenever the object stops moving.
+
+------------------------------------------------------------------------------
+NAME
+Dir16Image
+
+PARAMETERS
+16 Images, corresponding to directions
+Anim: Optional anim containing 16 frames (at least)
+
+FUNCTION
+Sets an objects image to one of the 16 supplied, depending on its direction.
+The first image corresponds to direction 0 (up) and the other images follow
+clockwise, sweeping around a circle in 16 steps. If any image fields are left
+blank then the image will not change at that direction. If the 'Anim' field
+is used, images are instead picked from an animation. The 16 image fields
+will be ignored. The animation must contain at least 16 frames or weird
+things might happen when the non-existant frames are displayed. If an anim
+has a speed value other than one (from Gonk) it will, in effect, have extra
+frames. For example, an 8 frame anim at speed two will appear to be 16 frames
+long, and can be used the same as a 16 frame anim. An advantage of using
+the 'Anim' field is that the x & y offsets of each frame are respected.
+
+
+------------------------------------------------------------------------------
+NAME
+Dir32Action
+
+PARAMETERS
+32 Actionlists, corresponding to directions
+
+FUNCTION
+Same as Dir16Action, only with more ActionLists, and thus, finer directional
+control.
+
+------------------------------------------------------------------------------
+NAME
+Dir32Anim
+
+PARAMETERS
+Pause at zero speed?: option to stop animating when object is at standstill
+Null anims pause?:
+OneShot anims?: Play anim once, stop at last frame.
+32 Anims, corresponding to directions
+
+FUNCTION
+Same as Dir16Anim, only with finer direction selection.
+
+------------------------------------------------------------------------------
+NAME
+Dir32Image
+
+PARAMETERS
+Anim: Anim containing 32 frames (at least)
+
+FUNCTION
+Same as Dir16Image, but the images must come from an Anim. Selecting 32
+individual images would just be too tedious.
+
+------------------------------------------------------------------------------
+NAME
+Dir64Action
+
+PARAMETERS
+64 Actionlists, corresponding to directions
+
+FUNCTION
+Same as Dir16Action, only with more ActionLists, and thus, a very tedious
+ChannelRoutine to use indeed.
+
+------------------------------------------------------------------------------
+NAME
+Dir64Anim
+
+PARAMETERS
+Pause at zero speed?: option to stop animating when object is at standstill
+Null anims pause?:
+OneShot anims?: Play anim once, stop at last frame.
+32 Anims, corresponding to directions
+
+FUNCTION
+Same as Dir16Anim, only with a ludicrous number of anims to specify.
+
+------------------------------------------------------------------------------
+NAME
+Dir64Image
+
+PARAMETERS
+Anim: Anim containing 64 frames (at least)
+
+FUNCTION
+Same as Dir16Image, but the images must come from an Anim. Selecting 64
+individual images would just be waaaaay too tedious.
+
+
+------------------------------------------------------------------------------
+NAME
+Dir8Action
+
+PARAMETERS
+8 Actionlists, corresponding to directions
+
+FUNCTION
+Same as Dir16Action, only with less ActionLists (the four primary directions,
+plus diagonals).
+
+------------------------------------------------------------------------------
+NAME
+Dir8Anim
+
+PARAMETERS
+Pause at zero speed?: option to stop animating when object is at standstill
+Null anims pause?:
+OneShot anims?: Play anim once, stop at last frame.
+8 Anims, corresponding to directions
+
+FUNCTION
+Same as Dir16Anim, only with less directions.
+
+
+------------------------------------------------------------------------------
+NAME
+Dir8Image
+
+PARAMETERS
+8 Images, corresponding to directions
+Anim: Optional anim containing 8 frames (at least)
+
+FUNCTION
+Same as Dir16Image, but only eight images are used (the circle is swept out
+in 45 degree steps).
+
+
+------------------------------------------------------------------------------
+NAME
+Execute
+
+PARAMETERS
+ActionList: The ActionList to execute.
+Delay: Number of frames to wait between each execution.
+Repeats: Number of times to execute.
+
+FUNCTION
+'ActionList' is executed 'Repeats' times, seperated by intervals of 'Delay'
+number of frames, then the channel finishes. To continue indefinitely,
+'Repeats' can be set to zero. A 'Delay' value of zero means the ActionList
+will be executed every frame.
+
+
+------------------------------------------------------------------------------
+NAME
+FloorSentry
+
+PARAMETERS
+LeftSpd
+RightSpd
+EdgeOfTheRoad
+HighestSpaceVal
+Check Floor?
+Start Left?
+Set Direction?
+
+FUNCTION
+Identical to 'CeilingSentry', except has an option for checking blocks below
+the object (floor) rather than blocks above it (ceiling).
+
+------------------------------------------------------------------------------
+NAME
+FollowPath
+
+PARAMETERS
+Path: Name of Path to move along
+Zero speeds at end?: Stop at end of Path?
+Ignore path StartPos?:
+
+FUNCTION
+Moves an object along the specified Path. This ChannelRoutine moves the
+object by adding or subtracting amounts from XSpeed and YSpeed. This means
+that the path can be combined with other movement. In fact, you will often
+want to make sure that the X and Y speeds of the object are zero before
+starting the path unless you want to 'drift'. When the path finishes, the
+Channel ends. If 'Zero speeds at end?' is set, XSpeed and YSpeed will be
+set to zero at the end of the path. If 'Ignore path StartPos?' is set,
+the object will start into the path from its current position, rather than
+being moved to the start position of the path (which is set in Zonk).
+
+
+
+------------------------------------------------------------------------------
+NAME
+InertialHomer
+
+PARAMETERS
+Target:	Player to home in on
+TrackNearestPlayer?: Home in on the nearest player, instead of 'Target'?
+XAccel: Horizontal acceleration
+YAccel: Vertical acceleration
+MaxXSpd: Maximum horizontal speed
+MaxYSpd: Maximum vertical speed
+
+FUNCTION
+Makes an object home in on the specified player. If 'TrackNearestPlayer?' is
+set, then the nearest player is targeted, rather than the player specified
+in the 'Target' field. The nearest player is calculated every frame, so if
+another player moves closer, the object will break off and track that one
+instead. The calculation for nearest player is only approximate.
+
+------------------------------------------------------------------------------
+NAME
+InertialPlayer
+
+PARAMETERS
+Joystick: Number of controlling joystick
+XAccel: Horizontal acceleration
+YAccel: Vertical acceleration
+MaxXSpd: Maximum horizontal speed
+MaxYSpd: Maximum vertical speed
+XDrag: Horizontal drag
+YDrag: Vertical drag
+FireActionList: Actionlist to execute when fire button is pressed
+FireWeaponBays?: Fire all installed weapons when fire is pressed?
+AutoFireRepeat?: Can fire button be held down to fire repeatedly?
+Gravity: Downward acceleration
+BaseXSpd: The 'at rest' XSpd (usually zero)
+SetDirection: How to set the Direction variable
+AxisFreedom: Lets you restrict movement to one axis
+
+FUNCTION
+Player control routine - accelerates the player in the direction selected
+with the joystick. 'XDrag' and 'YDrag' slow the player back down to a
+standstill if no acceleration is applied. This combination gives the object
+a feeling of mass and inertia. The 'SetDirection' field selects how the
+objects Direction variable is set. You can say that the direction can
+be restricted to only left/right, to up/down, to the 8 joystick directions
+or to be left unchanged. The Direction variable can be used by other
+Actions or ChannelRoutines. For example, since the Direction is passed on
+to a child PlayerBullet object (see SpawnPlayerBullet), you could restrict
+firing to only left or right. The 'AxisFreedom' field lets you restrict
+player movement to only one axis. When the fire button is
+pressed 'FireActionList' is executed (unless this field is left blank).
+If 'FireWeaponBays' is set, all the installed weapons will be fired also.
+Unless 'AutoFireRepeat' is set, the player has to release the fire button
+in order to fire again. 'BaseXSpd' lets you set the XSpeed which the object
+slows down to (because of drag). It lets you 'bias' XSpeed in one direction
+or the other. For example, in a horizontally scrolling game you might want to
+set the 'BaseXSpd' to the same as the background scrolling speed.
+
+------------------------------------------------------------------------------
+
+NAME
+JitterSpeed
+
+PARAMETERS
+XRndMin: Lower limit of random X value
+XRndMax: Upper limit of random X value
+MaxXSpeed: Maximum XSpeed allowed
+YRndMin: Lower limit of random Y value
+YRndMax: Upper limit of random Y value
+MaxYSpeed: Maximum YSpeed allowed
+WhichAxis: 'X & Y', 'X only' or 'Y only'
+Rate: Number of frames between each jitter
+
+FUNCTION
+'Jitters' an objects movement by adding random values (within the set limits)
+to X Speed and/or Y Speed. If 'Rate' is zero, the speed(s) will be randomly
+modified (jittered) every frame. If 'Rate' is some other value, it will wait
+that many frames between jitters. Jittering can be restricted to just one
+axis using the 'WhichAxis' field. '?RndMin' and '?RndMax' are used to
+determine the range of the randomness. Usually you will want '?RndMin' to be
+as negative as '?RndMax' is positive. Unless the values are 'balanced' is
+this way, the object will 'drift' one way or the other - this can be handy,
+but often it's just a pain in the neck. A balanced object will jitter about,
+but overall, should stay in roughly the same area.
+
+------------------------------------------------------------------------------
+
+NAME
+LinearAccel
+
+PARAMETERS
+Initial XSpd: start value for X speed of the object
+Initial YSpd: start value for Y speed of the object
+XAccel: Acceleration in X axis
+YAccel: Acceleration in Y axis
+Ignore Initial Spds: If ticked, the initial speeds are not used.
+
+FUNCTION
+Accelerates an object over time. On every frame, 'XAccel' will be added to the
+objects X speed, and 'YAccel' will be added to the Y speed. When this routine
+is installed, the objects speeds are immediately set to the specified initial
+values. This can be prevented by ticking 'Ignore Initial Speeds', which will
+leave them unaltered.
+
+------------------------------------------------------------------------------
+
+NAME
+LinearPlayer
+
+PARAMETERS
+Joystick:
+XSpd:
+YSpd:
+FireActionList:
+FireAllWeaponBays?
+AutoFireRepeat?
+SetDirection:
+
+FUNCTION
+Simple joystick control routine. The object moves directly at the speeds
+given in 'XSpd' and 'YSpd'. If 'FireActionList' is set, it will be executed
+when the fire button is pressed. If 'FireAllWeaponBays?' is ticked, pressing
+fire will fire off any installed weapons. If 'AutoFireRepeat' is ticked,
+then firing will occur every frame the button is held down. If this is not
+ticked, the fire button must be released before it will fire again.
+'SetDirection' determines how this channel routine uses the Direction
+variable. If set to 'No', Direction will not be altered at all. '8-Way'
+sets the direction to the current joystick direction. 'Left/Right' and
+'Up/Down' restrict direction to one axis. The direction can be used, for
+example, to animate the object using one of the directional animation
+channel routines (installed in a higher-numbered channel).
+
+------------------------------------------------------------------------------
+
+NAME
+MousePlayer
+
+PARAMETERS
+Mouse: Port 0 or 1
+XAccel:
+YAccel:
+MaxXSpd:
+MaxYSpd:
+XDrag:
+YDrag:
+FireActionList:
+DirectMovement?
+FireAllWeaponBays?
+AutoFireRepeat?
+AxisFreedom:
+BaseXSpd:
+Gravity:
+
+FUNCTION
+Allows control of an object using a mouse. By default the movement is
+indirect and the object has an inertial feel, governed by the 'XAccel/XDrag'
+'YAccel'/'YDrag' pairs. If the 'DirectMovement' box is ticked, the mouse
+exerts a more direct influence, more like the workbench pointer.
+Movement can be restricted to one axis using the 'AxisFreedom' cycle gadget.
+'BaseXSpd' provides a constant base speed for the object, useful for
+scrolling games where you want the object to keep up with the scrolling.
+'Gravity', if non-zero, accelerates the object downward.
+'FireActionList' is executed on the player when the left button (fire button
+0) is pressed. If 'FireAllWeaponBays' is set then the button will also fire
+any installed weapons. 'AutoFireRepeat' allows firing every frame the button
+is down, rather than waiting for the button to be released before firing
+again.
+
+------------------------------------------------------------------------------
+
+NAME
+NullChannel
+
+PARAMETERS
+None
+
+FUNCTION
+This channel routine does nothing. It is handy for executing an ActionList
+after a specified delay, using the channel timer and DoneActionList fields.
+
+------------------------------------------------------------------------------
+NAME
+RandomEvent
+
+PARAMETERS
+Probability: The chances of the event happening (0=never, 255=always).
+ActionList: The ActionList to execute if the event occurs.
+
+FUNCTION
+A random number between 0 and 255 is picked. If it is less than "Probability"
+then the ActionList is executed. A probability of 0 means the event will
+never occur, while a probability of 255 is a certainty. The actionlist will
+be executed on the current Object (ie Object context).
+There is also an Action called "RandomEvent".
+
+------------------------------------------------------------------------------
+NAME
+RotationalPlayer
+
+PARAMETERS
+Joystick: Controlling joystick number
+RotSpeed: How fast the player can rotate when left or right are pressed
+FwdAccel: Acceleration when up is pressed
+RevAccel: Reverse acceleration when down is pressed
+MaxSpeed: Maximum movement speed allowed
+Drag: How fast player slows down when not accelerating
+FireActionList: Actionlist to execute when fire button is pressed
+FireWeaponBays?: Fire all installed weapons when fire is pressed?
+AutoFireRepeat?: Can fire button be held down to fire repeatedly?
+
+FUNCTION
+With this ChannelRoutine, the player can rotate anticlockwise and clockwise
+by pressing left and right respectively. Pressing up will accelerate in the
+direction the player is facing, while pressing down will accelerate in the
+opposite direction. The Direction variable is set by this ChannelRoutine
+and may be used by other Actions or ChannelRoutines (to display an
+appropriate image, for example). 'MaxSpeed' is the maximum speed (in any
+direction) the object is allowed to travel at. When the fire button is
+pressed 'FireActionList' is executed (unless this field is left blank).
+If 'FireWeaponBays' is set, all the installed weapons will be fired also.
+Unless 'AutoFireRepeat' is set, the player has to release the fire button
+in order to fire again.
+
+
+------------------------------------------------------------------------------
+
+NAME
+TrackPlayer
+
+PARAMETERS
+Player: The player to track
+Speed: Speed of movement towards player
+TurnSpeed: Speed of rotation toward player
+Direct tracking?: Move directly toward player, ignoring TurnSpeed
+
+FUNCTION
+The Direction variable of the object is constantly updated to point the
+object toward the specified player. If 'Direct tracking' is selected, the
+object is always pointed directly at its target. Otherwise, the object turns
+toward the player at a rate given by 'TurnSpeed' each frame ('TurnSpeed' is
+added or subtracted to Direction). Having a 'TurnSpeed' greater than 4 (180
+degrees per frame) may produce strange results.
+If the 'Speed' field is non-zero, the objects XSpeed and YSpeed are
+calculated to move the object at 'Speed' in the current direction.
+If 'Speed' is left zero, XSpeed and YSpeed are left unchanged.
+A negative 'Speed' field means that the object will run away from the
+player.
+
+------------------------------------------------------------------------------
+
+NAME
+XSpeedAnim
+
+PARAMETERS
+LeftThreshold
+LeftAnim
+RightThreshold
+RightAnim
+NeutralAnim
+
+FUNCTION
+Selects one of three anims to play depending on the XSpeed of the object.
+If the speed is less than 'LeftThreshold' then 'LeftAnim' is played. If the
+speed is greater than 'RightThreshold' then 'RightAnim' is played. If the
+speed is in between (or equal to) the thresholds, then 'NeutralAnim' is
+played. For example, if the thresholds are left at 0, 'NeutralAnim' will be
+displayed when the object is at standstill (at least in the X axis),
+'LeftAnim' when going left, and 'RightAnim' when going right.
+
+------------------------------------------------------------------------------
+
+NAME
+YSpeedAnim
+
+PARAMETERS
+UpThreshold
+UpAnim
+DownThreshold
+DownAnim
+NeutralAnim
+
+FUNCTION
+Selects one of three anims to play depending on the YSpeed of the object.
+If the speed is less than 'UpThreshold' then 'UpAnim' is played. If the
+speed is greater than 'DownThreshold' then 'DownAnim' is played. If the
+speed is in between (or equal to) the thresholds, then 'NeutralAnim' is
+played. For example, if the thresholds are left at 0, 'NeutralAnim' will be
+displayed when the object is at standstill (at least in the Y axis),
+'UpAnim' when going up, and 'DownAnim' when going down.
+
+
+
+

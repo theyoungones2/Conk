@@ -1,0 +1,31 @@
+MISC
+--------------------------------------------------------------------------------
+
+ACTIONLIST NAMING CONVENTIONS
+
+In any non-trivial game you will need many ActionLists. It can be very tricky
+remembering the purpose of each one and the circumstances in which it can be
+used. It is useful to adopt a convention for naming ActionLists.
+The convention used in the demo games prefixes each ActionList name with a
+short code identifying which object (or objects) the ActionList is designed
+to execute upon. For example, an ActionList to initialize the player could be
+called 'PLYR_INIT' where the prefix 'PLYR_' indicates a player object, and
+the 'INIT' describes the function of the ActionList.
+Some useful general prefixes:
+'GAME_' indicates the ActionList is to execute upon the game in general
+(global context). It does not have to be executed upon an object.
+'PLYR_' Executes on a player object. You might want to use 'PLYR0_', 'PLYR1_'
+etc... to reference individual players in a multiplayer game. You could still
+use 'PLYR_' for ActionLists which can be executed on any of the players.
+'OBJ_' Executes on any object. It is handy to have a set of actionlists
+executable upon any object to handle simple tasks such as turning an object
+off, starting a standard explosion sequence or simple collision handling
+(eg 'OBJ_OFF', 'OBJ_EXPLODE', 'OBJ_GETHURT' respectively).
+For BadDudes and PlayerBullets, it is usually easiest to make up prefixes
+specific to the particular dude or weapon. For example, any objects resulting
+from a 'Laser' weapon could use ActionLists prefixed with 'LAS_'. An
+'Elvis-Clone-From-Mars' bad dude could use 'ELVIS_' ActionLists.
+Of course, you are not bound to this naming convention in any way - it's just
+a suggestion. You are free to use any names you want, but you will find it
+worthwhile sticking to a set naming scheme.
+
