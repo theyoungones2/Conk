@@ -1,6 +1,11 @@
 Use 'smake' (comes with SAS) to assemble and link.
 The lame and Spam/moduleplayer.o files need to be already present.
 
+```
+copy /MyPlay/code/ModulePlayer.o Obj/
+copy /MyPlay/code/Spam.o Obj/
+copy /Lame/code/#?.o Obj/
+```
 
 ## How to create Libs.gs
 
