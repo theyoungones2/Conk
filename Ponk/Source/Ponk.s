@@ -879,7 +879,7 @@ _MakePackable
 **************************************************************
 
 
-	SECTION Vars,BSS
+	SECTION __MERGED,BSS
 
 _NextLevelBuffer ds.b	10
 

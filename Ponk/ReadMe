@@ -28,3 +28,12 @@ Pass 2
 ```
 4. Close the Assembling windows
 5. Quit Devpac
+
+## GenAm.opts  
+A definition for the GenAm Options
+
+`-vow-`	Disable (vowel) - Turns OFF automatic optimization warnings  
+`o+`	Optimize - Enables code optimization  
+`alink`	Use Alink linker - Specifies Alink as the linker instead of the default  
+`chkimm`	Check immediates - Validates immediate values for Motorola 68000 instructions  
+`user`	User mode - Generates code for user mode execution (vs supervisor mode)  
