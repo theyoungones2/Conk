@@ -1,0 +1,662 @@
+
+ZONK - some (very) basic docs
+-----------------------------
+
+--------------------------------------------------------------------------------
+
+Chunk Window
+------------
+
+The Chunk window is the heart of Zonk. It controls the loading and saving
+of chunks and launches appropriate editors for chunk editing.
+You can close the Chunk window (Zonk won't exit until all windows are closed),
+but it's usually handy to have it about.
+
+The gadgets in the Chunk Window are:
+
+"Chunks"
+	A list of the currently-loaded chunks. Marked chunks are preceded with an
+asterisk ('*'). If you double-click on an unmarked chunk, it will be marked,
+along with any other chunks from the same file. Double-clicking on a marked
+chunk removes the mark. A plus sign ('+') immediately preceeding a chunk
+means that that chunk contains unsaved changes.
+
+"Info"
+	Displays information about the currently highlighted chunk, if any.
+
+"New..."
+	Creates a new chunk. A requester appears to ask you which type of chunk you
+want created.
+
+"Edit..."
+	Lets you edit the currently highlighted chunk. Not all chunk types may be
+edited in Zonk.
+
+"Free..."
+	Discards the highlighted chunk.
+
+"Load..."
+	Loads from a file.
+
+"Save..."
+	Save the marked chunks together in a file.
+
+--------------------------------------------------------------------------------
+
+
+Game Config Window
+------------------
+
+Game config page gadgets:
+
+"Title", "Author", "Comment"
+	Info on your game - fill in how you like.
+
+"Levels"
+	A list of the levels making up the game.
+
+"New"
+	Adds a new level.
+
+"Del"
+	Deletes the highlighted level.
+
+"Up", "Down"
+	Moves the highlighted level up or down a place in the list.
+
+"Edit"
+	Edit the highlighted level. This brings up the level config page.
+
+Level config page gadgets:
+
+"Level Name"
+	The name to use to identify the level.
+
+"Comment"
+	For you to use how you like.
+
+"Level Type"
+	A Game level is a standard Conk level which uses a Display chunk and
+ActionLists (ie a level you've made up with Zonk). Anim levels are ones
+where an IFF animation is played, then the next level is called. Pic
+levels have not been programmed yet, but will be for displaying still
+pictures. Ponk always starts the game on the first level in the list.
+
+"Files"
+	This is a list of all the files to load in for this level. The directory
+path for each file is relative to the directory in which you are going to
+run Ponk.
+The string gadget underneath lets you edit the names directly. The cycle gadget
+indicates the type of file - Conk, IFF ILBM, IFF ANIM, Tracker Module or
+unknown. This lets Ponk know what type of file it is dealing with.
+
+"Add..."
+	Brings up a file requester to let you pick files. To select multiple files,
+hold down the shift key while using the requester. Zonk will try and guess
+the file type(s).
+
+"Drop"
+	Drops the currently highlighted file from the list.
+
+"Up","Down"
+	Move files up and down the list. The order of files is not important.
+
+"Done"
+	Exits back out to the Game config page.
+
+
+
+--------------------------------------------------------------------------------
+DisplayChunk Window
+-------------------
+
+Gadgets:
+
+"Page"
+	Cycles through the various pages of editable data in the Display Chunk.
+
+Graphics Page:
+
+"Map"
+	The name of the background Map to be used in the level. If you do not want
+a Map in the background then leave this field blank. The question mark brings
+up a list of currently loaded Maps.
+
+"BlockSet"
+	The Blockset used by the Map, if any.
+
+"BackDropPic"
+	An picture (IFF ILBM) to use in the level background instead of a Map.
+The first 13 letters of the pictures file name is entered here, without the
+directory path. The question mark gadget lets you select a picture using
+a file requester.
+
+"Palette"
+	The Palette used by the level is stored in the display chunk. You can copy
+the palette from one already loaded into Zonk using the question mark, or
+you can import one from disk using the "Import Palette..." button.
+"Import Palette..." can extract palettes from IFF ILBMs and Conk files.
+
+Players Page:
+
+"Player0Init", "Player1Init", "Player2Init", "Player3Init"
+	These four fields hold the ActionLists used to initalize any Player objects
+at the start of the level. Any (or all) of these fields may be left blank.
+Any ActionLists specified here execute on the context of the player they
+are initializing. The question marks let you select ActionLists from the
+ones currently loaded into Zonk.
+
+Misc Page:
+
+"AGA only?"
+	If this checkmark is set, then Ponk will stop the level from running on
+a non-AGA machine.
+
+"Frame Rate"
+	The speed at which the game runs. At full frame rate, the game will try to
+update with every retrace of the raster. At half frame rate it will update
+every second retrace. If a lot of things are happening in the level, then
+the computer may not be fast enough to keep up with the specified rate.
+Half frame rate gives the processor twice as much time to get a frame ready
+for display than full frame rate does.
+
+"Game Init"
+	ActionList executed at the start of the level. Usually used to set up
+scrolling and assorted global data. This ActionList executes in a global
+context, and cannot contain any actions which require access to an object.
+This field may be left blank.
+
+"Game Update"
+	An ActionList that is executed every frame. It can, for example, be used
+to update items in the StatBox. Again, this ActionList executes in a global
+context.
+
+"NumberOfPlayerObjs"
+	The number of player objects that are allocated at the beginning of the
+level. If Ponk runs out of objects during gameplay it will allocate
+more, but allocating objects on the fly is inefficient and generally
+considered a Bad Thing. Incidentally, you can have more than four player
+objects, but usually you wouldn't really want to.
+
+"NumberOfBulletObjs"
+	The number of PlayerBullet objects allocated in advance.
+
+"NumberOfBadDudeObjs"
+	The number of BadDude objects allocated in advance.
+
+"StatBoxPic"
+	The Picture (again an IFF ILBM) to use as the StatBox. The palette for
+the StatBox is taken from the ILBM. Only the first 13 characters of the
+filename is entered, without the path.
+
+Default Borders Page:
+
+This page lets you set up the default borders for the level. All objects in the
+level are initially created with the border values specified here. The borders
+can be set on a per-object basis using the 'SetBorders' action.
+
+--------------------------------------------------------------------------------
+ActionLists Window
+-------------------
+
+The ActionLists window starts off displaying a list of all the ActionLists in
+the chunk. In this mode, the gadgets displayed are:
+
+"ActionLists"
+	A ListView gadget where you can highlight one of the ActionLists in the
+chunk. Double-clicking an ActionList has the same effect as highlighting it and
+then clicking the "Edit" gadget.
+
+"Edit"
+	Switches to editing mode for the highlighted ActionList. See below.
+
+"New"
+	Creates a new, empty, ActionList. You are prompted for a name.
+
+"Del"
+	Deletes the highlighted ActionList.
+
+"Rename"
+	Renames the highlighted ActionList.
+
+"Copy"
+	Creates a new ActionList, copying the contents from another.
+
+"Up"
+	Moves the highlighted ActionList one position up. A purely cosmetic option
+as the order is unimportant.
+
+"Dn"
+	Moves the highlighted ActionList one position down.
+
+In editing mode the window layout changes:
+
+"Listing of..."
+	The ListView gadget now displays a listing of the Actions in the ActionList.
+
+"Edit"
+	Brings up another window to edit the parameters of the highlighted action.
+The parameter-editing windows contents depend on the particular action. If an
+action has a lot of parameters, they will occupy more than one 'page'. You
+can flick between the pages using the "Next >" and "< Prev" gadgets. When the
+parameters have been set to the values you want, click "OK". The window close
+gadget has the same effect.
+
+"Add"
+	Add another action at the end of the ActionList. A requester will come up
+prompting you to select an action. The left part of the requester lists
+various categories of actions, while the right part lists the actions in the
+selected category. The "All" category lists every action.
+
+"Ins"
+	Inserts an action before the highlighted one. Again, a requester will appear
+to let you select the action.
+
+"Del"
+	Deletes the highlighted action.
+
+"Up"
+	Moves an action one position up the list. Order can sometimes be important
+(in the game, the actions will be executed from top to bottom).
+
+"Down"
+	Moves an action one position down.
+
+"Done"
+	Exits editing mode and returns to the list of ActionLists. The close gadget
+of the window has the same effect.
+
+--------------------------------------------------------------------------------
+Screen Settings Window
+----------------------
+
+This window lets you set up the screen mode, fonts and palette used in Zonk.
+Usually, you will want to run Zonk on its own screen using a palette
+appropriate to the game you are working on, but there is provision for opening
+Zonk on an existing public screen. The settings in this window do not take
+effect until the "OK" button is pressed.
+
+The gadgets in this window are:
+
+"Screen"
+	A cycle gadget to say if Zonk should open on its own screen, an existing
+public screen or on the default public screen.
+
+"PubScreen"
+	If "Screen" is set to 'Existing PubScreen' then the name of the screen can
+be selected here.
+
+"ScreenMode"
+	If "Screen" is set to 'New PubScreen' then Zonk will open up a screen of
+its own with the screenmode specified here.
+
+"Palette"
+	This lets you set a palette for Zonks screen. The "Palette..." button lets
+you import a Palette using a file requester. The "?" button lets you import
+a palette from an already-loaded Palette chunk (as displayed in the
+ChunkWindow). Usually you would want to use the palette from the game level
+you are working on.
+
+"ScreenFont"
+	This font is used as the default for Zonks Screen. It will appear in the
+Screen title bar and window title bars. If Zonk doesn't open its own screen
+this field is not used.
+
+"WindowFont"
+	This font is used for the contents of all Zonk windows.
+
+--------------------------------------------------------------------------------
+Weapon Window
+-------------
+
+"Weapon"
+	The name of the Weapon currently being edited. Clicking the button lets you
+select another weapon to edit using a requester. The string gadget letes you
+edit the name of the selected weapon.
+
+"New"
+	Creates a new weapon.
+
+"Del"
+	Deletes the current weapon.
+
+"ActionList"
+	The ActionList executed when the weapon is fired. This ActionList can be
+executed either upon the player object firing the weapon, or on a newly created
+PlayerBullet object, depending on the "Create Bullet?" checkbox (see below).
+You can type an ActionList name directly into the string gadget or pick one
+from a loaded chunk using the "?" button.
+
+"MaxBullets"
+	This is the maximum number of PlayerBullet objects originating from this
+weapon that can exist at any one time. Any subsequent attempts to fire the
+weapon will be ignored.
+
+"FireDelay"
+	This is the number of frames to wait between each firing of the weapon.
+Any attempts to fire the weapon before this time delay has expired will be
+ignored.
+
+"PowerUp"
+	Specifies the PowerUp weapon for the currently selected weapon. When a weapon
+bay is powered up (using the 'PowerUp' Action), the weapon it contains is
+replaced by its PowerUp weapon. If you leave this field blank, then powering up
+will have no effect.
+
+"PowerDown"
+	Specifies the PowerDown weapon for the currently selected weapon.
+
+"Create Bullet?"
+	If this checkbox is clear, then the ActionList specified in the "ActionList"
+field is executed on the Player object that fired the weapon. If this gadget
+is ticked, then when the weapon fires a new PlayerBullet object will be created
+and "ActionList" executed upon it.
+
+--------------------------------------------------------------------------------
+Path Window
+-------------
+
+
+"Path"
+	This button brings up a requester to let you select a path to edit.
+
+"New"
+	Creates a new path.
+
+"Rename"
+	Renames the current path.
+
+"Del"
+	Delete the current path.
+
+The middle area of the window displays the path currently being edited. The
+path consists of points connected by line segments. Points are represented by
+small squares. The start point of the path is marked by an X. Points can be
+dragged around using the mouse. A line segment can be selected by clicking on
+it. Holding down the SHIFT key lets you select multiple line segments. Selected
+line segments appear in a different colour to unselected ones. Each line
+segment has an associated speed value. This is the speed, in pixels per frame,
+at which an object will travel along the segment.
+
+"Line"
+	Adds a line segment to the path. The length and speed of the new segment will
+be copied from the previous segment.
+
+"All"
+	Selects all the line segments in the path.
+
+"Div"
+	Subdivides the selected line segments. Each line segment is split in half,
+with a new point being placed at the midpoint.
+
+"Del"
+	Deletes the selected line segments.
+
+"Speed"
+	This number gadget displays the speed value of the most recently selected
+line segment. Entering a new value sets the speed of all the currently
+selected segments.
+
+"In"
+	Zoom in.
+
+"Out"
+	Zoom out.
+
+"Map"
+	Picks a Map (from a loaded chunk) to use as a background for the path.
+This lets you position paths at a specific position on the map, and align
+with features on the map.
+
+"Blks"
+	Picks a blockset to use with the background Map.
+
+
+--------------------------------------------------------------------------------
+
+ScrollWaves Window
+------------------
+
+This editor window lets you set up events that occur when the scroll view hits
+certain trigger points on the background map. An event can create a bad dude,
+execute an ActionList or start a Formation. Each event has a left trigger
+point or a right trigger point or both. These are x (horizontal) positions
+along the background map. The left point triggers the event when it is hit by
+the right edge of the screen. The right point triggers when it is hit by the
+left edge of the screen.
+	In the ScrollWaves window, events are represented by a crosshair or a bob
+image (for bad dudes, if the image is in a loaded chunk). Events can be
+selected and dragged to new positions using the mouse. The trigger point(s) of
+the selected event are displayed as vertical lines, with tabs at the top for
+repositioning.
+	You can scroll around the map using the cursor keys. Hold down ALT,
+SHIFT or CTRL to scroll around in larger increments.
+
+Gadgets:
+
+"New"
+	Creates a new event. The event will be positioned in the middle of the
+editor view.
+
+"Del"
+	Delete the selected event.
+
+"Trg"
+	Selects which trigger points are active.
+
+"ApCnt"
+	The number of times the event can be triggered. A Zero in this field means
+that the event will be triggered every time one of the trigger points is hit.
+
+"ALst/Dude/Fmtn"
+The cycle gadget determines the nature of the event. The options are 'ALst',
+'Dude' or 'Fmtn'. If set to 'ALst' the event will execute the ActionList 
+specified in the string gadget. It will be executed on a global context,
+and the position of the event crosshair is not used. For 'Dude' events, a
+new BadDude object will be created and the ActionList in the string
+gadget will executed upon it. The ScrollWaves editor will look for a bob
+image to use for displaying the dude by searching through the ActionList.
+If a reference to an image (or anim) is found, the loaded bob chunks are
+searched and if possible the image is displayed. 'Fmtn' events start a
+Formation, specified in the string gadget. The '?' button lets you browse
+through loaded ActionLists or Formations using a requester.
+
+NOTE: At the moment, ActionList type events are not available for ScrollWaves.
+
+
+--------------------------------------------------------------------------------
+Formation Window
+----------------
+
+At this point, the Formation editor window is a complete waste of time. It's
+slow, boring and buggy.
+
+--------------------------------------------------------------------------------
+TimedAttackWaves Window
+-----------------------
+
+This window lets you edit a TimedAttackWaves chunk. Basically, this is just a
+list of events set up to occur at specific times.
+
+Gadgets:
+
+"Timed Events"
+	A list of events, sorted by time values.
+
+"Add"
+	Add a new event.
+
+"Delete"
+	Delete the highlighted event.
+
+"Time"
+	The time value of the event. This is given as a frame number. For a full
+framerate game there are 50 frames per second for PAL machines, and 60 frames
+per second on NTSC. Half framerate games run at 25 (PAL) or 30 frames per
+second (NTSC). If a new value is entered here, the event will be moved to the
+appropriate place in the list.
+
+"ActionList/InitBadDude/Formation"
+	The cycle gadget determines the type of the event. For 'ActionList' events
+the string gadget holds the name of the ActionList to execute (it will be
+executed in a global context). For 'InitBadDude' events, a new BadDude object
+will be created at the given position (see below) and the specified ActionList
+will be executed upon it. 'Formation' events start a Formation at the given
+position.
+
+"X","Y"
+X,Y coordinates of event, if it is of 'InitBadDude' or 'Formation' type. These
+values have no meaning for 'ActionList' events.
+
+"ViewRelative"
+If this checkbox is ticked, then X and Y are taken as offsets from the current
+position of the view (view relative coordinates).
+If clear, the X,Y position is taken as relative to the background map
+(absolute coordinates).
+
+
+--------------------------------------------------------------------------------
+SFX Window
+----------
+
+Before Conk games can use sound effects they must be put into a SFX chunk.
+This editor window lets you import raw and IFF 8SVX sample data, and has
+minimal effect twiddling capabilities.
+
+Gadgets:
+
+"SFX"
+	This is a list of the sound effects in the chunk. Highlight by clicking.
+
+"Raw..."
+	Import raw sample data from a file. Raw data has no additional information
+with it so Zonk just fills the various parameters with arbitrary values.
+
+"8SVX..."
+	Import an (uncompressed) IFF 8SVX file.
+
+"Name"
+	The name used to reference the sound effect.
+
+"Length"
+	The length of the sample data, in bytes.
+
+"Pri"
+	Priority of the effect. If you try to play a sound effect on a channel
+which is already playing, the new effect will only be played if it has a
+higher priority.
+
+"Vol"
+	Volume to play the sample at. 0 is quietest (off), 63 is loudest.
+
+"Rep"
+	Repetitions. A zero here means the effect will just play once and then
+stop. Set this value to specify how many times the effect will repeat.
+A value of -1 means repeat forever.
+
+"Samples/Sec"
+	The rate at which the effect is played. The higher the value, the higher
+the pitch. The optimal pitch depends on the rate at which the effect was
+originally sampled. IFF 8SVX files should load in with the rate already
+set correctly. With raw sample data you just have to guess values.
+
+"1","2","3","4"
+	Plays the highlighted effect using one of the audio channels.
+
+"Del"
+	Deletes the highlighted sound effect.
+
+
+--------------------------------------------------------------------------------
+EdgeOfTheRoad Window
+--------------------
+
+	This editor window lets you make up EdgeOfTheRoad data to go with a blockset.
+Each block is assigned a number. This number is used by some Actions and
+ChannelRoutines to determine the type of a particular block. The meaning of
+given to the numbers depend entirely on the Action/ChannelRoutine. For example,
+the 'BGCollision' ChannelRoutine has a parameter called 'HighestSpaceVal'.
+Any blocks with EOTR values above this are regarded as solid wall. EOTR values
+equal or below are regarded as free space.
+	The blockset is displayed in the window, and the EOTR numbers are overlaid,
+except for zeros. Clicking on a block assigns it the current value (in the
+"Value" gadget).
+
+Gadgets:
+
+"Name"
+	The name of this EOTR data. This is the name that is referenced by Actions
+and ChannelRoutines.
+
+"Value"
+	The current value. Use the mouse to assign this value to particular blocks.
+
+"Blockset"
+	The blockset that this EOTR data is for. You need to have a loaded Blockset
+before you can do any EOTR editing. The "?" button lets you browse through
+the loaded Blocksets.
+
+
+--------------------------------------------------------------------------------
+
+PROJECT MENU
+------------
+
+"New Chunk..."
+	Creates a new chunk. A requester appears to let you select the chunk type.
+
+"Load Chunk(s)..."
+	Load one or more files using a file requester. Hold down the SHIFT key while
+selecting to load multiple files.
+
+"About..."
+	Bring up the 'About' window.
+
+"Quit..."
+	Kill Zonk. You will be informed of any unsaved work.
+
+WINDOW MENU
+-----------
+
+"Open/Chunk..."
+	Opens the Chunk window. If the Chunk window is already open, it is moved
+to the front and activated.
+
+"Open/Screen Settings..."
+	Opens the Screen Settings window. If it is already open, it is brought to
+the front and activated.
+
+"Open/About..."
+	Opens the About window.
+
+"Close"
+	Tries to close the currently active window. Same as clicking on the window
+close gadget.
+
+SETTINGS MENU
+-------------
+
+"Save Icons?"
+	This option has no effect at the moment.
+
+"Make Backups?"
+	If this is set, files will be copied to ".bak" files before they are
+overwritten. For example, if you open a file "Wibble.stuff", make some
+changes and then save it, the old version will be kept as "Wibble.stuff.bak".
+It is recommended that you leave this option enabled.
+
+"Screen Settings..."
+	Brings up the Screen Settings window. If the window is already open, it
+will be moved in front of all the other windows and activated.
+
+"Load Settings..."
+	Loads settings from a file and uses them. Settings are actually saved as
+ZONKCFG chunks. You can load one of these into the Chunk window and click the
+"Edit" button to install it. But if you'd actually want to do that is a
+different matter.
+
+"Save Settings"
+	Saves the current settings as the default configuration ("Zonk.cfg").
+
+"Save Settings As..."
+	Saves the current settings into a specified file.

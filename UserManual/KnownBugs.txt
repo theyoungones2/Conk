@@ -1,0 +1,13 @@
+KNOWN BUGS
+----------
+
+Ponk:
+Statbox image appears as rubbish in AGA-only games.
+--------------------------------------------------------------------------------
+
+Zonk:
+Bob images in ScrollWaves window are not locked in any way - you can free the
+chunk and the window will still have pointers to the now-trashed memory.
+Splat.
+Same applies to Map and Blockset data in the Scrollwaves window and
+Paths window.
