@@ -1,5 +1,4 @@
-DisplayChunk Window
--------------------
+# DisplayChunk Window
 
 **Page**  
 Cycles through the various pages of editable data in the Display Chunk.

@@ -10,4 +10,6 @@ nav:
     - Introduction: usermanual/zonk/introduction.md
     - Game: usermanual/zonk/game.md
     - Display: usermanual/zonk/display.md
+    - ActionLists: usermanual/zonk/actionlists.md
+    - Weapons: usermanual/zonk/weapons.md
 theme: readthedocs
