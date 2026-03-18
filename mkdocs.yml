@@ -3,7 +3,11 @@ nav:
   - Home: index.md
   - About: about.md
   - Gonk:
-    - Index: usermanual/gonk/index.md
-    - Menu: usermanual/gonk/menu.md
+    - Introduction: usermanual/gonk/introduction.md
+    - Menu: usermanual/gonk/menus.md
     - Windows: usermanual/gonk/windows.md
+  - Zonk:
+    - Introduction: usermanual/zonk/introduction.md
+    - Game: usermanual/zonk/game.md
+    - Display: usermanual/zonk/display.md
 theme: readthedocs

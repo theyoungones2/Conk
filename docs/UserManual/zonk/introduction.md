@@ -7,6 +7,8 @@ ZONK - some (very) basic docs
 Chunk Window
 ------------
 
+![Zonk Chunk Window](../../img/zonk-window-chunk.png)
+
 The Chunk window is the heart of Zonk. It controls the loading and saving
 of chunks and launches appropriate editors for chunk editing.
 You can close the Chunk window (Zonk won't exit until all windows are closed),

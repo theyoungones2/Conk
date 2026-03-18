@@ -115,11 +115,3 @@ Range Number Slider - There are a total of 8 ranges that can used. Use this
 slider to select the range you want.
 
 Ranges are only used for two tools, Shade & Cycle.
-
----
-## IDE Setup
-
-Open the Gonk subfolder as a project in VSCode.  
-It contains a `.vscode` folder with some useful defaults for Include file location and tab size.
-
-See [build.md](./docs/build.md) for more details on the build configration.
