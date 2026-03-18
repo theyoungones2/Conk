@@ -1,0 +1,206 @@
+--------------------------------------------------------------------------------
+
+Glossary
+--------
+
+Action
+	A command with a number of parameters, controlling an aspect of the
+game. They are generally fairly low level operations such as setting
+a bobs image or playing a sound effect.
+
+ActionLists
+	A number of actions, executed in sequence. Actionlists are used
+to initialise game objects, handle special events such as collisions,
+and in any other places where the user needs to provide instructions.
+Actionlists are referenced by name.
+
+Bad Dudes
+	A type of Game Object. Bad dudes may collide with Players
+or Player Bullets.
+
+ChannelRoutines
+	Routines called to update game objects. Channel routines
+handle things such as movement, animation and general higher-level
+control.
+
+Channels
+	Update mechanisms for bob (or sprite) objects (players, bullets,
+bad dudes). Channel routines are installed into channels using the
+'Set Channel' action. The channel routine is then called up
+automagically every game cycle to perform some action on the object.
+Channels can be set up to execute a particular ActionList on the
+object when the ChannelRoutine finishes. In addition, every Channel
+has a timer. This can be set up when a ChannelRoutine is installed, and
+counts down by one every frame. When it reaches zero, the ChannelRoutine
+is stopped (and the ActionList, if any, is executed). Each object has
+five channels, numbered zero to four.
+
+Chunks
+	All Conk game data is stored in chunks. Chunks may be clumped together
+in files on a pretty much arbitrary basis (there are some exceptions).
+For example, you could have a self-contained bad dude file which contains
+bob images, anims, and actionlists for a particular type of dude.
+
+The chunk types defined in Conk are:
+
+ActionLists: A number of action lists
+Map: A named, rectanglar grid of blocks, used as background graphics.
+BlockSet: A named set of 16x16 block images used by maps.
+Palette: Colour data - up to 256 colours.
+ScrollWave: Scroll-dependent attackwaves. A list of bad dudes
+and/or formations that appear at certain places along the map.
+Sfx: Sound effects (named sound sample data)
+Bob Images: A named set of bob images.
+Anims: Set of named animations for a particular bob (or sprite) chunk.
+Sprites: Named sprite images
+Formations: Set of named dude formations
+Weapons: Player weapon definitions
+Display: Display info for a level - colours, background gfx,
+how to initialise the players, etc...
+Game Config: The overall configuration of the game. The Game Config
+chunk must be the only chunk in a file - it cannot be grouped with
+other chunks.
+EdgeOfTheRoad: Collision info for a blockset.
+
+Collision Partner
+	Two game objects which have collided are said to be collision partners.
+
+Context
+	An ActionList used to initialise or modify a game object
+is said to be running in the context of an object. The Actions
+making up the ActionList have access to the attributes of that
+particular object. An ActionList triggered by a collision still
+runs in the context of a particular object, but will
+also have access to the attributes of the objects collision
+partner. Other ActionLists, such as the Game Init and Game Update
+ActionLists are run without access to any objects at all. In these
+ActionLists you cannot use Actions which operate on Object. Doing
+so can have unpredictable results.
+Some actions can be run without any object at all (global context),
+others require an Object (object context), others require an object
+and a collision partner (collision context) and still others must be
+run on a specific type of object (player context, for example).
+
+Direction
+	Directions (angles) in Conk are represented by a fixedpoint
+number ranging from 0 to 7:31 (8 would be a full circle). 0=up,
+1=up/right, 2=right, 3=down/right, 4=down, 5=down/left, 6=left,
+7=up/left. You can also specify intermediate angles. For example
+4:16 would be half way between down and down/left.
+
+EdgeOfTheRoad
+	Collision data. An EdgeOfTheRoad chunk holds an array
+of values which correspond to the blocks in a particular blockset.
+Each block can have a value from zero to 255 assigned to it. During
+the game, background collision routines use EdgeOfTheRoad values to
+decide which type a particular block is. For example, zero might
+represent space, while any other number would mean the block is
+solid wall.
+
+FixedPoint
+	Conk represents fractional values using fixed point numbers, a way of
+representing fractional values without resorting to (slow) floating point
+methods. Fixed point numbers are displayed in the form 'whole:fractional',
+where 'fractional' can range from 0 (no fractional part) through
+16 (half), to 31 (just less than one). For example, -10:8 corresponds
+to negative ten and a quarter, 42:1 corresponds to 42 and 1/32.
+In Zonk, you can type in numbers with decimal points and it will
+convert them to fixed point for you (eg 3.75 will come up as 3:24).
+You can omit the fractional part (and the colon) for whole numbers.
+Formation - A clump of dudes. Each dude consists of an initializing
+ActionList, an XY offset from the origin of the formation, and
+a delay value (in cycles) to say when it appears.
+
+Frame
+	The basic slice of time in a Conk game. Every frame, all the active
+objects are updated and moved and then a new screen is drawn up and
+displayed. There are typically 25 or 50 frames calculated every second
+in Conk to provide convincing animation.
+
+Game Object
+	Refers to a Player, Player Bullet, or Bad Dude. Objects have attributes
+(image, position, speed etc) which are controlled by actionlists and
+channelroutines. Every frame during gameplay, Ponk updates every active
+object by calling any ChannelRoutines that are installed. The object is
+then moved by adding its XSpd to XPos and its YSpd to YPos.
+
+Level
+	A section of a game. Usually refers to a Game Level, made up
+using Zonk, but there are also Anim and Pic levels where IFF Anims
+or Pictures are displayed. Levels are defined in the Game Config
+Editor in Zonk. A level is defined by specifying which files it needs.
+for example, in a Game level, one of the files must contain a Display
+chunk which tells Ponk how to set the level up. The Display chunk
+will contain references to other chunks (ActionLists, Map, etc...)
+which Ponk will look for within the listed files.
+
+Object
+	See "Game Object"
+
+Player
+	A type of game object. Conk supports up to four players (at the
+moment). Players may collide with bad dudes.
+
+Player Bullets
+	A type of game object. Player Bullets may collide with bad dudes.
+
+ScrollWaves
+	A ScrollWave Chunk is a list of attack waves, each keyed to
+certain trigger points along the game area. An attackwave may be
+either a single dude or a formation of dudes. Each wave can have
+a left trigger point and a right trigger point (or both). The
+trigger points are checked against the left and right edges of the
+screen as it scrolls.
+
+Weapon Bays
+	Each player object has 16 weapon bays into which weapons can be
+installed. The bays can be used in any way you like. For example,
+for a shootemup game, you could say that bay 1 is for the front
+weapon, 2 is rear fire, 3 is sideshot and 4 is superweapon. Each
+bay can be powered up (or down) individually. There are Actions
+and channelroutines which let you specify which weapon bays to use
+when the fire button is pressed.
+
+Weapons
+	A Weapon is a named entity consisting of an ActionList to execute
+when fired, links to other weapons for powering up and down, fire
+rate and the maximum number of bullets it can have active at any
+one time. When fired, a weapon can either create a new PlayerBullet
+object and execute an ActionList upon it, or execute an ActionList
+directly on the Player Object firing the weapon.
+
+Variables
+	You can access game variables using Actions. Some variables are
+global and are always accessible, while other variables are local
+to game objects, and can only be accessed from an ActionList under
+Object context. If you try to access a variable from the wrong context
+you can trash memory and cause crashes. All the variables hold fixed
+point values.
+The global variables are 'Global1' through to 'Global5'. These are
+general purpose variables which you can use any way you like. For
+example, you could use one to store the number of bad dudes currently
+active. Whenever a new dude is created you increment the variable by
+one. Whenever a dude dies you decrement the count by one. When the
+count hits zero you can trigger the next level.
+Variables local to game objects are:
+'Damage': How much damage this object will inflict on another objects
+shields in a collision (using the 'Get Hurt' action).
+'Data1','Data2': Two general purpose variables. Use them for whatever
+you like (but remember they are only seen by that one object).
+'Direction': Used by some movement routines. Of course you can manually
+alter this value as well (handy for augmenting existing movement
+routines). The highest number you can store in 'Direction' is 7:31.
+After this value it wraps back to zero (you do the full circle).
+'ID': Really another general purpose variable, but the idea is that you
+use this value to identify objects during collsions - you give each
+object a unique 'ID' and then check the value in a collision. Handy for
+determining between, say, real bad dudes and bonuses (which you'd probably
+use a bad dude object for as well).
+'Shields': The state of an objects health. If this falls below zero then
+the objects Death ActionList is called. Note that this value is only
+checked by the 'GetHurt' Action when it is subtracting damage.
+'XPos','YPos': The position of the game object, in pixels, relative to
+the background (which could be very large if you are using a background
+map). 0,0 is at the top left corner.
+'XSpd','YSpd': The current speed of the object. These values are
+automatically added to 'XPos' and 'YPos' every frame.
