@@ -16,206 +16,42 @@ but it's usually handy to have it about.
 
 The gadgets in the Chunk Window are:
 
-"Chunks"
-	A list of the currently-loaded chunks. Marked chunks are preceded with an
+**Chunks**  
+A list of the currently-loaded chunks. Marked chunks are preceded with an
 asterisk ('*'). If you double-click on an unmarked chunk, it will be marked,
 along with any other chunks from the same file. Double-clicking on a marked
 chunk removes the mark. A plus sign ('+') immediately preceeding a chunk
 means that that chunk contains unsaved changes.
 
-"Info"
-	Displays information about the currently highlighted chunk, if any.
+**Info**  
+Displays information about the currently highlighted chunk, if any.
 
-"New..."
-	Creates a new chunk. A requester appears to ask you which type of chunk you
+**New...**  
+Creates a new chunk. A requester appears to ask you which type of chunk you
 want created.
 
-"Edit..."
-	Lets you edit the currently highlighted chunk. Not all chunk types may be
+**Edit...**  
+Lets you edit the currently highlighted chunk. Not all chunk types may be
 edited in Zonk.
 
-"Free..."
-	Discards the highlighted chunk.
+**Free...**  
+Discards the highlighted chunk.
 
-"Load..."
-	Loads from a file.
+**Load...**  
+Loads from a file.
 
-"Save..."
-	Save the marked chunks together in a file.
+**Save...**  
+Save the marked chunks together in a file.
 
 ## Types of Chunks
 - [GAME](./game.md) - Game and Level configuration
 - [ALISTS](./actionlists.md) - ActionLists, the brains of how things move and collide
 - [DISPLAY](./display.md) - Define Map, Palette, Player, Framerate etc
 - [WEAPONS](./weapons.md) - Weapon actions, number of bullets, power ups etc.
+- [PATHS](./paths.md) - TBA?
+- [SWAVES](./scrollwaves.md) - Setup map triggers to start bad dudes
+- [FRMNTS](./formations.md) - Formations
 
---------------------------------------------------------------------------------
-
---------------------------------------------------------------------------------
-Weapon Window
--------------
-
-"Weapon"
-	The name of the Weapon currently being edited. Clicking the button lets you
-select another weapon to edit using a requester. The string gadget letes you
-edit the name of the selected weapon.
-
-"New"
-	Creates a new weapon.
-
-"Del"
-	Deletes the current weapon.
-
-"ActionList"
-	The ActionList executed when the weapon is fired. This ActionList can be
-executed either upon the player object firing the weapon, or on a newly created
-PlayerBullet object, depending on the "Create Bullet?" checkbox (see below).
-You can type an ActionList name directly into the string gadget or pick one
-from a loaded chunk using the "?" button.
-
-"MaxBullets"
-	This is the maximum number of PlayerBullet objects originating from this
-weapon that can exist at any one time. Any subsequent attempts to fire the
-weapon will be ignored.
-
-"FireDelay"
-	This is the number of frames to wait between each firing of the weapon.
-Any attempts to fire the weapon before this time delay has expired will be
-ignored.
-
-"PowerUp"
-	Specifies the PowerUp weapon for the currently selected weapon. When a weapon
-bay is powered up (using the 'PowerUp' Action), the weapon it contains is
-replaced by its PowerUp weapon. If you leave this field blank, then powering up
-will have no effect.
-
-"PowerDown"
-	Specifies the PowerDown weapon for the currently selected weapon.
-
-"Create Bullet?"
-	If this checkbox is clear, then the ActionList specified in the "ActionList"
-field is executed on the Player object that fired the weapon. If this gadget
-is ticked, then when the weapon fires a new PlayerBullet object will be created
-and "ActionList" executed upon it.
-
---------------------------------------------------------------------------------
-Path Window
--------------
-
-
-"Path"
-	This button brings up a requester to let you select a path to edit.
-
-"New"
-	Creates a new path.
-
-"Rename"
-	Renames the current path.
-
-"Del"
-	Delete the current path.
-
-The middle area of the window displays the path currently being edited. The
-path consists of points connected by line segments. Points are represented by
-small squares. The start point of the path is marked by an X. Points can be
-dragged around using the mouse. A line segment can be selected by clicking on
-it. Holding down the SHIFT key lets you select multiple line segments. Selected
-line segments appear in a different colour to unselected ones. Each line
-segment has an associated speed value. This is the speed, in pixels per frame,
-at which an object will travel along the segment.
-
-"Line"
-	Adds a line segment to the path. The length and speed of the new segment will
-be copied from the previous segment.
-
-"All"
-	Selects all the line segments in the path.
-
-"Div"
-	Subdivides the selected line segments. Each line segment is split in half,
-with a new point being placed at the midpoint.
-
-"Del"
-	Deletes the selected line segments.
-
-"Speed"
-	This number gadget displays the speed value of the most recently selected
-line segment. Entering a new value sets the speed of all the currently
-selected segments.
-
-"In"
-	Zoom in.
-
-"Out"
-	Zoom out.
-
-"Map"
-	Picks a Map (from a loaded chunk) to use as a background for the path.
-This lets you position paths at a specific position on the map, and align
-with features on the map.
-
-"Blks"
-	Picks a blockset to use with the background Map.
-
-
---------------------------------------------------------------------------------
-
-ScrollWaves Window
-------------------
-
-This editor window lets you set up events that occur when the scroll view hits
-certain trigger points on the background map. An event can create a bad dude,
-execute an ActionList or start a Formation. Each event has a left trigger
-point or a right trigger point or both. These are x (horizontal) positions
-along the background map. The left point triggers the event when it is hit by
-the right edge of the screen. The right point triggers when it is hit by the
-left edge of the screen.
-	In the ScrollWaves window, events are represented by a crosshair or a bob
-image (for bad dudes, if the image is in a loaded chunk). Events can be
-selected and dragged to new positions using the mouse. The trigger point(s) of
-the selected event are displayed as vertical lines, with tabs at the top for
-repositioning.
-	You can scroll around the map using the cursor keys. Hold down ALT,
-SHIFT or CTRL to scroll around in larger increments.
-
-Gadgets:
-
-"New"
-	Creates a new event. The event will be positioned in the middle of the
-editor view.
-
-"Del"
-	Delete the selected event.
-
-"Trg"
-	Selects which trigger points are active.
-
-"ApCnt"
-	The number of times the event can be triggered. A Zero in this field means
-that the event will be triggered every time one of the trigger points is hit.
-
-"ALst/Dude/Fmtn"
-The cycle gadget determines the nature of the event. The options are 'ALst',
-'Dude' or 'Fmtn'. If set to 'ALst' the event will execute the ActionList 
-specified in the string gadget. It will be executed on a global context,
-and the position of the event crosshair is not used. For 'Dude' events, a
-new BadDude object will be created and the ActionList in the string
-gadget will executed upon it. The ScrollWaves editor will look for a bob
-image to use for displaying the dude by searching through the ActionList.
-If a reference to an image (or anim) is found, the loaded bob chunks are
-searched and if possible the image is displayed. 'Fmtn' events start a
-Formation, specified in the string gadget. The '?' button lets you browse
-through loaded ActionLists or Formations using a requester.
-
-NOTE: At the moment, ActionList type events are not available for ScrollWaves.
-
-
---------------------------------------------------------------------------------
-Formation Window
-----------------
-
-At this point, the Formation editor window is a complete waste of time. It's
-slow, boring and buggy.
 
 --------------------------------------------------------------------------------
 TimedAttackWaves Window

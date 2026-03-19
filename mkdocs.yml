@@ -12,4 +12,6 @@ nav:
     - Display: usermanual/zonk/display.md
     - ActionLists: usermanual/zonk/actionlists.md
     - Weapons: usermanual/zonk/weapons.md
+    - Paths: usermanual/zonk/paths.md
+    - ScrollWaves: usermanual/zonk/scrollwaves.md
 theme: readthedocs
