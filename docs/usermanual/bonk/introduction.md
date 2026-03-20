@@ -1,13 +1,10 @@
-BONK - The Map Editor
----------------------
+# BONK - The Map Editor
 
---------------------------------------------------------------------------------
+![Bonk Map Editor](../../img/bonk-screen.png)
 
+## EDITING MAPS
 
-EDITING MAPS
-------------
-
-	Map editing is performed in the Map window. A section of map is displayed,
+Map editing is performed in the Map window. A section of map is displayed,
 which you can scroll using the scroll gadgets in the border or the cursor
 keys. By themselves, the cursor keys move the map one block in a given
 direction. Holding down the ALT key lets you move along four blocks at a time,

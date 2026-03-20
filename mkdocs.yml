@@ -2,10 +2,6 @@ site_name: Conk
 nav:
   - Home: index.md
   - About: about.md
-  - Gonk:
-    - Introduction: usermanual/gonk/introduction.md
-    - Menu: usermanual/gonk/menus.md
-    - Windows: usermanual/gonk/windows.md
   - Zonk:
     - Introduction: usermanual/zonk/introduction.md
     - Game: usermanual/zonk/game.md
@@ -18,5 +14,11 @@ nav:
     - Timed Attackwaves: usermanual/zonk/timedattackwaves.md
     - Sound Effects: usermanual/zonk/soundfx.md
     - Edge Of the Road: usermanual/zonk/eotr.md
+  - Gonk:
+    - Introduction: usermanual/gonk/introduction.md
+    - Menu: usermanual/gonk/menus.md
+    - Windows: usermanual/gonk/windows.md
+  - Bonk:
+    - Introduction: usermanual/bonk/introduction.md
 
 theme: readthedocs
