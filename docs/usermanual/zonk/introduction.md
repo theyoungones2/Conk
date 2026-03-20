@@ -1,11 +1,7 @@
 
-ZONK - some (very) basic docs
------------------------------
+# ZONK
 
---------------------------------------------------------------------------------
-
-Chunk Window
-------------
+## Chunk Window
 
 ![Zonk Chunk Window](../../img/zonk-window-chunk.png)
 
@@ -50,195 +46,70 @@ Save the marked chunks together in a file.
 - [WEAPONS](./weapons.md) - Weapon actions, number of bullets, power ups etc.
 - [PATHS](./paths.md) - TBA?
 - [SWAVES](./scrollwaves.md) - Setup map triggers to start bad dudes
-- [FRMNTS](./formations.md) - Formations
+- [FRMTNS](./formation.md) - Formations
+- [TWAVES](./timedattackwaves.md) - Times Attackwaves
+- [SFX](./soundfx.md) - Sound Effects
+- [EOTR](./eotr.md) - Edge Of The Road, block collision information
 
 
---------------------------------------------------------------------------------
-TimedAttackWaves Window
------------------------
+## Menus
 
-This window lets you edit a TimedAttackWaves chunk. Basically, this is just a
-list of events set up to occur at specific times.
+### PROJECT MENU
 
-Gadgets:
+**New Chunk...**  
+Creates a new chunk. A requester appears to let you select the chunk type.
 
-"Timed Events"
-	A list of events, sorted by time values.
-
-"Add"
-	Add a new event.
-
-"Delete"
-	Delete the highlighted event.
-
-"Time"
-	The time value of the event. This is given as a frame number. For a full
-framerate game there are 50 frames per second for PAL machines, and 60 frames
-per second on NTSC. Half framerate games run at 25 (PAL) or 30 frames per
-second (NTSC). If a new value is entered here, the event will be moved to the
-appropriate place in the list.
-
-"ActionList/InitBadDude/Formation"
-	The cycle gadget determines the type of the event. For 'ActionList' events
-the string gadget holds the name of the ActionList to execute (it will be
-executed in a global context). For 'InitBadDude' events, a new BadDude object
-will be created at the given position (see below) and the specified ActionList
-will be executed upon it. 'Formation' events start a Formation at the given
-position.
-
-"X","Y"
-X,Y coordinates of event, if it is of 'InitBadDude' or 'Formation' type. These
-values have no meaning for 'ActionList' events.
-
-"ViewRelative"
-If this checkbox is ticked, then X and Y are taken as offsets from the current
-position of the view (view relative coordinates).
-If clear, the X,Y position is taken as relative to the background map
-(absolute coordinates).
-
-
---------------------------------------------------------------------------------
-SFX Window
-----------
-
-Before Conk games can use sound effects they must be put into a SFX chunk.
-This editor window lets you import raw and IFF 8SVX sample data, and has
-minimal effect twiddling capabilities.
-
-Gadgets:
-
-"SFX"
-	This is a list of the sound effects in the chunk. Highlight by clicking.
-
-"Raw..."
-	Import raw sample data from a file. Raw data has no additional information
-with it so Zonk just fills the various parameters with arbitrary values.
-
-"8SVX..."
-	Import an (uncompressed) IFF 8SVX file.
-
-"Name"
-	The name used to reference the sound effect.
-
-"Length"
-	The length of the sample data, in bytes.
-
-"Pri"
-	Priority of the effect. If you try to play a sound effect on a channel
-which is already playing, the new effect will only be played if it has a
-higher priority.
-
-"Vol"
-	Volume to play the sample at. 0 is quietest (off), 63 is loudest.
-
-"Rep"
-	Repetitions. A zero here means the effect will just play once and then
-stop. Set this value to specify how many times the effect will repeat.
-A value of -1 means repeat forever.
-
-"Samples/Sec"
-	The rate at which the effect is played. The higher the value, the higher
-the pitch. The optimal pitch depends on the rate at which the effect was
-originally sampled. IFF 8SVX files should load in with the rate already
-set correctly. With raw sample data you just have to guess values.
-
-"1","2","3","4"
-	Plays the highlighted effect using one of the audio channels.
-
-"Del"
-	Deletes the highlighted sound effect.
-
-
---------------------------------------------------------------------------------
-EdgeOfTheRoad Window
---------------------
-
-	This editor window lets you make up EdgeOfTheRoad data to go with a blockset.
-Each block is assigned a number. This number is used by some Actions and
-ChannelRoutines to determine the type of a particular block. The meaning of
-given to the numbers depend entirely on the Action/ChannelRoutine. For example,
-the 'BGCollision' ChannelRoutine has a parameter called 'HighestSpaceVal'.
-Any blocks with EOTR values above this are regarded as solid wall. EOTR values
-equal or below are regarded as free space.
-	The blockset is displayed in the window, and the EOTR numbers are overlaid,
-except for zeros. Clicking on a block assigns it the current value (in the
-"Value" gadget).
-
-Gadgets:
-
-"Name"
-	The name of this EOTR data. This is the name that is referenced by Actions
-and ChannelRoutines.
-
-"Value"
-	The current value. Use the mouse to assign this value to particular blocks.
-
-"Blockset"
-	The blockset that this EOTR data is for. You need to have a loaded Blockset
-before you can do any EOTR editing. The "?" button lets you browse through
-the loaded Blocksets.
-
-
---------------------------------------------------------------------------------
-
-PROJECT MENU
-------------
-
-"New Chunk..."
-	Creates a new chunk. A requester appears to let you select the chunk type.
-
-"Load Chunk(s)..."
-	Load one or more files using a file requester. Hold down the SHIFT key while
+**Load Chunk(s)...**  
+Load one or more files using a file requester. Hold down the SHIFT key while
 selecting to load multiple files.
 
-"About..."
-	Bring up the 'About' window.
+**About...**  
+Bring up the 'About' window.
 
-"Quit..."
-	Kill Zonk. You will be informed of any unsaved work.
+**Quit...**  
+Kill Zonk. You will be informed of any unsaved work.
 
-WINDOW MENU
------------
+### WINDOW MENU
 
-"Open/Chunk..."
-	Opens the Chunk window. If the Chunk window is already open, it is moved
+**Open/Chunk...**  
+Opens the Chunk window. If the Chunk window is already open, it is moved
 to the front and activated.
 
-"Open/Screen Settings..."
-	Opens the Screen Settings window. If it is already open, it is brought to
+**Open/Screen Settings...**  
+Opens the Screen Settings window. If it is already open, it is brought to
 the front and activated.
 
-"Open/About..."
-	Opens the About window.
+**Open/About...**  
+Opens the About window.
 
-"Close"
-	Tries to close the currently active window. Same as clicking on the window
+**Close**  
+Tries to close the currently active window. Same as clicking on the window
 close gadget.
 
-SETTINGS MENU
--------------
+### SETTINGS MENU
 
-"Save Icons?"
-	This option has no effect at the moment.
+**Save Icons?**  
+This option has no effect at the moment.
 
-"Make Backups?"
-	If this is set, files will be copied to ".bak" files before they are
+**Make Backups?**  
+If this is set, files will be copied to ".bak" files before they are
 overwritten. For example, if you open a file "Wibble.stuff", make some
 changes and then save it, the old version will be kept as "Wibble.stuff.bak".
 It is recommended that you leave this option enabled.
 
-"Screen Settings..."
-	Brings up the Screen Settings window. If the window is already open, it
+**Screen Settings...**  
+Brings up the Screen Settings window. If the window is already open, it
 will be moved in front of all the other windows and activated.
+See [Screen Settings](./menu-settings-screen-settings.md).
 
-"Load Settings..."
-	Loads settings from a file and uses them. Settings are actually saved as
+**Load Settings...**  
+Loads settings from a file and uses them. Settings are actually saved as
 ZONKCFG chunks. You can load one of these into the Chunk window and click the
 "Edit" button to install it. But if you'd actually want to do that is a
 different matter.
 
-"Save Settings"
-	Saves the current settings as the default configuration ("Zonk.cfg").
+**Save Settings**  
+Saves the current settings as the default configuration ("Zonk.cfg").
 
-"Save Settings As..."
-	Saves the current settings into a specified file.
+**Save Settings As...**  
+Saves the current settings into a specified file.
