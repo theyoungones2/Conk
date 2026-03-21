@@ -20,5 +20,6 @@ nav:
     - Windows: usermanual/gonk/windows.md
   - Bonk:
     - Introduction: usermanual/bonk/introduction.md
+    - Menus: usermanual/bonk/menus.md
 
 theme: readthedocs
