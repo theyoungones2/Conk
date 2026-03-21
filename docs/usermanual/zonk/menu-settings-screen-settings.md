@@ -1,4 +1,4 @@
-## Screen Settings
+# Screen Settings
 
 ![Zonk Screen Config](../../img/zonk-window-screenconfig.png)
 

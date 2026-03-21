@@ -1,4 +1,4 @@
-## Formations Window
+# Formations Window
 
 ![Zonk Formations Window](../../img/zonk-window-formations.png)
 

@@ -1,4 +1,4 @@
-## EdgeOfTheRoad Window
+# EdgeOfTheRoad Window
 
 ![Zonk EOTR Window](../../img/zonk-window-eotr.png)
 

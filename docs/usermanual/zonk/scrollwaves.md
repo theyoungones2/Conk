@@ -1,4 +1,4 @@
-## ScrollWaves Window
+# ScrollWaves Window
 
 ![Zonk ScrollWaves Window](../../img/zonk-window-scrollwaves.png)
 

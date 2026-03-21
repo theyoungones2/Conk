@@ -1,4 +1,4 @@
-## TimedAttackWaves Window
+# TimedAttackWaves Window
 
 ![Zonk Timed AttackWaves Window](../../img/zonk-window-twaves.png)
 

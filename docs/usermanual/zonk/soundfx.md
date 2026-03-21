@@ -1,4 +1,4 @@
-## Sound Effects Window
+# Sound Effects Window
 
 ![Zonk Sound Effects Window](../../img/zonk-window-sfx.png)
 

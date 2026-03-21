@@ -1,4 +1,4 @@
-## Paths Window
+# Paths Window
 
 ![Zonk Paths Window](../../img/zonk-window-paths.png)
 

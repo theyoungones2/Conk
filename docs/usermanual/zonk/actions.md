@@ -1,12 +1,181 @@
+# ACTIONS
 
-ACTIONS
--------
+![Zonk ActionLists Window](../../img/zonk-actions/zonk-window-select-action.png)
 
+## Objects
 
-------------------------------------------------------------------------------
+### BeBobish
 
-NAME
-AddImmediate
+TBA
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Object
+
+---
+
+### BeSpritely
+
+TBA
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Object
+
+---
+
+### GetHurt
+
+Subtract the Damage value of the collision partner from the objects Shield
+value. If Shield goes below zero, then the objects Death ActionList is
+called.
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Collision
+
+---
+
+### HighlightBob
+
+Tell a bob object to appear 'Highlighted'. Any image displayed by a
+Highlighted bob is drawn using the last colour in the palette.
+'Duration' specifies how long the bob is to stay in its highlighted
+state before returning to normal. Highlighting has no effect on
+sprites.
+
+Highlighting is a common technique, often used to provide the player
+with visual feedback when collisions occur. for example, a player
+could flash white when hit by a bad dude.
+
+`PARAMETERS`
+:   Duration: How long to stay highlighted (Frames)
+
+`CONTEXT`
+:   Object
+
+---
+
+### KillObject
+
+Executes an Objects death ActionList, then removes in from the game.
+See also [ObjectOff](#objectoff).
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Object
+
+---
+
+### KillChannel
+
+![Zonk Action KillChannel](../../img/zonk-actions/zonk-action-killchannel.png)
+
+Remove the currently-installed ChannelRoutine from the specified channel.
+The Channel 'DoneActionList' is not executed. If the channel has no routine
+installed in it, this Action has no effect.
+
+`PARAMETERS`
+:   Channel: Channel number (0-4)
+
+`CONTEXT`
+:   Object
+
+---
+
+### ObjectOff
+
+Removes an Object from the game. The Objects death ActionList is not
+executed (as opposed to [KillObject](#killobject)).
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Object
+
+---
+
+### SetBorders
+
+![Zonk Action SetBorders](../../img/zonk-actions/zonk-action-setborders.png)
+
+Define an objects borders. You can define what happens when the player
+reaches each border using the `Type` fields:
+
+- Off - the border is turned off, and has no effect on the object.
+- Kill - an object is turned off when it hits this border. The objects
+DeathActionList is not executed - the object is simply removed.
+- Stop - the object stops when it hits this border.
+- Wrap - when the object moves past this border, it is repositioned at the
+opposite border.
+- Bounce1 - when the object hits this border it bounces off, and the
+Direction variable is altered to point in the opposite direction.
+- Bounce2 - same as 'Bounce1' only Direction is left unchanged.
+
+Normally, the positions of borders are specified relative to the global
+playing area, they can be given relative to the current position of
+the display using the `ViewRelative` checkboxes.
+
+`PARAMETERS`
+:   Left Border: X position of left border
+:   Left Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
+:   Right Border: X position of right border
+:   Right Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
+:   Top Border: Y position of top border
+:   Top Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
+:   Bottom Border: Y position of bottom border
+:   Bottom Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
+:   Left ViewRelative?: Is left border position relative to current view?
+:   Right ViewRelative?: Is right border position relative to current :   view?
+:   Top ViewRelative?: Is top border position relative to current view?
+:   Bottom ViewRelative?: Is bottom border position relative to current :   view?
+
+`CONTEXT`
+:   Object
+
+---
+
+### SetChannel
+
+![Zonk Action SetChannel](../../img/zonk-actions/zonk-action-setchannel.png)
+
+Installs a new update routine into the specified update Channel of an
+object. Each object has five Channels available. An installed Channel
+Routine will automatically execute every frame.
+The Channel will finish either when the timer runs out, or when the Channel
+Routine finishes (for example, an animation finishing).
+When the channel ends the 'DoneActionList' will be executed. If this field
+is left blank, no ActionList will be executed.
+A new Channel Routine can be selected with the 'Replace' button, while
+the 'Edit' button lets you alter the parameters of the current one.
+
+`PARAMETERS`
+:   Channel: The channel to set (0-4)
+:   Routine: Channel routine to install
+:   Timer: How many cycles the routine should be active for (0=forever)
+:   DoneActionList: ActionList to execute when channel finishes
+
+`CONTEXT`
+:   Object
+
+---
+
+## Variables
+## Movement
+## Weapons
+## Images
+## ActionLists
+
+### AddImmediate
 
 PARAMETERS
 Value: Number to add to the variable
@@ -20,10 +189,7 @@ Adds 'Value' to the specifed variable. In certain contexts only some
 variables may be accessed. For example, the XPos variable of an object
 can only be set when the context has access to that object.
 
-------------------------------------------------------------------------------
-
-NAME
-AddRND
+### AddRND
 
 PARAMETERS
 MinValue: Lower limit of random value
@@ -289,7 +455,7 @@ NAME
 ExecuteOnPlayer
 
 PARAMETERS
-PLayer: The player to execute on
+Player: The player to execute on
 ActionList: The actionlist to execute
 
 CONTEXT
@@ -330,19 +496,6 @@ Fires the Weapon currently installed in the given weapon bay. If no weapon
 is installed, then this Action will have no effect.
 
 ------------------------------------------------------------------------------
-NAME
-GetHurt
-
-PARAMETERS
-None
-
-CONTEXT
-Collision
-
-FUNCTION
-Subtract the Damage value of the collision partner from the objects Shield
-value. If Shield goes below zero, then the objects Death ActionList is
-called.
 
 
 ------------------------------------------------------------------------------
@@ -362,26 +515,6 @@ If the object is a PlayerBullet, then 'Score' is added onto the score
 variable of the player that fired the bullet.
 
 ------------------------------------------------------------------------------
-
-NAME
-HighlightBob
-
-PARAMETERS
-Duration: How long to stay highlighted (Frames)
-
-CONTEXT
-Object
-
-FUNCTION
-Tell a bob object to appear 'Highlighted'. Any image displayed by a
-Highlighted bob is drawn using the last colour in the palette.
-'Duration' specifies how long the bob is to stay in its highlighted
-state before returning to normal. Highlighting has no effect on
-sprites.
-
-Highlighting is a common technique, often used to provide the player
-with visual feedback when collisions occur. for example, a player
-could flash white when hit by a bad dude.
 
 ------------------------------------------------------------------------------
 NAME
@@ -464,49 +597,12 @@ Turns off the collision partner object after executing its death ActionList
 (if set). See also 'CollisionPartnerOff'.
 
 ------------------------------------------------------------------------------
-NAME
-KillChannel
-
-PARAMETERS
-Channel: Channel number (0-4)
-
-CONTEXT
-Object
-
-FUNCTION
-Remove the currently-installed ChannelRoutine from the specified channel.
-The Channel 'DoneActionList' is not executed. If the channel has no routine
-installed in it, this Action has no effect.
 
 ------------------------------------------------------------------------------
 
-NAME
-KillObject
-
-PARAMETERS
-None
-
-CONTEXT
-Object
-
-FUNCTION
-Executes an Objects death ActionList, then removes in from the game.
-See also 'ObjectOff'.
 
 ------------------------------------------------------------------------------
 
-NAME
-ObjectOff
-
-PARAMETERS
-None
-
-CONTEXT
-Object
-
-FUNCTION
-Removes an Object from the game. The Objects death ActionList is not
-executed (as opposed to 'KillObject').
 
 ------------------------------------------------------------------------------
 NAME
@@ -694,65 +790,8 @@ to 'drag' each other in certain directions.
 Note: you can only scroll Map backgrounds, not IFF backdrops.
 
 ------------------------------------------------------------------------------
-NAME
-SetBorders
-
-PARAMETERS
-Left Border: X position of left border
-Left Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
-Right Border: X position of right border
-Right Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
-Top Border: Y position of top border
-Top Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
-Bottom Border: Y position of bottom border
-Bottom Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2
-Left ViewRelative?: Is left border position relative to current view?
-Right ViewRelative?: Is right border position relative to current view?
-Top ViewRelative?: Is top border position relative to current view?
-Bottom ViewRelative?: Is bottom border position relative to current view?
-
-CONTEXT
-Object
-
-FUNCTION
-Define an borders objects. You can define what happens when the player
-reaches each border using the -'Type' fields:
-'Off' - the border is turned off, and has no effect on the object.
-'Kill' - an object is turned off when it hits this border. The objects
-DeathActionList is not executed - the object is simply removed.
-'Stop' - the object stops when it hits this border.
-'Wrap' - when the object moves past this border, it is repositioned at the
-opposite border.
-'Bounce1' - when the object hits this border it bounces off, and the
-Direction variable is altered to point in the opposite direction.
-'Bounce2' - same as 'Bounce1' only Direction is left unchanged.
-Normally, the positions of borders are specified relative to the global
-playing area, they can be given relative to the current position of
-the display using the -'ViewRelative' checkboxes.
 
 ------------------------------------------------------------------------------
-NAME
-SetChannel
-
-PARAMETERS
-Channel: The channel to set (0-4)
-Routine: Channel routine to install
-Timer: How many cycles the routine should be active for (0=forever)
-DoneActionList: ActionList to execute when channel finishes
-
-CONTEXT
-Object
-
-FUNCTION
-Installs a new update routine into the specified update Channel of an
-object. Each object has five Channels available. An installed Channel
-Routine will automatically execute every frame.
-The Channel will finish either when the timer runs out, or when the Channel
-Routine finishes (for example, an animation finishing).
-When the channel ends the 'DoneActionList' will be executed. If this field
-is left blank, no ActionList will be executed.
-A new Channel Routine can be selected with the 'Replace' button, while
-the 'Edit' button lets you alter the parameters of the current one.
 
 ------------------------------------------------------------------------------
 NAME
