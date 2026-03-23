@@ -491,9 +491,121 @@ context). Global variables can be printed out from any context. 'XPos' and
 
 ![Zonk ActionLists Movement](../../img/zonk-actions/zonk-window-select-action-movement.png)
 
+---
+
+### DirectionMove
+
+![Zonk Action DirectionMove](../../img/zonk-actions/zonk-action-directionmove.png)
+
+Sets an object moving at a speed of 'SpeedMagnitude' along the current
+direction (given in the objects Direction variable). It does this by
+calculating values for XSpeed and YSpeed.
+If 'Add to current speeds' is set, then the calculated values will be added
+to the current XSpeed and YSpeed, instead of replacing them.
+
+`PARAMETERS`
+:   SpeedMagnitude:
+:   Add to current speeds?:
+
+`CONTEXT`
+:   Object
+
+---
+
+### Repel
+
+![Zonk Action Repel](../../img/zonk-actions/zonk-action-repel.png)
+
+TBA
+
+`PARAMETERS`
+:   X Shifts
+:   Y Shifts
+
+`CONTEXT`
+:   Object
+
+---
+
 ## Weapons
 
 ![Zonk ActionLists Weapons](../../img/zonk-actions/zonk-window-select-action-weapons.png)
+
+---
+
+### FireWeaponBay
+
+![Zonk Action FireWeaponBay](../../img/zonk-actions/zonk-action-fireweaponbay.png)
+
+Fires the Weapon currently installed in the given weapon bay. If no weapon
+is installed, then this Action will have no effect.
+
+`PARAMETERS`
+:   Weapon Bay: The number of the weapon bay to fire.
+
+`CONTEXT`
+:   Player
+
+---
+
+### PowerDownBay
+
+![Zonk Action PowerDownBay](../../img/zonk-actions/zonk-action-powerdownbay.png)
+
+If the weapon bay has a weapon installed, this Action will install its
+PowerDown weapon. If the weapon has no PowerDown weapon defined (meaning
+that it is the least powerful weapon in the chain), either the current weapon
+will be retained (if 'KeepLowest' is ticked), or the weapon bay will be left
+empty ('KeepLowest' not ticked).
+If the weapon bay is already empty, this Action has no effect.
+
+`PARAMETERS`
+:   Weapon Bay: The weapon bay to power up.
+:   KeepLowest: Should the powering down stop at the lowest weapon?
+
+`CONTEXT`
+:   Player
+
+---
+
+### PowerUpBay
+
+![Zonk Action PowerUpBay](../../img/zonk-actions/zonk-action-powerupbay.png)
+
+If the weapon bay has a weapon installed, this Action will install its
+PowerUp weapon, if it has one defined. If the bay is empty 'DefaultWeapon'
+is installed (if set).
+
+`PARAMETERS`
+:   Weapon Bay: The weapon bay to power up.
+:   DefaultWeapon: The weapon to install if the bay is empty
+
+`CONTEXT`
+:   Player
+
+---
+
+### SetWeaponBay
+
+![Zonk Action SetWeaponBay](../../img/zonk-actions/zonk-action-setweaponbay.png)
+
+Installs 'Weapon' into 'Weapon Bay'. If 'Weapon' is left blank, the bay will
+be made empty - any weapon already installed will be removed.
+
+`PARAMETERS`
+:   Weapon Bay: The number of the weapon bay to set
+:   Weapon: The weapon to install
+
+`CONTEXT`
+:   Player
+
+---
+
+### SpawnPlayerBullet
+
+See [SpawnPlayerBullet](#spawnplayerbullet)
+
+---
 
 ## Images
 
@@ -640,22 +752,6 @@ FUNCTION
 Same as Dir16Image, only with less images.
 
 ------------------------------------------------------------------------------
-NAME
-DirectionMove
-
-PARAMETERS
-SpeedMagnitude:
-Add to current speeds?:
-
-CONTEXT
-Object
-
-FUNCTION
-Sets an object moving at a speed of 'SpeedMagnitude' along the current
-direction (given in the objects Direction variable). It does this by
-calculating values for XSpeed and YSpeed.
-If 'Add to current speeds' is set, then the calculated values will be added
-to the current XSpeed and YSpeed, instead of replacing them.
 
 ------------------------------------------------------------------------------
 NAME
@@ -732,18 +828,6 @@ from the 'LevelInit' ActionList (set in the Display Chunk). Don't use this
 Action if you are using an IFF picture as a backdrop.
 
 ------------------------------------------------------------------------------
-NAME
-FireWeaponBay
-
-PARAMETERS
-Weapon Bay: The number of the weapon bay to fire.
-
-CONTEXT
-Player
-
-FUNCTION
-Fires the Weapon currently installed in the given weapon bay. If no weapon
-is installed, then this Action will have no effect.
 
 ------------------------------------------------------------------------------
 
@@ -818,40 +902,6 @@ FUNCTION
 Plays the specified sound effect through an audio channel.
 
 ------------------------------------------------------------------------------
-NAME
-PowerDownBay
-
-PARAMETERS
-Weapon Bay: The weapon bay to power up.
-KeepLowest: Should the powering down stop at the lowest weapon?
-
-CONTEXT
-Player
-
-FUNCTION
-If the weapon bay has a weapon installed, this Action will install its
-PowerDown weapon. If the weapon has no PowerDown weapon defined (meaning
-that it is the least powerful weapon in the chain), either the current weapon
-will be retained (if 'KeepLowest' is ticked), or the weapon bay will be left
-empty ('KeepLowest' not ticked).
-If the weapon bay is already empty, this Action has no effect.
-
-
-------------------------------------------------------------------------------
-NAME
-PowerUpBay
-
-PARAMETERS
-Weapon Bay: The weapon bay to power up.
-DefaultWeapon: The weapon to install if the bay is empty
-
-CONTEXT
-Player
-
-FUNCTION
-If the weapon bay has a weapon installed, this Action will install its
-PowerUp weapon, if it has one defined. If the bay is empty 'DefaultWeapon'
-is installed (if set).
 
 
 ------------------------------------------------------------------------------
@@ -1013,19 +1063,6 @@ field is left blank, then the object will be invisible.
 
 
 ------------------------------------------------------------------------------
-NAME
-SetWeaponBay
-
-PARAMETERS
-Weapon Bay: The number of the weapon bay to set
-Weapon: The weapon to install
-
-CONTEXT
-Player
-
-FUNCTION
-Installs 'Weapon' into 'Weapon Bay'. If 'Weapon' is left blank, the bay will
-be made empty - any weapon already installed will be removed.
 
 
 ------------------------------------------------------------------------------

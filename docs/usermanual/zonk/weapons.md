@@ -8,7 +8,7 @@ select another weapon to edit using a requester.
 ![Zonk Weapons Pick Window](../../img/zonk-window-weapons-pick.png)  
  The string gadget lets you edit the name of the selected weapon.
 
-**New**  4
+**New**  
 Creates a new weapon.
 
 **Del**  
