@@ -44,6 +44,8 @@ called.
 
 ### HighlightBob
 
+![Zonk Action HighlightBob](../../img/zonk-actions/zonk-action-highlightbob.png)
+
 Tell a bob object to appear 'Highlighted'. Any image displayed by a
 Highlighted bob is drawn using the last colour in the palette.
 'Duration' specifies how long the bob is to stay in its highlighted
@@ -611,11 +613,97 @@ See [SpawnPlayerBullet](#spawnplayerbullet)
 
 ![Zonk ActionLists Images](../../img/zonk-actions/zonk-window-select-action-images.png)
 
+---
+
+### BeBobish
+
+See [BeBobish](#bebobish)
+
+---
+
+### BeSpritely
+
+See [BeSpritely](#bespritely)
+
+---
+
+### Dir16Image
+
+![Zonk Action Dir16Image2](../../img/zonk-actions/zonk-action-dir16image2.png)
+
+Sets an objects image to one of the 16 supplied, depending on its direction.
+The first image corresponds to direction 0 (up) and the other images follow
+clockwise, sweeping around a circle in 16 steps. If the 'Anim' field
+is used, images are instead picked from an animation. The 16 image fields
+will be ignored. The animation must contain at least 16 frames or weird
+things might happen when the non-existant frames are displayed. If an anim
+has a speed value other than one (from Gonk) it will, in effect, have extra
+frames. For example, an 8 frame anim at speed two will appear to be 16 frames
+long, and can be used the same as a 16 frame anim. An advantage of using
+the 'Anim' field is that the x & y offsets of each frame are respected.
+
+`PARAMETERS`
+:   16 Images, corresponding to directions
+:   Anim: Optional anim containing 16 frames (at least)
+
+---
+
+### Dir32Image
+
+![Zonk Action Dir32Image](../../img/zonk-actions/zonk-action-dir32image.png)
+
+Same as Dir16Image, only with more images.
+
+`PARAMETERS`
+:   Anim: Optional anim containing 32 frames (at least)
+
+---
+
+### Dir64Image
+
+![Zonk Action Dir64Image](../../img/zonk-actions/zonk-action-dir64image.png)
+
+Same as Dir16Image, only with lots more images.
+
+`PARAMETERS`
+:   Anim: Optional anim containing 64 frames (at least)
+
+---
+
+### Dir8Image
+
+![Zonk Action Dir8Image](../../img/zonk-actions/zonk-action-dir8image.png)
+
+Same as Dir16Image, only with less images.
+
+`PARAMETERS`
+:   8 Images, corresponding to directions
+:   Anim: Optional anim containing 8 frames (at least)
+
+### HighlightBob
+
+See [HighlightBob](#highlightbob)
+
+---
+
+### SetImage
+
+![Zonk Action SetImage](../../img/zonk-actions/zonk-action-setimage.png)
+
+Tells a bob (or sprite) to display the specified image. If the 'Image'
+field is left blank, then the object will be invisible.
+
+`PARAMETERS`
+:   Image: The image to display
+
+`CONTEXT`
+:   Object
+
+---
+
 ## ActionLists
 
 ![Zonk ActionLists ActionList](../../img/zonk-actions/zonk-window-select-action-actionlist.png)
-
-
 
 
 ------------------------------------------------------------------------------
@@ -662,25 +750,6 @@ corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
 ------------------------------------------------------------------------------
-NAME
-Dir16Image
-
-PARAMETERS
-16 Images, corresponding to directions
-Anim: Optional anim containing 16 frames (at least)
-
-FUNCTION
-Sets an objects image to one of the 16 supplied, depending on its direction.
-The first image corresponds to direction 0 (up) and the other images follow
-clockwise, sweeping around a circle in 16 steps. If the 'Anim' field
-is used, images are instead picked from an animation. The 16 image fields
-will be ignored. The animation must contain at least 16 frames or weird
-things might happen when the non-existant frames are displayed. If an anim
-has a speed value other than one (from Gonk) it will, in effect, have extra
-frames. For example, an 8 frame anim at speed two will appear to be 16 frames
-long, and can be used the same as a 16 frame anim. An advantage of using
-the 'Anim' field is that the x & y offsets of each frame are respected.
-
 
 ------------------------------------------------------------------------------
 NAME
@@ -695,15 +764,6 @@ corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
 ------------------------------------------------------------------------------
-NAME
-Dir32Image
-
-PARAMETERS
-32 Images, corresponding to directions
-Anim: Optional anim containing 32 frames (at least)
-
-FUNCTION
-Same as Dir16Image, only with more images.
 
 ------------------------------------------------------------------------------
 NAME
@@ -718,15 +778,6 @@ corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
 ------------------------------------------------------------------------------
-NAME
-Dir64Image
-
-PARAMETERS
-64 Images, corresponding to directions
-Anim: Optional anim containing 64 frames (at least)
-
-FUNCTION
-Same as Dir16Image, only with lots more images.
 
 ------------------------------------------------------------------------------
 NAME
@@ -741,15 +792,6 @@ corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
 ------------------------------------------------------------------------------
-NAME
-Dir8Image
-
-PARAMETERS
-8 Images, corresponding to directions
-Anim: Optional anim containing 8 frames (at least)
-
-FUNCTION
-Same as Dir16Image, only with less images.
 
 ------------------------------------------------------------------------------
 
@@ -1044,19 +1086,6 @@ With a bad dude for example, you may want to turn collsions off when it
 explodes so that the player can't shoot the explosion.
 
 ------------------------------------------------------------------------------
-NAME
-SetImage
-
-PARAMETERS
-Image: The image to display
-
-CONTEXT
-Object
-
-FUNCTION
-Tells a bob (or sprite) to display the specified image. If the 'Image'
-field is left blank, then the object will be invisible.
-
 
 
 
