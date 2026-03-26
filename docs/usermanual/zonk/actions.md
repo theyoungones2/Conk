@@ -705,248 +705,281 @@ field is left blank, then the object will be invisible.
 
 ![Zonk ActionLists ActionList](../../img/zonk-actions/zonk-window-select-action-actionlist.png)
 
+---
 
-------------------------------------------------------------------------------
-NAME
-CollisionPartnerExecute
+### CollisionPartnerExecute
 
-PARAMETERS
-ActionList: ActionList to execute
+![Zonk Action CollisionPartnerExecute](../../img/zonk-actions/zonk-action-collisionpartnerexecute.png)
 
-CONTEXT
-Collision
-
-FUNCTION
 Executes the specified ActionList on the Collision Partner object.
 
-------------------------------------------------------------------------------
-NAME
-CollisionPartnerOff
+`PARAMETERS`
+:   ActionList: ActionList to execute
 
-PARAMETERS
-None
+`CONTEXT`
+:   Collision
 
-CONTEXT
-Collision
+---
 
-FUNCTION
-Turns off the collision partner object. It's death ActionList is not called.
-See also 'KillCollisionPartner'.
+### Dir16Action
+
+![Zonk Action Dir16Action](../../img/zonk-actions/zonk-action-dir16action.png)
 
 
-
-
-
-------------------------------------------------------------------------------
-NAME
-Dir16Action
-
-PARAMETERS
-16 Actionlists, corresponding to directions
-
-FUNCTION
 Executes an Actionlist depending on direction. The first ActionList
 corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   16 Actionlists, corresponding to directions
 
-------------------------------------------------------------------------------
-NAME
-Dir32Action
+---
 
-PARAMETERS
-32 Actionlists, corresponding to directions
+### Dir32Action
 
-FUNCTION
+![Zonk Action Dir32Action](../../img/zonk-actions/zonk-action-dir32action.png)
+
 Executes an Actionlist depending on direction. The first ActionList
 corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   32 Actionlists, corresponding to directions
 
-------------------------------------------------------------------------------
-NAME
-Dir64Action
+---
 
-PARAMETERS
-32 Actionlists, corresponding to directions
+### Dir64Action
 
-FUNCTION
+![Zonk Action Dir64Action](../../img/zonk-actions/zonk-action-dir64action.png)
+
 Executes an Actionlist depending on direction. The first ActionList
 corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   64 Actionlists, corresponding to directions
 
-------------------------------------------------------------------------------
-NAME
-Dir8Action
+---
 
-PARAMETERS
-8 Actionlists, corresponding to directions
+### Dir8Action
 
-FUNCTION
+![Zonk Action Dir8Action](../../img/zonk-actions/zonk-action-dir8action.png)
+
 Executes an Actionlist depending on direction. The first ActionList
 corresponds to direction 0 (up), the other ActionLists sweeping out around
 the circle clockwise.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   8 Actionlists, corresponding to directions
 
-------------------------------------------------------------------------------
+---
 
-------------------------------------------------------------------------------
-NAME
-EndLevel
+### Execute
 
-PARAMETERS
-Next Level: The level to go to
+![Zonk Action Execute](../../img/zonk-actions/zonk-action-execute.png)
 
-CONTEXT
-Global
-
-FUNCTION
-Stops the game, and jumps to the specified level. If 'Next Level' is left
-blank, then control will go to the first level.
-
-------------------------------------------------------------------------------
-NAME
-Execute
-
-PARAMETERS
-ActionList: The actionlist to execute.
-
-CONTEXT
-Global
-
-FUNCTION
 Executes the specified actionlist (similar to a GOSUB in BASIC).
 When the ActionList finishes, control will resume at the next Action after
 the Execute.
 
+`PARAMETERS`
+:   ActionList: The actionlist to execute.
 
-------------------------------------------------------------------------------
-NAME
-ExecuteIfOnScreen
+`CONTEXT`
+:   Global
 
-PARAMETERS
-ActionList: The actionlist to execute.
+---
 
-CONTEXT
-Object
+### ExecuteIfOnScreen
 
-FUNCTION
 Executes 'ActionList' only if the object in context is currently within view.
 
-------------------------------------------------------------------------------
-NAME
-ExecuteOnPlayer
+![Zonk Action ExecuteIfOnScreen](../../img/zonk-actions/zonk-action-executeifonscreen.png)
 
-PARAMETERS
-Player: The player to execute on
-ActionList: The actionlist to execute
+`PARAMETERS`
+:   ActionList: The actionlist to execute.
 
-CONTEXT
-Global
+`CONTEXT`
+:   Object
 
-FUNCTION
+---
+
+### ExecuteOnPlayer
+
+![Zonk Action ExecuteOnPlayer](../../img/zonk-actions/zonk-action-executeonplayer.png)
+
 Executes 'ActionList' on the specified Player.
 
-------------------------------------------------------------------------------
-NAME
-InitScroll
+`PARAMETERS`
+:   Player: The player to execute on
+:   ActionList: The actionlist to execute
 
-PARAMETERS
-X Position: XPos of top left corner of display window
-Y Position: YPos of top left corder of display window
+`CONTEXT`
+:   Global
 
-CONTEXT
-Global
+---
 
-FUNCTION
+### IfEqual
+
+See [IfEqual](#ifequal)
+
+---
+
+### IfGreaterThan
+
+See [IfGreaterThan](#ifgreaterthan)
+
+---
+
+### IfLessThan
+
+See [IfLessThan](#iflessthan)
+
+---
+
+### IfNotEqual
+
+See [IfNotEqual](#ifnotequal)
+
+---
+
+### SetObjectAction
+
+See [SetObjectAction](#setobjectaction)
+
+---
+
+## Other (All)
+
+---
+
+### CollisionPartnerOff
+
+Turns off the collision partner object. It's death ActionList is not called.
+See also [KillCollisionPartner](#killcollisionpartner)
+
+`PARAMETERS`
+:   None
+
+`CONTEXT`
+:   Collision
+
+---
+
+### EndLevel
+
+![Zonk Action EndLevel](../../img/zonk-actions/zonk-action-endlevel.png)
+
+Stops the game, and jumps to the specified level. If 'Next Level' is left
+blank, then control will go to the first level.
+
+`PARAMETERS`
+:   Next Level: The level to go to
+
+`CONTEXT`
+:   Global
+
+---
+
+### InitScroll
+
+![Zonk Action InitScroll](../../img/zonk-actions/zonk-action-initscroll.png)
+
 Sets the display window to a specific positon (in pixels) on the background
 map. This action must be called if you are using a backgound map, usually
 from the 'LevelInit' ActionList (set in the Display Chunk). Don't use this
 Action if you are using an IFF picture as a backdrop.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   X Position: XPos of top left corner of display window
+:   Y Position: YPos of top left corder of display window
 
-------------------------------------------------------------------------------
+`CONTEXT`
+:   Global
 
+---
 
-------------------------------------------------------------------------------
-NAME
-GiveScore
+### GiveScore
 
-PARAMETERS
-Score
+![Zonk Action GiveScore](../../img/zonk-actions/zonk-action-givescore.png)
 
-CONTEXT
-Collision
-
-FUNCTION
 Adds 'Score' to a players score after a collision. If the collision partner
 is a player, then 'Score' is directly added onto the players score variable.
 If the object is a PlayerBullet, then 'Score' is added onto the score
 variable of the player that fired the bullet.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   Score
 
+`CONTEXT`
+:   Collision
 
-------------------------------------------------------------------------------
-NAME
-KillCollisionPartner
+---
 
-PARAMETERS
-None
+### KillCollisionPartner
 
-CONTEXT
-Collision
-
-FUNCTION
 Turns off the collision partner object after executing its death ActionList
-(if set). See also 'CollisionPartnerOff'.
+(if set). See also [CollisionPartnerOff](#collisionpartneroff)
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   None
 
-------------------------------------------------------------------------------
+`CONTEXT`
+:   Collision
 
+---
 
-------------------------------------------------------------------------------
+### PlayModule
 
-
-------------------------------------------------------------------------------
 NAME
-PlayModule
+ScrollXCenterPlayers
 
 PARAMETERS
-Module Name: Filename of the module to play
+MaxScrollSpeed: Maximum speed allowed, in pixels per frame
+1: reserved (leave zero)
+2: reserved (leace zero)
 
 CONTEXT
 Global
 
 FUNCTION
+NOTE: Only 1,2 or 4 players are supported at the moment.
+Tries to keep all players within view. This is done by working out the
+average x position of all players and moving the view to center on that
+point. The tracking can be retarded using the 'MaxScrollSpeed' field.
+If the players get too far apart (further than the width of the view), the
+scrolling will display the empty space between them. This can be prevented
+using view-relative borders (use the SetBorders action). You have to be
+careful to 'balance' the borders - the center of the view (x = 160) must be
+exactly inbetween the left and right borders or else players may be able
+to 'drag' each other in certain directions.
+Note: you can only scroll Map backgrounds, not IFF backdrops.
+
 Starts playing the specified tracker music module.
 
+`PARAMETERS`
+:   Module Name: Filename of the module to play
 
-------------------------------------------------------------------------------
-NAME
-PlaySFX
+`CONTEXT`
+:   Global
 
-PARAMETERS
-Effect: Sound effect to play
-AudioChannel: Hardware audio channel to use
+---
 
-CONTEXT
-Global
+### PlaySFX
 
-FUNCTION
+![Zonk Action PlaySFX](../../img/zonk-actions/zonk-action-playsfx.png)
+
 Plays the specified sound effect through an audio channel.
 
-------------------------------------------------------------------------------
+`PARAMETERS`
+:   Effect: Sound effect to play
+:   AudioChannel: Hardware audio channel to use
 
+`CONTEXT`
+:   Global
 
-------------------------------------------------------------------------------
+---
+
 NAME
 PushScrollTrackY
 
@@ -1067,6 +1100,31 @@ to 'drag' each other in certain directions.
 Note: you can only scroll Map backgrounds, not IFF backdrops.
 
 ------------------------------------------------------------------------------
+NAME
+ScrollYCenterPlayers
+
+![Zonk Action ScrollYCenterPlayers](../../img/zonk-actions/zonk-action-scrollycenterplayers.png)
+
+PARAMETERS
+MaxScrollSpeed: Maximum speed allowed, in pixels per frame
+1: reserved (leave zero)
+2: reserved (leace zero)
+
+CONTEXT
+Global
+
+FUNCTION
+NOTE: Only 1,2 or 4 players are supported at the moment.
+Tries to keep all players within view. This is done by working out the
+average x position of all players and moving the view to center on that
+point. The tracking can be retarded using the 'MaxScrollSpeed' field.
+If the players get too far apart (further than the width of the view), the
+scrolling will display the empty space between them. This can be prevented
+using view-relative borders (use the SetBorders action). You have to be
+careful to 'balance' the borders - the center of the view (x = 160) must be
+exactly inbetween the left and right borders or else players may be able
+to 'drag' each other in certain directions.
+Note: you can only scroll Map backgrounds, not IFF backdrops.
 
 ------------------------------------------------------------------------------
 
