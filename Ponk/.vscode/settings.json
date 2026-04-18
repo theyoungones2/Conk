@@ -2,5 +2,6 @@
   "[m68k]": {
     "editor.rulers": [],
     "editor.tabSize": 8
-  }
+  },
+  "makefile.makePath": "C:\\ProgramData\\chocolatey\\bin\\make.exe"
 }

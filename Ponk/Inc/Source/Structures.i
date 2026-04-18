@@ -1,4 +1,4 @@
-		include "include:exec/types.i"
+		include "exec/types.i"
 ;Structures
 
 ;VirtualJoystick structure - may or may not represent an actual joystick

@@ -2,5 +2,9 @@
     "[m68k]": {
         "editor.rulers": [],
         "editor.tabSize": 8
+    },
+    "[c]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": false
     }
 }

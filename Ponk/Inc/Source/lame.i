@@ -1,5 +1,5 @@
-	include "include:exec/types.i"
-	include "include:exec/lists.i"
+	include "exec/types.i"
+	include "exec/lists.i"
 ;Lame.i - see lame.c
 
 LAME_FAILAT		equ	20

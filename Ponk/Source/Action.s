@@ -3,13 +3,24 @@
 **********************************************************************************
 
 
-	incdir	"ck:Ponk/inc/"
-	include	"source/libs.gs"
+	incdir	"inc"
+	incdir	"../Devpac/Include/"
+;	include	"source/libs.i"
+
 	include	"source/Header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"
 	include	"source/RawKeyCodes.i"
 	include	"source/Lame.i"
+
+	include	"exec/exec.i"
+	include	"exec/exec_lib.i"
+	include	"hardware/dmabits.i"
+	include	"hardware/intbits.i"
+	include	"hardware/custom.i"
+	include	"hardware/cia.i"
+	include	"graphics/graphics_lib.i"
+	include	"dos/dos.i"
 
 	XDEF	_ActionStart
 	XDEF	_stricmp,_strcpy
@@ -101,7 +112,7 @@ _ActionStart
 	bsr	_WaitVBlank
 	bsr	_WaitPastVBlank
 
-	move.w	#DMAF_SETCLR!(DMAF_ALL-DMAF_AUDIO),dmacon(a6)		;dma.on
+	move.w	#DMAF_SETCLR|(DMAF_ALL-DMAF_AUDIO),dmacon(a6)		;dma.on
 
 ;******************
 
@@ -163,7 +174,7 @@ _ActionStart
 	CALL	_SysBase,SetIntVector
 	move.l	d0,OldIntVector
 
-	move.w	#INTF_SETCLR!INTF_COPER,intena(a5)
+	move.w	#INTF_SETCLR|INTF_COPER,intena(a5)
 	move.w	#1,Interrupts
 
 ;******************
@@ -306,7 +317,7 @@ _ActionStart
 .NoInts
 	tst.w	OldCopState
 	beq	.Exit
-	;move.w	#INTF_SETCLR!INTF_COPER,intena(a5)
+	;move.w	#INTF_SETCLR|INTF_COPER,intena(a5)
 
 .Exit
 	CALL	_SysBase,Enable
@@ -1175,7 +1186,7 @@ _strcpy
 	move.b	(a1)+,d0
 	move.b	d0,(a0)+
 	bne	.Loop
-.	rts
+	rts
 
 ;*****************************************************************************************************
 ;Slice update
@@ -1256,7 +1267,7 @@ SetupSlices
 
 	rts
 
-;XYZZY - Sort through all this crap sometimes... PLEASE!
+;XYZZY - Sort through all this crap sometimes... PLEASE
 
 UpdateSlices
 	move.l	_FirstSlice,a2

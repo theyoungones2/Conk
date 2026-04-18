@@ -1,0 +1,39 @@
+Use 'smake' (comes with SAS) to assemble and link.
+The lame and Spam/moduleplayer.o files need to be already present.
+
+```
+copy /MyPlay/code/ModulePlayer.o Obj/
+copy /MyPlay/code/Spam.o Obj/
+copy /Lame/code/#?.o Obj/
+```
+
+## How to create Libs.gs
+
+The is the Global Symbol Table.  
+
+1. Open Devpac
+2. Open Inc/Source/Libs.i in the editor
+3. From the **Program Menu:** Select **Output Symbols**. This will generate Libs.gs in the same folder
+```
+GenAm Macro Assembler Copyright © HiSoft 1985-93
+All Rights Reserved - version 3.04
+
+Assembling Libs.i
+Pass 1
+Pass 2
+
+0 errors found
+15165 lines assembled into 0 bytes, Gen symbol position-independent code
+683600 bytes used
+```
+4. Close the Assembling windows
+5. Quit Devpac
+
+## GenAm.opts  
+A definition for the GenAm Options
+
+`-vow-`	Disable (vowel) - Turns OFF automatic optimization warnings  
+`o+`	Optimize - Enables code optimization  
+`alink`	Use Alink linker - Specifies Alink as the linker instead of the default  
+`chkimm`	Check immediates - Validates immediate values for Motorola 68000 instructions  
+`user`	User mode - Generates code for user mode execution (vs supervisor mode)  

@@ -1,0 +1,6 @@
+;glue all the object code together...
+
+Slink WITH Ponk.WITH
+IF EXISTS ram:test
+copy ram:test Ponk
+ENDIF

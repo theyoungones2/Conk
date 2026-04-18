@@ -1,0 +1,43 @@
+OBJ1 = obj/Ponk.o obj/Action.o obj/ActionRoutines.o obj/Operators.o
+OBJ2 = obj/Scroll.o obj/Sprites.o obj/IH.o obj/GroovyCon.o
+
+OBJ3 = obj/Spam.o obj/ModulePlayer.o
+
+OBJ4 = obj/LameMain.o obj/LameMisc.o obj/LameDisplay.o
+OBJ5 = obj/LameILBM.o obj/LameProg.o obj/LameDudes.o
+OBJ6 = obj/LameBobSpriteAnim.o obj/LamePlayer.o obj/LameWeapon.o obj/LameSound.o
+OBJ7 = obj/LameAnimations.o obj/LameEOTR.o obj/BensActionRoutines.o
+
+PONKOBJ = $(OBJ1) $(OBJ2)
+LAMEOBJ = $(OBJ4) $(OBJ5) $(OBJ6) $(OBJ7)
+SPAMOBJ = $(OBJ3)
+
+Ponk: $(PONKOBJ) $(LAMEOBJ) $(SPAMOBJ)
+	SLink WITH Ponk.with
+
+Obj/Ponk.o: Source/Ponk.s
+	genam Source/Ponk WITH genam.opts -OObj/Ponk.o
+
+Obj/Action.o: Source/Action.s Inc/Source/BobStuff.s
+	genam Source/Action WITH genam.opts -OObj/Action.o
+
+Obj/Operators.o: Source/Operators.s
+	genam Source/Operators WITH genam.opts -OObj/Operators.o
+
+Obj/IH.o: Source/IH.s
+	genam Source/IH WITH genam.opts -OObj/IH.o
+
+Obj/ActionRoutines.o: Source/ActionRoutines.s
+	genam Source/ActionRoutines WITH genam.opts -OObj/ActionRoutines.o
+
+Obj/GroovyCon.o: Source/GroovyCon.s
+	genam Source/GroovyCon WITH genam.opts -OObj/GroovyCon.o
+
+Obj/Sprites.o: Source/Sprites.s
+	genam Source/Sprites WITH genam.opts -OObj/Sprites.o
+
+Obj/BensActionRoutines.o: Source/BensActionRoutines.s
+	genam Source/BensActionRoutines WITH genam.opts -OObj/BensActionRoutines.o
+
+Obj/Scroll.o: Source/Scroll.s
+	genam Source/Scroll WITH genam.opts -OObj/Scroll.o

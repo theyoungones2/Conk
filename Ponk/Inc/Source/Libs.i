@@ -1,5 +1,5 @@
 
-	incdir	"Devpac:include/"
+;	incdir	"Devpac:include/"
 
 	include	"exec/exec.i"
 	include	"exec/exec_lib.i"
