@@ -1,6 +1,5 @@
 
-	incdir	"ck:Ponk/inc/"
-	include	"source/libs.gs"
+	incdir	"inc"
 	include	"source/Header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"
@@ -2908,9 +2907,7 @@ BCDPowersOfTwo	;last two entrys would cause an overflow
 	dc.l	$1,$2,$4,$8,$16,$32,$64,$128,$256
 	dc.l	$512,$1024,$2048,$4096,$8192,$16384,$32768,$65536
 	dc.l	$131072,$262144,$524288,$1048576,$2097152,$4194304,$8388608,$16777216
-	dc.l	$33554432,$67108864,$134217728,$268435456,$536870912,$1073741824,0,0
-
-
+	dc.l	$33554432,$67108864,0,0,0,0,0,0  ; ,$134217728,$268435456,$536870912,$1073741824,0,0  ; modified for vasm to avoid overflow. For some reason Devpac didn't overflow
 
 	;Trig tables - values have 7 bitshifts
 	;indexed by Brabians: 256 Brabians to the circle.

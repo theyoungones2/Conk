@@ -1,8 +1,7 @@
 *********************************************************************************************************
 ;Sprite stuff
 
-	incdir	"ck:Ponk/inc/"
-	include	"source/libs.gs"
+	incdir	"inc"
 	include	"source/Header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"
@@ -94,7 +93,7 @@ Update
 	beq	.AddHalf
 .SetSeudo
 	move.l	OB_XPos(a3),SPR_SeudoX(a3)
-	and.l	#$FFFFFFFE0,SPR_SeudoX(a3)
+	andi.l	#$FFFFFFE0,SPR_SeudoX(a3)
 	move.l	SS_Scroll(a2),a0
 	move.l	SC_Pos(a0),d0
 	sub.l	OB_AnimXOffset(a3),d0

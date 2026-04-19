@@ -1,15 +1,21 @@
-	incdir	"ck:Ponk/inc/"
-	;incdir	"C:\Amiga\A1200-Conk\Work\Tools\Devpac\Devpac\Include"
-	include	"source/libs.gs"
+	incdir	"inc"
 	include	"source/header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"
 	include	"source/RawKeyCodes.i"
 	include	"source/Lame.i"
 
-	incdir	"Include:"
-	;incdir	"C:\Amiga\A1200-Conk\Work\Tools\Devpac\Devpac\Include"
+	include "exec/exec_lib.i"
+	include "dos/dos_lib.i"
+	include "graphics/graphics_lib.i"
+	include "intuition/intuition_lib.i"
+	include "dos/dosextens.i"
 	include "workbench/startup.i"
+	include "graphics/gfxbase.i"
+	include "hardware/dmabits.i"
+	include "hardware/intbits.i"
+	include "hardware/cia.i"
+	include "exec/memory.i"
 
 ;_custom		equ	$DFF000
 AbsExecBase	equ	4
@@ -513,7 +519,7 @@ _JoystickDecode
 	;decoded value returned in d0
 
 	movem.l	d1-d3/a0-a1/a6,-(sp)
-	moveq.w	#0,d3
+	moveq.l	#0,d3
 	lea	_custom,a6
 	tst.w	d0
 	bne	.Port1

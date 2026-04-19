@@ -1,6 +1,5 @@
 
 	incdir	"inc"
-	include	"source/libs.gs"
 	include	"source/Header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"

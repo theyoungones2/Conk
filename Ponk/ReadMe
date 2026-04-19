@@ -1,3 +1,39 @@
+## Prerequisites
+
+Object (*.o) code for ModulePlayer, Spam and Lame must be copied into the Obj folder.
+```
+copy /MyPlay/code/ModulePlayer.o Obj/
+copy /MyPlay/code/Spam.o Obj/
+copy /Lame/code/#?.o Obj/
+```
+
+Code is configured for Vasm. It is recommended to use Visual Studio Code with the [Amiga Assembly](https://marketplace.visualstudio.com/items?itemName=prb28.amiga-assembly) extension. This comes with Vasm, and will offer lots of benefits including intellisense. See also [Amiga Assembly Wiki](https://github.com/prb28/vscode-amiga-assembly/wiki).  
+In VSCode Settings (Ctrl + ,) Disable Extensions > Amiga Assembler > "Check Error On Save". This doesn't use the required Vasm settings and will give false errors.
+
+[Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) is probably also useful.
+
+"Make" needs to be installed and in your PATH.
+
+## Assemble
+
+Edit [Makefile](./Makefile), you will likely need to modify vasmBinDir for your path to vasm.  
+TODO: find a better solution.
+
+### Make commands
+`make` or `make all`  
+Assemble all Ponk assembly file. Output to ./Obj
+
+`make clear`  
+Delete Ponk Object (*.o) files. Objects for ModulePlayer + Spam + Lame are kept.
+
+## Link
+From Amiga NewShell run "Glue" which will use Ponk.WITH to link.
+Is Glue is not exectable run "protect Glue +s" to make it a script.
+
+
+<details>
+<summary>Legacy Devpac Instructions</summary>
+
 Use 'smake' (comes with SAS) to assemble and link.
 The lame and Spam/moduleplayer.o files need to be already present.
 
@@ -37,3 +73,5 @@ A definition for the GenAm Options
 `alink`	Use Alink linker - Specifies Alink as the linker instead of the default  
 `chkimm`	Check immediates - Validates immediate values for Motorola 68000 instructions  
 `user`	User mode - Generates code for user mode execution (vs supervisor mode)  
+
+</details>

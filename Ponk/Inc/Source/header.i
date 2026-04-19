@@ -1,3 +1,5 @@
+	include	"hardware/custom.i"
+
 * NOTE: Text Macros Can't Have Spaces in the String *
 
 ;MYKPRINTF("<Text>",num.l)

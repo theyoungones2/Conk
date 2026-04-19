@@ -2,15 +2,21 @@
 *			Console Handling Routines			*
 *************************************************************************
 
-		incdir	"ck:Ponk/inc/"
-		include	"source/libs.gs"
-		include	"source/Header.i"
-		include	"source/Constants.i"
-		include	"source/Structures.i"
-		include	"source/GroovyCon.i"
-		include	"source/RawKeyCodes.i"
-		include	"source/Lame.i"
+	incdir	"inc"
+	include	"source/Header.i"
+	include	"source/Constants.i"
+	include	"source/Structures.i"
+	include	"source/GroovyCon.i"
+	include	"source/RawKeyCodes.i"
+	include	"source/Lame.i"
 
+	include	"exec/exec_lib.i"
+	include	"graphics/graphics_lib.i"
+	include	"intuition/intuition_lib.i"
+	include	"graphics/gfxbase.i"
+	include	"exec/memory.i"
+	include	"hardware/intbits.i"
+	include	"intuition/iobsolete.i"
 
 	XDEF	_OpenNewDebugWindow,_FreeDebugWindow,_BlitDebugWindow,_WipeDebugWindow	;,_MoveDebugWindow
 	XDEF	CON_PutChar,_CON_PutStr,CON_CursorUp,CON_CursorDown,CON_CursorLeft,CON_CursorRight,CON_CursorSetX,CON_CursorSetY,CON_Clear

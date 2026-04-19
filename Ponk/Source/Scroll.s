@@ -1,5 +1,4 @@
-	incdir	"ck:Ponk/inc/"
-	include	"source/libs.gs"
+	incdir	"inc"
 	include	"source/Header.i"
 	include	"source/Constants.i"
 	include	"source/Structures.i"

@@ -4,7 +4,7 @@
 
 
 	incdir	"inc"
-	incdir	"../Devpac/Include/"
+;	incdir	"../Devpac/Include/"
 ;	include	"source/libs.i"
 
 	include	"source/Header.i"

@@ -44,14 +44,14 @@
 *									*
 *************************************************************************
 
- 	incdir	"ck:Ponk/inc/"
-	include	"Source/Libs.gs"
+ 	incdir	"inc"
 	include	"Source/header.i"
 	include	"Source/Constants.i"
 	include	"Source/RawKeyCodes.i"
 
-	incdir	"devpac:include/"
 	include	"exec/io.i"
+	include	"exec/interrupts.i"
+	include	"exec/exec_lib.i"
 	include	"devices/input.i"
 	include	"devices/inputevent.i"
 	include	"devices/console.i"
