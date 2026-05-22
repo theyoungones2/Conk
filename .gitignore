@@ -2,7 +2,10 @@
 *.d
 
 # Object files
+# Ignore all .o files except those in Ponk/Obj
 *.o
+!Ponk/Obj/
+!Ponk/Obj/*.o
 *.ko
 *.obj
 *.elf
