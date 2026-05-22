@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <clib/alib_stdio_protos.h>
+#include <clib/alib_protos.h>
 #include <exec/exec.h>
 #include <dos/dos.h>
 #include <graphics/modeid.h>

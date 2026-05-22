@@ -20,6 +20,25 @@
 				"kind": "build",
 				"isDefault": true
 			}
+		},
+		{
+			"label": "Amiga Object Dump",
+			"type": "shell",
+			"command": "C:\\Dev\\vbcc_win_x64\\vbcc\\bin\\vobjdump.exe",
+			"args": [
+				"-h",
+				"-s",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"panel": "shared"
+			}
 		}
 	]
 }
