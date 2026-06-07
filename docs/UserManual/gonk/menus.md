@@ -1,6 +1,3 @@
-SOME DOCS FOR GONK
-------------------
-
 Project Menu
 ------------
 

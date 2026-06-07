@@ -1,12 +1,12 @@
 # Use USERPROFILE environment variable instead of hardcoding path
 vasmBinDir = $(USERPROFILE)\.vscode\extensions\prb28.amiga-assembly-1.8.13\resources\bin\win32
-vlinkBinDir = $(USERPROFILE)\.vscode\extensions\prb28.amiga-assembly-1.8.13\resources\bin\win32
+vlinkBinDir = C:\Amiga\Downloads\vlink\vlink
 vasmbuild = ${vasmBinDir}/vasmm68k_mot -m68000 -devpac -Fhunk -linedebug -nowarn=62 -I../Devpac/Include/
 vlink = ${vlinkBinDir}/vlink
 #vlinkargs = -bamigahunk -Bstatic
-vlinkargs = -bamigahunk -Bstatic
-linklibs = ../sc/lib/scnb.lib ../sc/lib/amiga.lib 
-# linklibs = ../sc/lib/amiga.lib
+vlinkargs = -bamigahunk -Bstatic -alv
+# linklibs = ../sc/lib/scnb.lib ../sc/lib/amiga.lib 
+# linklibs = ../sc/lib/scm.lib ../sc/lib/amiga.lib
 
 .PHONY: all link clear
 
@@ -37,7 +37,9 @@ link: all
  "obj/LameAnimations.o" \
  "obj/LameEOTR.o" \
  "obj/BensActionRoutines.o" \
- -o Ponk -lscnb -lamiga
+ -o Ponk -lscm -lamiga
+
+# -o Ponk -lscnb -lamiga
 
 # ${linklibs} \
  # 			"vlink": {

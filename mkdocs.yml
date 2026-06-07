@@ -17,7 +17,9 @@ nav:
     - Edge Of the Road: usermanual/zonk/eotr.md
   - Gonk:
     - Introduction: usermanual/gonk/introduction.md
+    - Tools: usermanual/gonk/tools.md
     - Menu: usermanual/gonk/menus.md
+    - Keyboard Shortcuts: usermanual/gonk/shortcuts.md
     - Windows: usermanual/gonk/windows.md
   - Bonk:
     - Introduction: usermanual/bonk/introduction.md
