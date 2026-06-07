@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Actions - Conk</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actions";
+        var mkdocs_page_input_path = "usermanual/zonk/actions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Conk
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../about/">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Zonk</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../game/">Game</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../display/">Display</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actionlists/">ActionLists</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objects">Objects</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bebobish">BeBobish</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bespritely">BeSpritely</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gethurt">GetHurt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#highlightbob">HighlightBob</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#killobject">KillObject</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#killchannel">KillChannel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#objectoff">ObjectOff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setborders">SetBorders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setchannel">SetChannel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setmiscstuff">SetMiscStuff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setobjectaction">SetObjectAction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spawnbaddude">SpawnBadDude</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spawnplayerbullet">SpawnPlayerBullet</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variable-list">Variable List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addimmediate">AddImmediate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addrnd">AddRND</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#addvariable">AddVariable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compareimmediate">CompareImmediate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparevariable">CompareVariable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifequal">IfEqual</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifgreaterthan">IfGreaterThan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iflessthan">IfLessThan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifnotequal">IfNotEqual</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setimmediate">SetImmediate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setrnd">SetRND</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setvariable">SetVariable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#statprintvar">StatPrintVar</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#movement">Movement</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#directionmove">DirectionMove</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#repel">Repel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#weapons">Weapons</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fireweaponbay">FireWeaponBay</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#powerdownbay">PowerDownBay</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#powerupbay">PowerUpBay</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setweaponbay">SetWeaponBay</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spawnplayerbullet_1">SpawnPlayerBullet</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#images">Images</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bebobish_1">BeBobish</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bespritely_1">BeSpritely</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir16image">Dir16Image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir32image">Dir32Image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir64image">Dir64Image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir8image">Dir8Image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#highlightbob_1">HighlightBob</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setimage">SetImage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#actionlists">ActionLists</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#collisionpartnerexecute">CollisionPartnerExecute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir16action">Dir16Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir32action">Dir32Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir64action">Dir64Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dir8action">Dir8Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#execute">Execute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#executeifonscreen">ExecuteIfOnScreen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#executeonplayer">ExecuteOnPlayer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifequal_1">IfEqual</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifgreaterthan_1">IfGreaterThan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iflessthan_1">IfLessThan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ifnotequal_1">IfNotEqual</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setobjectaction_1">SetObjectAction</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-all">Other (All)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#collisionpartneroff">CollisionPartnerOff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#endlevel">EndLevel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initscroll">InitScroll</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#givescore">GiveScore</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#killcollisionpartner">KillCollisionPartner</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#playmodule">PlayModule</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#playsfx">PlaySFX</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pushscrolltrackx">PushScrollTrackX</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pushscrolltracky">PushScrollTrackY</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#randomevent">RandomEvent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#restrictdirection">RestrictDirection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scrollconstantxspeed">ScrollConstantXSpeed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scrollxcenterplayers">ScrollXCenterPlayers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scrollycenterplayers">ScrollYCenterPlayers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setcollisions">SetCollisions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stopmodule">StopModule</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../weapons/">Weapons</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../paths/">Paths</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../scrollwaves/">ScrollWaves</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../formation/">Formation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timedattackwaves/">Timed Attackwaves</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../soundfx/">Sound Effects</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../eotr/">Edge Of the Road</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Gonk</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gonk/introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gonk/tools/">Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gonk/menus/">Menu</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gonk/shortcuts/">Keyboard Shortcuts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gonk/windows/">Windows</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bonk</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bonk/introduction/">Introduction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bonk/menus/">Menus</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Conk</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Zonk</li>
+      <li class="breadcrumb-item active">Actions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actions">ACTIONS</h1>
+<h2 id="objects">Objects</h2>
+<p><img alt="Zonk ActionLists Objects" src="../../../img/zonk-actions/zonk-window-select-action-objects.png" /></p>
+<h3 id="bebobish">BeBobish</h3>
+<p>TBA</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="bespritely">BeSpritely</h3>
+<p>TBA</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="gethurt">GetHurt</h3>
+<p>Subtract the Damage value of the collision partner from the objects Shield
+value. If Shield goes below zero, then the objects Death ActionList is
+called.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Collision</dd>
+</dl>
+<hr />
+<h3 id="highlightbob">HighlightBob</h3>
+<p><img alt="Zonk Action HighlightBob" src="../../../img/zonk-actions/zonk-action-highlightbob.png" /></p>
+<p>Tell a bob object to appear 'Highlighted'. Any image displayed by a
+Highlighted bob is drawn using the last colour in the palette.
+'Duration' specifies how long the bob is to stay in its highlighted
+state before returning to normal. Highlighting has no effect on
+sprites.</p>
+<p>Highlighting is a common technique, often used to provide the player
+with visual feedback when collisions occur. for example, a player
+could flash white when hit by a bad dude.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Duration: How long to stay highlighted (Frames)</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="killobject">KillObject</h3>
+<p>Executes an Objects death ActionList, then removes in from the game.
+See also <a href="#objectoff">ObjectOff</a>.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="killchannel">KillChannel</h3>
+<p><img alt="Zonk Action KillChannel" src="../../../img/zonk-actions/zonk-action-killchannel.png" /></p>
+<p>Remove the currently-installed ChannelRoutine from the specified channel.
+The Channel 'DoneActionList' is not executed. If the channel has no routine
+installed in it, this Action has no effect.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Channel: Channel number (0-4)</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="objectoff">ObjectOff</h3>
+<p>Removes an Object from the game. The Objects death ActionList is not
+executed (as opposed to <a href="#killobject">KillObject</a>).</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="setborders">SetBorders</h3>
+<p><img alt="Zonk Action SetBorders" src="../../../img/zonk-actions/zonk-action-setborders.png" /></p>
+<p>Define an objects borders. You can define what happens when the player
+reaches each border using the <code>Type</code> fields:</p>
+<ul>
+<li>Off - the border is turned off, and has no effect on the object.</li>
+<li>Kill - an object is turned off when it hits this border. The objects
+DeathActionList is not executed - the object is simply removed.</li>
+<li>Stop - the object stops when it hits this border.</li>
+<li>Wrap - when the object moves past this border, it is repositioned at the
+opposite border.</li>
+<li>Bounce1 - when the object hits this border it bounces off, and the
+Direction variable is altered to point in the opposite direction.</li>
+<li>Bounce2 - same as 'Bounce1' only Direction is left unchanged.</li>
+</ul>
+<p>Normally, the positions of borders are specified relative to the global
+playing area, they can be given relative to the current position of
+the display using the <code>ViewRelative</code> checkboxes.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Left Border: X position of left border</dd>
+<dd>Left Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2</dd>
+<dd>Right Border: X position of right border</dd>
+<dd>Right Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2</dd>
+<dd>Top Border: Y position of top border</dd>
+<dd>Top Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2</dd>
+<dd>Bottom Border: Y position of bottom border</dd>
+<dd>Bottom Type: Off/Kill/Stop/Wrap/Bounce1/Bounce2</dd>
+<dd>Left ViewRelative?: Is left border position relative to current view?</dd>
+<dd>Right ViewRelative?: Is right border position relative to current :   view?</dd>
+<dd>Top ViewRelative?: Is top border position relative to current view?</dd>
+<dd>Bottom ViewRelative?: Is bottom border position relative to current :   view?</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="setchannel">SetChannel</h3>
+<p><img alt="Zonk Action SetChannel" src="../../../img/zonk-actions/zonk-action-setchannel.png" /></p>
+<p>Installs a new update routine into the specified update Channel of an
+object. Each object has five Channels available. An installed Channel
+Routine will automatically execute every frame.
+The Channel will finish either when the timer runs out, or when the Channel
+Routine finishes (for example, an animation finishing).
+When the channel ends the 'DoneActionList' will be executed. If this field
+is left blank, no ActionList will be executed.
+A new Channel Routine can be selected with the 'Replace' button, while
+the 'Edit' button lets you alter the parameters of the current one.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Channel: The channel to set (0-4)</dd>
+<dd>Routine: Channel routine to install</dd>
+<dd>Timer: How many cycles the routine should be active for (0=forever)</dd>
+<dd>DoneActionList: ActionList to execute when channel finishes</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="setmiscstuff">SetMiscStuff</h3>
+<p><img alt="Zonk Action SetMiscStuff" src="../../../img/zonk-actions/zonk-action-setmiscstuff.png" /></p>
+<p>Sets up assorted parameters for an object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Player HitRoutine: ActionList to execute when object hits a Player.</dd>
+<dd>PlayeBullet HitRoutine: ActionList to execute when object hits a</dd>
+<dd>PlayerBullet.</dd>
+<dd>BadDude HitRoutine: ActionList to execute when object hits a BadDude.</dd>
+<dd>Damage: The amount of damage object inflicts on other objects (via</dd>
+<dd>"GetHurt").</dd>
+<dd>Shields: Shield Value for the object</dd>
+<dd>Death Action: ActionList to execute when Shields fall below zero.</dd>
+</dl>
+<p><code>CONTEXT</code>
+Object</p>
+<hr />
+<h3 id="setobjectaction">SetObjectAction</h3>
+<p><img alt="Zonk Action SetObjectAction" src="../../../img/zonk-actions/zonk-action-setobjectaction.png" /></p>
+<p>For changing the object Collision and Death ActionLists for an object.
+You can change the objects actions for:
+- HitPlayer
+- HitPlayerBullet
+- BitBadDude
+- Death</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: An ActionList</dd>
+<dd>Upon: The event which will cause the ActionList to execute</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="spawnbaddude">SpawnBadDude</h3>
+<p><img alt="Zonk Action SpawnBadDude" src="../../../img/zonk-actions/zonk-action-spawnbaddude.png" /></p>
+<p>Creates and initializes a new BadDude object. If used in an object
+context, the new object will inherit position (altered by 'XOffset' and
+'YOffset'), speed and direction from its parent. If called in a global
+context (ie with no parent object) 'XOffset' and 'YOffset' are used as
+absolute starting coordinates. If given, 'ActionList' is executed upon
+the newly created object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Image: Image for new object to show</dd>
+<dd>XOffset: Offset from parent XPos</dd>
+<dd>YOffset: Offset from parent YPos</dd>
+<dd>ActionList: Actionlist used to initialize the new BadDude</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object or Global</dd>
+</dl>
+<hr />
+<h3 id="spawnplayerbullet">SpawnPlayerBullet</h3>
+<p><img alt="Zonk Action SpawnPlayerBullet" src="../../../img/zonk-actions/zonk-action-spawnplayerbullet.png" /></p>
+<p>Creates and initializes a new PlayerBullet object. If used in an object
+context, the new object will inherit position (altered by 'XOffset' and
+'YOffset'), speed and direction from its parent. If called in a global
+context (ie with no parent object) 'XOffset' and 'YOffset' are used as
+absolute starting coordinates. If given, 'ActionList' is executed upon
+the newly created object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Image: Image for new object to show</dd>
+<dd>XOffset: Offset from parent XPos</dd>
+<dd>YOffset: Offset from parent YPos</dd>
+<dd>ActionList: Actionlist used to initialize the new PlayerBullet</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object or Global</dd>
+</dl>
+<hr />
+<h2 id="variables">Variables</h2>
+<p><img alt="Zonk ActionLists Variables" src="../../../img/zonk-actions/zonk-window-select-action-variables.png" /></p>
+<h3 id="variable-list">Variable List</h3>
+<p><img alt="Zonk Action Variables" src="../../../img/zonk-actions/zonk-action-variables.png" /></p>
+<h3 id="addimmediate">AddImmediate</h3>
+<p><img alt="Zonk Action AddImmediate" src="../../../img/zonk-actions/zonk-action-addimmediate.png" /></p>
+<p>Adds 'Value' to the specifed variable. In certain contexts only some
+variables may be accessed. For example, the XPos variable of an object
+can only be set when the context has access to that object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Value: Number to add to the variable</dd>
+<dd>Variable: The variable to add to</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on variable</dd>
+</dl>
+<hr />
+<h3 id="addrnd">AddRND</h3>
+<p><img alt="Zonk Action AddRND" src="../../../img/zonk-actions/zonk-action-addrnd.png" /></p>
+<p>Adds a random number, between 'MinValue' and 'MaxValue' inclusive, to
+the specified variable.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>MinValue: Lower limit of random value</dd>
+<dd>MaxValue: Upper limit of random value</dd>
+<dd>Variable: The variable to add to</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on variable</dd>
+</dl>
+<hr />
+<h3 id="addvariable">AddVariable</h3>
+<p><img alt="Zonk Action AddVariable" src="../../../img/zonk-actions/zonk-action-addvariable.png" /></p>
+<p>Adds source variable to the destination variable. The destination variable
+holds the result of the addition. Please note that some variables can only
+be accessed in certain contexts.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Source Var: The variable to add to 'Dest Var'</dd>
+<dd>Dest Var: The destination (result) variable</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on the variables</dd>
+</dl>
+<hr />
+<h3 id="compareimmediate">CompareImmediate</h3>
+<p><img alt="Zonk Action CompareImmediate" src="../../../img/zonk-actions/zonk-action-compareimmediate.png" /></p>
+<p>Compares 'VarToCheck' against 'Value'. The result of the comparision can be
+acted upon using the 'If...' Actions. In global context, you cannot access
+any variables which require object context.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Value: A value for comparison</dd>
+<dd>VarToCheck: The variable to compare against 'Value'</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object or Global</dd>
+</dl>
+<hr />
+<h3 id="comparevariable">CompareVariable</h3>
+<p>Compares 'VarToCheck' against the contents of 'ValueVar'. The result of the
+comparision can be acted upon using the 'If...' Actions. In global context,
+you cannot access any variables which require object context.</p>
+<p><img alt="Zonk Action CompareVariable" src="../../../img/zonk-actions/zonk-action-comparevariable.png" /></p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ValueVar: Variable containing value for comparison</dd>
+<dd>VarToCheck: The variable to compare against 'ValueVar'</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object or Global</dd>
+</dl>
+<hr />
+<h3 id="ifequal">IfEqual</h3>
+<p><img alt="Zonk Action IfEqual" src="../../../img/zonk-actions/zonk-action-ifequal.png" /></p>
+<p>Conditional execution of an ActionList, depending on a previous comparison
+Action. The ActionList will be called if the parameters of a previous
+comparison were equal. A comparison may be followed by multiple 'If...'
+Actions.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: ActionList to execute if condition is true</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="ifgreaterthan">IfGreaterThan</h3>
+<p><img alt="Zonk Action IfGreaterThan" src="../../../img/zonk-actions/zonk-action-ifgreaterthan.png" /></p>
+<p>Conditional execution of an ActionList, depending on a previous comparison
+Action. For example, if a 'CompareVariable' was previously executed, then
+the ActionList would be called if the contents of 'VarToCheck' were
+greater than the contents of 'ValueVar'. A comparison may be followed by
+multiple 'If...' Actions.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: ActionList to execute if condition is true</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="iflessthan">IfLessThan</h3>
+<p><img alt="Zonk Action IfLowerThan" src="../../../img/zonk-actions/zonk-action-iflessthan.png" /></p>
+<p>Conditional execution of an ActionList, depending on a previous comparison
+Action. For example, if a 'CompareImmediate' was previously executed, then
+the ActionList would be called if the contents of 'VarToCheck' were
+less than the contents of 'Value'. A comparison may be followed by multiple
+'If...' Actions.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: ActionList to execute if condition is true</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="ifnotequal">IfNotEqual</h3>
+<p><img alt="Zonk Action IfNotEqual" src="../../../img/zonk-actions/zonk-action-ifnotequal.png" /></p>
+<p>Conditional execution of an ActionList, depending on a previous comparison
+Action. The ActionList will be called if the parameters of a previous
+comparison were not equal. A comparison may be followed by multiple 'If...'
+Actions.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: ActionList to execute if condition is true</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="setimmediate">SetImmediate</h3>
+<p><img alt="Zonk Action SetImmediate" src="../../../img/zonk-actions/zonk-action-setimmediate.png" /></p>
+<p>Stores 'Value' in the specifed variable. In certain contexts only some
+variables may be accessed. For example, the XPos variable of an object
+can only be set when the context has access to that object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Value: Number to put into the variable</dd>
+<dd>Variable: The variable to set</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on variable</dd>
+</dl>
+<hr />
+<h3 id="setrnd">SetRND</h3>
+<p><img alt="Zonk Action SetRND" src="../../../img/zonk-actions/zonk-action-setrnd.png" /></p>
+<p>Puts a random number, between 'MinValue' and 'MaxValue' inclusive, into
+the specified variable.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>MinValue: Lower limit of random value</dd>
+<dd>MaxValue: Upper limit of random value</dd>
+<dd>Variable: The variable to set</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on variable</dd>
+</dl>
+<hr />
+<h3 id="setvariable">SetVariable</h3>
+<p><img alt="Zonk Action SetVariable" src="../../../img/zonk-actions/zonk-action-setvariable.png" /></p>
+<p>Copies the contents of the source variable into the destination variable.
+Please note that some variables can only be accessed in certain contexts.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Source Var: The variable to put in 'Dest Var'</dd>
+<dd>Dest Var: The destination (result) variable</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on the variables</dd>
+</dl>
+<hr />
+<h3 id="statprintvar">StatPrintVar</h3>
+<p><img alt="Zonk Action StatPrintVar" src="../../../img/zonk-actions/zonk-action-statprintvar.png" /></p>
+<p>Prints the value of a variable in the stat bar. Of course, to print out an
+object variable this Action needs to be executed on an object (object
+context). Global variables can be printed out from any context. 'XPos' and
+'YPos' are rounded to the nearest eight pixels.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>XPos - X Position in the Stat Bar</dd>
+<dd>YPos - Y Position in the Stat Bar</dd>
+<dd>Variable - The variable to print</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Depends on variable.</dd>
+</dl>
+<hr />
+<h2 id="movement">Movement</h2>
+<p><img alt="Zonk ActionLists Movement" src="../../../img/zonk-actions/zonk-window-select-action-movement.png" /></p>
+<hr />
+<h3 id="directionmove">DirectionMove</h3>
+<p><img alt="Zonk Action DirectionMove" src="../../../img/zonk-actions/zonk-action-directionmove.png" /></p>
+<p>Sets an object moving at a speed of 'SpeedMagnitude' along the current
+direction (given in the objects Direction variable). It does this by
+calculating values for XSpeed and YSpeed.
+If 'Add to current speeds' is set, then the calculated values will be added
+to the current XSpeed and YSpeed, instead of replacing them.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>SpeedMagnitude:</dd>
+<dd>Add to current speeds?:</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="repel">Repel</h3>
+<p><img alt="Zonk Action Repel" src="../../../img/zonk-actions/zonk-action-repel.png" /></p>
+<p>TBA</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>X Shifts</dd>
+<dd>Y Shifts</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h2 id="weapons">Weapons</h2>
+<p><img alt="Zonk ActionLists Weapons" src="../../../img/zonk-actions/zonk-window-select-action-weapons.png" /></p>
+<hr />
+<h3 id="fireweaponbay">FireWeaponBay</h3>
+<p><img alt="Zonk Action FireWeaponBay" src="../../../img/zonk-actions/zonk-action-fireweaponbay.png" /></p>
+<p>Fires the Weapon currently installed in the given weapon bay. If no weapon
+is installed, then this Action will have no effect.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Weapon Bay: The number of the weapon bay to fire.</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Player</dd>
+</dl>
+<hr />
+<h3 id="powerdownbay">PowerDownBay</h3>
+<p><img alt="Zonk Action PowerDownBay" src="../../../img/zonk-actions/zonk-action-powerdownbay.png" /></p>
+<p>If the weapon bay has a weapon installed, this Action will install its
+PowerDown weapon. If the weapon has no PowerDown weapon defined (meaning
+that it is the least powerful weapon in the chain), either the current weapon
+will be retained (if 'KeepLowest' is ticked), or the weapon bay will be left
+empty ('KeepLowest' not ticked).
+If the weapon bay is already empty, this Action has no effect.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Weapon Bay: The weapon bay to power up.</dd>
+<dd>KeepLowest: Should the powering down stop at the lowest weapon?</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Player</dd>
+</dl>
+<hr />
+<h3 id="powerupbay">PowerUpBay</h3>
+<p><img alt="Zonk Action PowerUpBay" src="../../../img/zonk-actions/zonk-action-powerupbay.png" /></p>
+<p>If the weapon bay has a weapon installed, this Action will install its
+PowerUp weapon, if it has one defined. If the bay is empty 'DefaultWeapon'
+is installed (if set).</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Weapon Bay: The weapon bay to power up.</dd>
+<dd>DefaultWeapon: The weapon to install if the bay is empty</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Player</dd>
+</dl>
+<hr />
+<h3 id="setweaponbay">SetWeaponBay</h3>
+<p><img alt="Zonk Action SetWeaponBay" src="../../../img/zonk-actions/zonk-action-setweaponbay.png" /></p>
+<p>Installs 'Weapon' into 'Weapon Bay'. If 'Weapon' is left blank, the bay will
+be made empty - any weapon already installed will be removed.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Weapon Bay: The number of the weapon bay to set</dd>
+<dd>Weapon: The weapon to install</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Player</dd>
+</dl>
+<hr />
+<h3 id="spawnplayerbullet_1">SpawnPlayerBullet</h3>
+<p>See <a href="#spawnplayerbullet">SpawnPlayerBullet</a></p>
+<hr />
+<h2 id="images">Images</h2>
+<p><img alt="Zonk ActionLists Images" src="../../../img/zonk-actions/zonk-window-select-action-images.png" /></p>
+<hr />
+<h3 id="bebobish_1">BeBobish</h3>
+<p>See <a href="#bebobish">BeBobish</a></p>
+<hr />
+<h3 id="bespritely_1">BeSpritely</h3>
+<p>See <a href="#bespritely">BeSpritely</a></p>
+<hr />
+<h3 id="dir16image">Dir16Image</h3>
+<p><img alt="Zonk Action Dir16Image2" src="../../../img/zonk-actions/zonk-action-dir16image2.png" /></p>
+<p>Sets an objects image to one of the 16 supplied, depending on its direction.
+The first image corresponds to direction 0 (up) and the other images follow
+clockwise, sweeping around a circle in 16 steps. If the 'Anim' field
+is used, images are instead picked from an animation. The 16 image fields
+will be ignored. The animation must contain at least 16 frames or weird
+things might happen when the non-existant frames are displayed. If an anim
+has a speed value other than one (from Gonk) it will, in effect, have extra
+frames. For example, an 8 frame anim at speed two will appear to be 16 frames
+long, and can be used the same as a 16 frame anim. An advantage of using
+the 'Anim' field is that the x &amp; y offsets of each frame are respected.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>16 Images, corresponding to directions</dd>
+<dd>Anim: Optional anim containing 16 frames (at least)</dd>
+</dl>
+<hr />
+<h3 id="dir32image">Dir32Image</h3>
+<p><img alt="Zonk Action Dir32Image" src="../../../img/zonk-actions/zonk-action-dir32image.png" /></p>
+<p>Same as Dir16Image, only with more images.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Anim: Optional anim containing 32 frames (at least)</dd>
+</dl>
+<hr />
+<h3 id="dir64image">Dir64Image</h3>
+<p><img alt="Zonk Action Dir64Image" src="../../../img/zonk-actions/zonk-action-dir64image.png" /></p>
+<p>Same as Dir16Image, only with lots more images.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Anim: Optional anim containing 64 frames (at least)</dd>
+</dl>
+<hr />
+<h3 id="dir8image">Dir8Image</h3>
+<p><img alt="Zonk Action Dir8Image" src="../../../img/zonk-actions/zonk-action-dir8image.png" /></p>
+<p>Same as Dir16Image, only with less images.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>8 Images, corresponding to directions</dd>
+<dd>Anim: Optional anim containing 8 frames (at least)</dd>
+</dl>
+<h3 id="highlightbob_1">HighlightBob</h3>
+<p>See <a href="#highlightbob">HighlightBob</a></p>
+<hr />
+<h3 id="setimage">SetImage</h3>
+<p><img alt="Zonk Action SetImage" src="../../../img/zonk-actions/zonk-action-setimage.png" /></p>
+<p>Tells a bob (or sprite) to display the specified image. If the 'Image'
+field is left blank, then the object will be invisible.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Image: The image to display</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h2 id="actionlists">ActionLists</h2>
+<p><img alt="Zonk ActionLists ActionList" src="../../../img/zonk-actions/zonk-window-select-action-actionlist.png" /></p>
+<hr />
+<h3 id="collisionpartnerexecute">CollisionPartnerExecute</h3>
+<p><img alt="Zonk Action CollisionPartnerExecute" src="../../../img/zonk-actions/zonk-action-collisionpartnerexecute.png" /></p>
+<p>Executes the specified ActionList on the Collision Partner object.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: ActionList to execute</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Collision</dd>
+</dl>
+<hr />
+<h3 id="dir16action">Dir16Action</h3>
+<p><img alt="Zonk Action Dir16Action" src="../../../img/zonk-actions/zonk-action-dir16action.png" /></p>
+<p>Executes an Actionlist depending on direction. The first ActionList
+corresponds to direction 0 (up), the other ActionLists sweeping out around
+the circle clockwise.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>16 Actionlists, corresponding to directions</dd>
+</dl>
+<hr />
+<h3 id="dir32action">Dir32Action</h3>
+<p><img alt="Zonk Action Dir32Action" src="../../../img/zonk-actions/zonk-action-dir32action.png" /></p>
+<p>Executes an Actionlist depending on direction. The first ActionList
+corresponds to direction 0 (up), the other ActionLists sweeping out around
+the circle clockwise.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>32 Actionlists, corresponding to directions</dd>
+</dl>
+<hr />
+<h3 id="dir64action">Dir64Action</h3>
+<p><img alt="Zonk Action Dir64Action" src="../../../img/zonk-actions/zonk-action-dir64action.png" /></p>
+<p>Executes an Actionlist depending on direction. The first ActionList
+corresponds to direction 0 (up), the other ActionLists sweeping out around
+the circle clockwise.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>64 Actionlists, corresponding to directions</dd>
+</dl>
+<hr />
+<h3 id="dir8action">Dir8Action</h3>
+<p><img alt="Zonk Action Dir8Action" src="../../../img/zonk-actions/zonk-action-dir8action.png" /></p>
+<p>Executes an Actionlist depending on direction. The first ActionList
+corresponds to direction 0 (up), the other ActionLists sweeping out around
+the circle clockwise.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>8 Actionlists, corresponding to directions</dd>
+</dl>
+<hr />
+<h3 id="execute">Execute</h3>
+<p><img alt="Zonk Action Execute" src="../../../img/zonk-actions/zonk-action-execute.png" /></p>
+<p>Executes the specified actionlist (similar to a GOSUB in BASIC).
+When the ActionList finishes, control will resume at the next Action after
+the Execute.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: The actionlist to execute.</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="executeifonscreen">ExecuteIfOnScreen</h3>
+<p>Executes 'ActionList' only if the object in context is currently within view.</p>
+<p><img alt="Zonk Action ExecuteIfOnScreen" src="../../../img/zonk-actions/zonk-action-executeifonscreen.png" /></p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>ActionList: The actionlist to execute.</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="executeonplayer">ExecuteOnPlayer</h3>
+<p><img alt="Zonk Action ExecuteOnPlayer" src="../../../img/zonk-actions/zonk-action-executeonplayer.png" /></p>
+<p>Executes 'ActionList' on the specified Player.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Player: The player to execute on</dd>
+<dd>ActionList: The actionlist to execute</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="ifequal_1">IfEqual</h3>
+<p>See <a href="#ifequal">IfEqual</a></p>
+<hr />
+<h3 id="ifgreaterthan_1">IfGreaterThan</h3>
+<p>See <a href="#ifgreaterthan">IfGreaterThan</a></p>
+<hr />
+<h3 id="iflessthan_1">IfLessThan</h3>
+<p>See <a href="#iflessthan">IfLessThan</a></p>
+<hr />
+<h3 id="ifnotequal_1">IfNotEqual</h3>
+<p>See <a href="#ifnotequal">IfNotEqual</a></p>
+<hr />
+<h3 id="setobjectaction_1">SetObjectAction</h3>
+<p>See <a href="#setobjectaction">SetObjectAction</a></p>
+<hr />
+<h2 id="other-all">Other (All)</h2>
+<hr />
+<h3 id="collisionpartneroff">CollisionPartnerOff</h3>
+<p>Turns off the collision partner object. It's death ActionList is not called.
+See also <a href="#killcollisionpartner">KillCollisionPartner</a></p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Collision</dd>
+</dl>
+<hr />
+<h3 id="endlevel">EndLevel</h3>
+<p><img alt="Zonk Action EndLevel" src="../../../img/zonk-actions/zonk-action-endlevel.png" /></p>
+<p>Stops the game, and jumps to the specified level. If 'Next Level' is left
+blank, then control will go to the first level.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Next Level: The level to go to</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="initscroll">InitScroll</h3>
+<p><img alt="Zonk Action InitScroll" src="../../../img/zonk-actions/zonk-action-initscroll.png" /></p>
+<p>Sets the display window to a specific positon (in pixels) on the background
+map. This action must be called if you are using a backgound map, usually
+from the 'LevelInit' ActionList (set in the Display Chunk). Don't use this
+Action if you are using an IFF picture as a backdrop.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>X Position: XPos of top left corner of display window</dd>
+<dd>Y Position: YPos of top left corder of display window</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="givescore">GiveScore</h3>
+<p><img alt="Zonk Action GiveScore" src="../../../img/zonk-actions/zonk-action-givescore.png" /></p>
+<p>Adds 'Score' to a players score after a collision. If the collision partner
+is a player, then 'Score' is directly added onto the players score variable.
+If the object is a PlayerBullet, then 'Score' is added onto the score
+variable of the player that fired the bullet.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Score</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Collision</dd>
+</dl>
+<hr />
+<h3 id="killcollisionpartner">KillCollisionPartner</h3>
+<p>Turns off the collision partner object after executing its death ActionList
+(if set). See also <a href="#collisionpartneroff">CollisionPartnerOff</a></p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Collision</dd>
+</dl>
+<hr />
+<h3 id="playmodule">PlayModule</h3>
+<p><img alt="Zonk Action PlayModule" src="../../../img/zonk-actions/zonk-action-playmodule.png" /></p>
+<p>Starts playing the specified tracker music module. See also <a href="#stopmodule">StopModule</a></p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Module Name: Filename of the module to play</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="playsfx">PlaySFX</h3>
+<p><img alt="Zonk Action PlaySFX" src="../../../img/zonk-actions/zonk-action-playsfx.png" /></p>
+<p>Plays the specified sound effect through an audio channel.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Effect: Sound effect to play</dd>
+<dd>AudioChannel: Hardware audio channel to use</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="pushscrolltrackx">PushScrollTrackX</h3>
+<p><img alt="Zonk Action PushScrollTrackX" src="../../../img/zonk-actions/zonk-action-pushscrolltrackx.png" /></p>
+<p>Sets the horizontal scrolling to track the specified player. If the player
+moves right of 'Right Push Pos' then the view scrolls right. Going left of 'Left
+Push Pos' scrolls the view left. 'Max speed' limits the speed of the
+scrolling.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Player to track</dd>
+<dd>Left Push Pos</dd>
+<dd>Right Push Pos</dd>
+<dd>Max Speed</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="pushscrolltracky">PushScrollTrackY</h3>
+<p><img alt="Zonk Action PushScrollTrackY" src="../../../img/zonk-actions/zonk-action-pushscrolltracky.png" /></p>
+<p>Sets the vertical scrolling to track the specified player. If the player
+moves above 'Top Push Pos' then the view scrolls up. Going below 'Bottom
+Push Pos' scrolls the view down. 'Max speed' limits the speed of the
+scrolling.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Player to track</dd>
+<dd>Top Push Pos</dd>
+<dd>Bottom Push Pos</dd>
+<dd>Max Speed</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="randomevent">RandomEvent</h3>
+<p><img alt="Zonk Action RandomEvent" src="../../../img/zonk-actions/zonk-action-randomevent.png" /></p>
+<p>A random number between 0 and 255 is picked. If it is less than "Probability"
+then the ActionList is executed. A probability of 0 means the event will
+never occur, while a probability of 255 is a certainty. The actionlist will
+be executed in the current context. That is, if the "RandomEvent" is being
+executed on an Object, for example, then the ActionList it executes will
+also execute on the Object.
+There is also a ChannelRoutine "RandomEvent".</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Probability: The chances of the event happening (0=never, 255=always).</dd>
+<dd>ActionList: The ActionList to execute if the event occurs.</dd>
+</dl>
+<p><code>CONTEXT</code>
+`:   Global</p>
+<hr />
+<h3 id="restrictdirection">RestrictDirection</h3>
+<p><img alt="Zonk Action RestrictDirection" src="../../../img/zonk-actions/zonk-action-restrictdirection.png" /></p>
+<p>Restricts the Direction variable of an object to specified values, depending
+on the 'Restriction' field:</p>
+<ul>
+<li><code>Min-Max</code> - Direction is constrained to be between <code>Min</code> and <code>Max</code> values.</li>
+<li><code>Left/Right</code> - Direction is set to Left (6) or Right (2), whichever the
+the current direction is closest to.</li>
+<li><code>Up/Down</code> - Direction is set to Up (0) or Down (4).</li>
+<li><code>4-Way</code> - Direction is rounded to up, down, left or right.</li>
+<li><code>8-Way</code> - Direction is rounded to the nearest 45 degrees.</li>
+<li><code>Min</code> and <code>Max</code> are ignored unless 'Restriction' is set to <code>Min-Max</code>.</li>
+</ul>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Restriction: 'Min-Max'/'Left/Right'/'Up/Down'/'4-Way'/'8-Way'</dd>
+<dd>Min: Least clockwise direction allowed in 'Min-Max' mode</dd>
+<dd>Max: Most clockwise direction allowed in 'Min-Max' mode</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="scrollconstantxspeed">ScrollConstantXSpeed</h3>
+<p><img alt="Zonk Action ScrollConstantXSpeed" src="../../../img/zonk-actions/zonk-action-scrollconstantxspeed.png" /></p>
+<p>NOTE1: Only scrolling to the right is implemented as yet (ie Speed must be
+    positive)...
+NOTE2: Only checks position of first player (TODO: fix this sometime).</p>
+<p>Sets the background map scrolling horizontally at a constant speed,
+specified in the 'Speed' field. The player can force the scrolling to
+go in the opposite direction by moving within 'ScrollBackZoneWidth' pixels
+of the trailing edge of the view. 'ScrollBackDistance' specifies the
+distance, in pixels, the view can scroll back before it stops.
+Note that the scrolling in no way limits the movement of the player -
+if you want to keep the player within view you can use the 'SetBorders'
+action to set up view-relative borders.
+When the (forward) scrolling reaches the end of a map, the scrolling stops,
+scrollback is disabled and 'EndOfMapActionList' is executed (in a global
+context).
+Note: you can only scroll Map backgrounds, not IFF backdrops.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>Speed: How fast to scroll (in pixels per frame)</dd>
+<dd>ScrollBackDistance: Distance the players are allowed to scroll backward</dd>
+<dd>ScrollBackSpeed: Speed of backward scrolling</dd>
+<dd>ScrollBackZoneWidth: Width of zone to trigger back scroll</dd>
+<dd>EndOfMapActionList: Executed when scrolling reaches end of map</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="scrollxcenterplayers">ScrollXCenterPlayers</h3>
+<p><img alt="Zonk Action ScrollXCenterPlayers" src="../../../img/zonk-actions/zonk-action-scrollxcenterplayers.png" /></p>
+<p>NOTE: Only 1,2 or 4 players are supported at the moment.
+Tries to keep all players within view. This is done by working out the
+average x position of all players and moving the view to center on that
+point. The tracking can be retarded using the 'MaxScrollSpeed' field.
+If the players get too far apart (further than the width of the view), the
+scrolling will display the empty space between them. This can be prevented
+using view-relative borders (use the SetBorders action). You have to be
+careful to 'balance' the borders - the center of the view (x = 160) must be
+exactly inbetween the left and right borders or else players may be able
+to 'drag' each other in certain directions.
+Note: you can only scroll Map backgrounds, not IFF backdrops.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>MaxScrollSpeed: Maximum speed allowed, in pixels per frame</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="scrollycenterplayers">ScrollYCenterPlayers</h3>
+<p><img alt="Zonk Action ScrollYCenterPlayers" src="../../../img/zonk-actions/zonk-action-scrollycenterplayers.png" /></p>
+<p>NOTE: Only 1,2 or 4 players are supported at the moment.
+Tries to keep all players within view. This is done by working out the
+average x position of all players and moving the view to center on that
+point. The tracking can be retarded using the 'MaxScrollSpeed' field.
+If the players get too far apart (further than the width of the view), the
+scrolling will display the empty space between them. This can be prevented
+using view-relative borders (use the SetBorders action). You have to be
+careful to 'balance' the borders - the center of the view (x = 160) must be
+exactly inbetween the left and right borders or else players may be able
+to 'drag' each other in certain directions.
+Note: you can only scroll Map backgrounds, not IFF backdrops.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>MaxScrollSpeed: Maximum speed allowed, in pixels per frame</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+<hr />
+<h3 id="setcollisions">SetCollisions</h3>
+<p><img alt="Zonk Action SetCollisions" src="../../../img/zonk-actions/zonk-action-setcollisions.png" /></p>
+<p>Turns object-to-object collision checking on or off for a particular object.
+With a bad dude for example, you may want to turn collsions off when it
+explodes so that the player can't shoot the explosion.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>State: On or Off</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Object</dd>
+</dl>
+<hr />
+<h3 id="stopmodule">StopModule</h3>
+<p>Stops a currently playing tracker music module. See also <a href="#playmodule">PlayModule</a>.</p>
+<dl>
+<dt><code>PARAMETERS</code></dt>
+<dd>None</dd>
+<dt><code>CONTEXT</code></dt>
+<dd>Global</dd>
+</dl>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actionlists/" class="btn btn-neutral float-left" title="ActionLists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../weapons/" class="btn btn-neutral float-right" title="Weapons">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actionlists/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../weapons/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
